@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Meta básica del documento -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título de la página -->
   <title>Be&Be Drinks Spain</title>
 
+  <!-- Carga de tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    /* Variables generales de color */
     :root {
       --bg: #f7f3ec;
       --surface: #fbf8f3;
@@ -26,38 +31,45 @@
       --dark-line: rgba(255,255,255,0.12);
     }
 
+    /* Reset básico para todos los elementos */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    /* Scroll suave para enlaces internos */
     html {
       scroll-behavior: smooth;
     }
 
+    /* Estilo general del body */
     body {
       background: var(--bg);
       color: var(--text);
       font-family: "Inter", Arial, sans-serif;
     }
 
+    /* Estilo base para enlaces */
     a {
       color: inherit;
       text-decoration: none;
     }
 
+    /* Ajuste base para imágenes */
     img {
       display: block;
       max-width: 100%;
       height: auto;
     }
 
+    /* Contenedor general centrado */
     .container {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* Barra superior fija */
     .topbar {
       position: sticky;
       top: 0;
@@ -67,6 +79,7 @@
       border-bottom: 1px solid var(--line);
     }
 
+    /* Contenido interno de la barra superior */
     .topbar-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -77,12 +90,14 @@
       gap: 24px;
     }
 
+    /* Bloque de marca: logo + nombre */
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
+    /* Contenedor redondo del logo */
     .brand-mark {
       width: 38px;
       height: 38px;
@@ -92,12 +107,14 @@
       background: #111111;
     }
 
+    /* Imagen dentro del logo */
     .brand-mark img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
+    /* Nombre de la marca */
     .brand-name {
       font-family: "Cormorant Garamond", serif;
       font-size: 24px;
@@ -105,6 +122,7 @@
       letter-spacing: -0.02em;
     }
 
+    /* Navegación principal */
     .nav {
       display: flex;
       gap: 38px;
@@ -112,8 +130,39 @@
       letter-spacing: 0.16em;
       font-size: 12px;
       color: var(--muted);
+      margin-left: auto;
+      align-items: center;
     }
 
+    /* Enlace del carrito en la cabecera */
+    .cart-link {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      background: transparent;
+      flex: 0 0 42px;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    /* Efecto hover del carrito */
+    .cart-link:hover {
+      background: var(--surface-soft);
+      border-color: #dcccba;
+      transform: translateY(-1px);
+    }
+
+    /* Tamaño del icono SVG del carrito */
+    .cart-link svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    /* Hero principal de entrada */
     .hero-intro {
       position: relative;
       overflow: hidden;
@@ -128,12 +177,14 @@
       border-bottom: 1px solid var(--line);
     }
 
+    /* Contenido interno del hero */
     .hero-intro-inner {
       width: min(980px, calc(100% - 40px));
       margin: 0 auto;
       padding: 70px 0 90px;
     }
 
+    /* Texto pequeño superior del hero */
     .hero-kicker {
       display: flex;
       align-items: center;
@@ -146,6 +197,7 @@
       margin-bottom: 28px;
     }
 
+    /* Líneas decorativas laterales del kicker */
     .hero-kicker::before,
     .hero-kicker::after {
       content: "";
@@ -154,6 +206,7 @@
       background: rgba(17,17,17,0.25);
     }
 
+    /* Logo principal del hero */
     .hero-logo {
       width: 110px;
       height: 110px;
@@ -164,12 +217,14 @@
       background: #111;
     }
 
+    /* Imagen interna del logo principal */
     .hero-logo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
+    /* Título principal del hero */
     .hero-title {
       display: flex;
       align-items: center;
@@ -183,6 +238,7 @@
       margin-bottom: 26px;
     }
 
+    /* Subtítulo principal del hero */
     .hero-subtitle {
       max-width: 760px;
       margin: 0 auto 44px;
@@ -191,6 +247,7 @@
       line-height: 1.7;
     }
 
+    /* Botón o enlace para bajar a la colección */
     .hero-scroll {
       display: inline-flex;
       flex-direction: column;
@@ -202,16 +259,19 @@
       font-size: 12px;
     }
 
+    /* Flecha del scroll */
     .hero-scroll span:last-child {
       font-size: 24px;
       line-height: 1;
     }
 
+    /* Franja informativa pequeña */
     .mini-strip {
       border-bottom: 1px solid var(--line);
       background: var(--surface);
     }
 
+    /* Contenido interno de la franja */
     .mini-strip-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -224,20 +284,24 @@
       color: var(--muted);
     }
 
+    /* Texto izquierdo de la franja */
     .mini-strip-left {
       font-style: italic;
     }
 
+    /* Texto derecho de la franja */
     .mini-strip-right {
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-size: 11px;
     }
 
+    /* Sección principal de colección */
     .collection {
       padding: 28px 0 72px;
     }
 
+    /* Título pequeño superior de secciones */
     .eyebrow {
       color: var(--accent);
       text-transform: uppercase;
@@ -246,6 +310,7 @@
       margin-bottom: 16px;
     }
 
+    /* Título grande de sección */
     .title {
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(54px, 8vw, 88px);
@@ -255,6 +320,7 @@
       margin-bottom: 46px;
     }
 
+    /* Rejilla de productos */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -262,12 +328,14 @@
       margin-bottom: 56px;
     }
 
+    /* Tarjeta de producto */
     .product-card {
       display: flex;
       flex-direction: column;
       gap: 22px;
     }
 
+    /* Marco visual de la imagen del producto */
     .product-frame {
       background: var(--surface-soft);
       aspect-ratio: 1 / 1;
@@ -278,12 +346,14 @@
       overflow: hidden;
     }
 
+    /* Imagen del producto */
     .product-image {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
 
+    /* Nombre del producto */
     .product-name {
       font-family: "Cormorant Garamond", serif;
       font-size: 24px;
@@ -291,6 +361,7 @@
       margin-bottom: 8px;
     }
 
+    /* Sabor o composición del producto */
     .product-flavor {
       color: var(--soft);
       text-transform: uppercase;
@@ -299,6 +370,7 @@
       margin-bottom: 14px;
     }
 
+    /* Línea de metadatos del producto */
     .product-meta {
       display: flex;
       align-items: baseline;
@@ -306,17 +378,20 @@
       flex-wrap: wrap;
     }
 
+    /* Precio del producto */
     .price {
       font-size: 17px;
       font-weight: 700;
       color: var(--text);
     }
 
+    /* Tamaño o graduación del producto */
     .size {
       font-size: 14px;
       color: var(--muted);
     }
 
+    /* Sección de beneficios */
     .benefits {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -324,18 +399,21 @@
       margin-bottom: 56px;
     }
 
+    /* Rejilla de beneficios */
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 44px;
     }
 
+    /* Bloque individual de beneficio */
     .benefit {
       display: flex;
       align-items: flex-start;
       gap: 18px;
     }
 
+    /* Icono del beneficio */
     .benefit-icon {
       width: 34px;
       height: 34px;
@@ -347,12 +425,14 @@
       font-size: 14px;
     }
 
+    /* Título del beneficio */
     .benefit-title {
       font-size: 15px;
       font-weight: 600;
       margin-bottom: 8px;
     }
 
+    /* Texto del beneficio */
     .benefit-text {
       color: var(--muted);
       line-height: 1.7;
@@ -360,28 +440,33 @@
       max-width: 28ch;
     }
 
+    /* Imagen visual intermedia */
     .hero-image {
       background: var(--surface-soft);
       overflow: hidden;
       margin-bottom: 72px;
     }
 
+    /* Imagen dentro del bloque visual */
     .hero-image img {
       width: 100%;
       object-fit: cover;
     }
 
+    /* Bloque final oscuro */
     .ending {
       background: var(--dark-bg);
       color: var(--dark-text);
       padding: 84px 0 28px;
     }
 
+    /* Contenido interno del bloque final */
     .ending-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* Gran titular del cierre */
     .ending-title {
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(78px, 13vw, 150px);
@@ -392,12 +477,14 @@
       max-width: 760px;
     }
 
+    /* Parte contorneada del título final */
     .ending-title .outline {
       color: transparent;
       -webkit-text-stroke: 1px rgba(255,255,255,0.20);
       opacity: 0.9;
     }
 
+    /* Marca dentro del footer/ending */
     .ending-brand {
       display: flex;
       align-items: center;
@@ -406,10 +493,12 @@
       color: #d8d0c4;
     }
 
+    /* Fondo del logo dentro del ending */
     .ending-brand .brand-mark {
       background: #0b0d0b;
     }
 
+    /* Nombre de marca dentro del ending */
     .ending-brand .brand-name {
       font-family: "Cormorant Garamond", serif;
       font-size: 34px;
@@ -417,11 +506,13 @@
       letter-spacing: -0.03em;
     }
 
+    /* Bloque visual del newsletter */
     .newsletter {
       max-width: 540px;
       margin-bottom: 72px;
     }
 
+    /* Etiqueta del newsletter */
     .newsletter-label {
       text-transform: uppercase;
       letter-spacing: 0.22em;
@@ -430,6 +521,7 @@
       margin-bottom: 22px;
     }
 
+    /* Fila visual del newsletter */
     .newsletter-row {
       display: flex;
       align-items: center;
@@ -441,11 +533,13 @@
       font-size: 17px;
     }
 
+    /* Flecha del newsletter */
     .newsletter-arrow {
       font-size: 24px;
       color: rgba(255,255,255,0.65);
     }
 
+    /* Columnas de enlaces del footer */
     .footer-links {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -453,6 +547,7 @@
       padding: 28px 0 48px;
     }
 
+    /* Título de cada columna del footer */
     .footer-column h4 {
       text-transform: uppercase;
       letter-spacing: 0.18em;
@@ -461,6 +556,7 @@
       margin-bottom: 18px;
     }
 
+    /* Enlaces dentro del footer */
     .footer-column a {
       display: block;
       margin-bottom: 14px;
@@ -468,6 +564,7 @@
       opacity: 0.92;
     }
 
+    /* Parte más baja del footer */
     .footer-bottom {
       border-top: 1px solid var(--dark-line);
       padding-top: 24px;
@@ -478,12 +575,14 @@
       font-size: 13px;
     }
 
+    /* Nombre de marca en la parte final del footer */
     .footer-bottom .footer-brand {
       font-family: "Cormorant Garamond", serif;
       font-size: 22px;
       color: var(--dark-text);
     }
 
+    /* Ajustes responsive para tablet y tamaños medios */
     @media (max-width: 980px) {
       .products-grid,
       .benefits-grid,
@@ -504,6 +603,7 @@
       }
     }
 
+    /* Ajustes responsive para móvil */
     @media (max-width: 720px) {
       .container,
       .topbar-inner,
@@ -516,13 +616,17 @@
       .topbar-inner {
         min-height: auto;
         padding: 18px 0;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
       }
 
       .nav {
         gap: 18px;
         flex-wrap: wrap;
+        margin-left: 0;
+        order: 3;
+        width: 100%;
       }
 
       .hero-intro {
@@ -593,8 +697,10 @@
   </style>
 </head>
 <body>
+  <!-- Cabecera principal con logo, menú y carrito -->
   <header class="topbar">
     <div class="topbar-inner">
+      <!-- Marca principal -->
       <div class="brand">
         <div class="brand-mark">
           <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
@@ -602,15 +708,26 @@
         <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
 
+      <!-- Navegación principal -->
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="historia.html">Historia</a>
         <a href="contacto.html">Contacto</a>
       </nav>
+
+      <!-- Enlace al carrito con icono SVG inline -->
+      <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
+          <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+          <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
     </div>
   </header>
 
+  <!-- Hero principal de bienvenida -->
   <section class="hero-intro">
     <div class="hero-intro-inner">
       <p class="hero-kicker">Las recetas que nunca imaginaste encontrar en una lata</p>
@@ -636,6 +753,7 @@
     </div>
   </section>
 
+  <!-- Franja informativa debajo del hero -->
   <section class="mini-strip">
     <div class="mini-strip-inner">
       <div class="mini-strip-left">Cócteles artesanales listos para servir.</div>
@@ -643,11 +761,13 @@
     </div>
   </section>
 
+  <!-- Contenido principal -->
   <main class="collection" id="coleccion">
     <div class="container">
       <p class="eyebrow">La colección</p>
       <h2 class="title">Nuestras bebidas:</h2>
 
+      <!-- Rejilla de productos -->
       <section class="products-grid">
         <article class="product-card">
           <div class="product-frame">
@@ -686,12 +806,13 @@
             <p class="product-flavor">Cítricos · Hierbabuena · Ron</p>
             <div class="product-meta">
               <span class="price">€4.50</span>
-              <span class="size">33cl </span>
+              <span class="size">33cl</span>
             </div>
           </div>
         </article>
       </section>
 
+      <!-- Sección de beneficios -->
       <section class="benefits">
         <div class="benefits-grid">
           <article class="benefit">
@@ -720,12 +841,14 @@
         </div>
       </section>
 
+      <!-- Imagen visual grande -->
       <section class="hero-image">
         <img src="images/CUERPO MEDIO.jpeg" alt="Cabecera visual de Be&Be Drinks Spain">
       </section>
     </div>
   </main>
 
+  <!-- Bloque final oscuro -->
   <section class="ending">
     <div class="ending-inner">
       <h2 class="ending-title">
@@ -733,6 +856,7 @@
         momento.
       </h2>
 
+      <!-- Marca dentro del bloque final -->
       <div class="ending-brand">
         <div class="brand-mark">
           <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain en footer">
@@ -740,6 +864,7 @@
         <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
 
+      <!-- Zona visual de newsletter -->
       <div class="newsletter">
         <p class="newsletter-label">Únete a la lista</p>
         <div class="newsletter-row">
@@ -748,6 +873,7 @@
         </div>
       </div>
 
+      <!-- Enlaces del footer -->
       <div class="footer-links">
         <div class="footer-column">
           <h4>Productos</h4>
@@ -778,6 +904,7 @@
         </div>
       </div>
 
+      <!-- Línea final inferior -->
       <div class="footer-bottom">
         <div class="footer-brand">Be&Be Drinks Spain</div>
         <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
