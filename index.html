@@ -19,6 +19,11 @@
       --muted: #807467;
       --soft: #aa9a88;
       --accent: #c7a27d;
+
+      --dark-bg: #141913;
+      --dark-text: #f2ede5;
+      --dark-muted: #a8a39b;
+      --dark-line: rgba(255,255,255,0.12);
     }
 
     * {
@@ -107,6 +112,33 @@
       color: var(--muted);
     }
 
+    .mini-strip {
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .mini-strip-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .mini-strip-left {
+      font-style: italic;
+    }
+
+    .mini-strip-right {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+    }
+
     .collection {
       padding: 28px 0 72px;
     }
@@ -121,11 +153,10 @@
 
     .title {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(58px, 9vw, 108px);
-      line-height: 0.9;
+      font-size: clamp(54px, 8vw, 88px);
+      line-height: 0.95;
       letter-spacing: -0.04em;
       font-weight: 500;
-      max-width: 390px;
       margin-bottom: 46px;
     }
 
@@ -205,6 +236,7 @@
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       padding: 44px 0;
+      margin-bottom: 0;
     }
 
     .benefits-grid {
@@ -243,20 +275,132 @@
       max-width: 28ch;
     }
 
+    .ending {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 84px 0 28px;
+    }
+
+    .ending-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .ending-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(68px, 12vw, 132px);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      margin-bottom: 26px;
+      max-width: 700px;
+    }
+
+    .ending-title .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.18);
+    }
+
+    .ending-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 84px;
+      color: var(--dark-muted);
+    }
+
+    .ending-brand .brand-mark {
+      background: #0b0d0b;
+      color: #f2e6c8;
+    }
+
+    .newsletter {
+      max-width: 540px;
+      margin-bottom: 72px;
+    }
+
+    .newsletter-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--dark-muted);
+      margin-bottom: 20px;
+    }
+
+    .newsletter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--dark-line);
+      color: rgba(255,255,255,0.45);
+      font-size: 16px;
+    }
+
+    .newsletter-arrow {
+      font-size: 24px;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      padding: 28px 0 48px;
+    }
+
+    .footer-column h4 {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--dark-muted);
+      margin-bottom: 18px;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--dark-text);
+      opacity: 0.92;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--dark-line);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--dark-muted);
+      font-size: 13px;
+    }
+
+    .footer-bottom .footer-brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      color: var(--dark-text);
+    }
+
     @media (max-width: 980px) {
       .products-grid,
-      .benefits-grid {
+      .benefits-grid,
+      .footer-links {
         grid-template-columns: 1fr;
       }
 
       .product-frame {
         aspect-ratio: 4 / 3;
       }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 720px) {
       .container,
-      .topbar-inner {
+      .topbar-inner,
+      .mini-strip-inner,
+      .ending-inner {
         width: calc(100% - 24px);
       }
 
@@ -272,13 +416,19 @@
         flex-wrap: wrap;
       }
 
+      .mini-strip-inner {
+        min-height: auto;
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .collection {
         padding: 24px 0 42px;
       }
 
       .title {
-        font-size: 56px;
-        max-width: 280px;
+        font-size: 50px;
       }
 
       .product-frame {
@@ -287,6 +437,18 @@
 
       .benefits {
         padding: 32px 0;
+      }
+
+      .ending {
+        padding: 56px 0 24px;
+      }
+
+      .ending-brand {
+        margin-bottom: 52px;
+      }
+
+      .newsletter {
+        margin-bottom: 48px;
       }
     }
   </style>
@@ -308,10 +470,17 @@
     </div>
   </header>
 
+  <section class="mini-strip">
+    <div class="mini-strip-inner">
+      <div class="mini-strip-left">Cócteles artesanales listos para servir.</div>
+      <div class="mini-strip-right">Colección premium en lata</div>
+    </div>
+  </section>
+
   <main class="collection">
     <div class="container">
       <p class="eyebrow">La colección</p>
-      <h1 class="title">Nuestros Cócteles</h1>
+      <h1 class="title">Nuestras bebidas:</h1>
 
       <section class="products-grid">
         <article class="product-card">
@@ -330,20 +499,6 @@
 
         <article class="product-card">
           <div class="product-frame">
-            <img class="product-image" src="IMG_4606.jpeg" alt="Hangóver Killer en lata">
-          </div>
-          <div>
-            <h2 class="product-name">Hangóver Killer</h2>
-            <p class="product-flavor">Cítricos · Hierbabuena · Ron</p>
-            <div class="product-meta">
-              <span class="price">€4.50</span>
-              <span class="size">33cl · 19% vol</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-frame">
             <img class="product-image" src="IMG_4605.jpeg" alt="Carajillo del Tío Pío en lata">
           </div>
           <div>
@@ -352,6 +507,20 @@
             <div class="product-meta">
               <span class="price">€4.50</span>
               <span class="size">33cl</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-frame">
+            <img class="product-image" src="IMG_4606.jpeg" alt="Hangover Killer en lata">
+          </div>
+          <div>
+            <h2 class="product-name">Hangover Killer</h2>
+            <p class="product-flavor">Cítricos · Hierbabuena · Ron</p>
+            <div class="product-meta">
+              <span class="price">€4.50</span>
+              <span class="size">33cl · 19% vol</span>
             </div>
           </div>
         </article>
@@ -390,5 +559,62 @@
       </section>
     </div>
   </main>
+
+  <section class="ending">
+    <div class="ending-inner">
+      <h2 class="ending-title">
+        <span class="outline">Eleva cada</span><br>
+        momento.
+      </h2>
+
+      <div class="ending-brand">
+        <div class="brand-mark">🙂</div>
+        <div class="brand-name">Be&Be Spain</div>
+      </div>
+
+      <div class="newsletter">
+        <p class="newsletter-label">Únete a la lista</p>
+        <div class="newsletter-row">
+          <span>tu@email.com</span>
+          <span class="newsletter-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Productos</h4>
+          <a href="#">Bloody Mary</a>
+          <a href="#">Carajillo del Tío Pío</a>
+          <a href="#">Hangover Killer</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <a href="#">Nuestra Historia</a>
+          <a href="#">Ingredientes</a>
+          <a href="#">Sostenibilidad</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Social</h4>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">LinkedIn</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-brand">Be&Be Spain</div>
+        <div>© 2025 Be&Be Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
