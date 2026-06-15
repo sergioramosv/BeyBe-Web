@@ -6,15 +6,17 @@
   <title>Be y Be | Bebercios y Beberíos</title>
   <style>
     :root {
-      --bg: #f4efe6;
-      --bg-soft: #efe7da;
-      --card-1: #d9ddcc;
-      --card-2: #eed9c8;
-      --card-3: #d8d2b8;
-      --text: #1f1d1a;
-      --muted: #7a746b;
-      --line: #d8d0c2;
-      --accent: #c86a2b;
+      --bg: #f4efe7;
+      --surface: #f8f4ec;
+      --hero-left: #eee5aa;
+      --text: #1e1b18;
+      --muted: #7f776d;
+      --line: #d9d0c3;
+      --card-1: #d7dccb;
+      --card-2: #ead7c7;
+      --card-3: #d7cfb4;
+      --accent-1: #c96d37;
+      --accent-2: #708457;
     }
 
     * {
@@ -24,26 +26,26 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
     }
 
     .page {
-      width: min(1400px, calc(100% - 32px));
-      margin: 16px auto;
+      width: min(1400px, calc(100% - 24px));
+      margin: 12px auto;
       border: 1px solid var(--line);
-      background: #f8f4ec;
+      background: var(--surface);
     }
 
     .topbar {
@@ -52,16 +54,16 @@
       align-items: center;
       padding: 18px 22px;
       border-bottom: 1px solid var(--line);
+      text-transform: uppercase;
       font-size: 12px;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
 
     .brand {
-      font-weight: 700;
       font-size: 18px;
-      letter-spacing: 0.02em;
+      font-weight: 800;
       text-transform: none;
+      letter-spacing: 0.01em;
     }
 
     .nav {
@@ -73,136 +75,135 @@
     .hero {
       display: grid;
       grid-template-columns: 1.05fr 1.35fr;
-      min-height: 480px;
       border-bottom: 1px solid var(--line);
+      min-height: 500px;
     }
 
     .hero-left {
-      background: #efe7ab;
+      background: var(--hero-left);
       padding: 28px 24px 24px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .hero-kicker {
-      max-width: 420px;
+    .hero-note {
+      max-width: 430px;
       font-size: 24px;
-      line-height: 1.1;
-      color: #3a362f;
+      line-height: 1.08;
+      color: #373229;
     }
 
     .hero-title {
-      font-size: clamp(52px, 8vw, 92px);
+      max-width: 520px;
+      font-size: clamp(48px, 8vw, 94px);
       line-height: 0.92;
       font-weight: 900;
       letter-spacing: -0.06em;
       text-transform: uppercase;
-      max-width: 500px;
     }
 
     .hero-right {
       position: relative;
-      background: linear-gradient(135deg, #9d4d29 0%, #ca7340 40%, #7f8b53 100%);
       overflow: hidden;
-      min-height: 480px;
+      background: linear-gradient(135deg, #a44e2d 0%, #ca7745 45%, #768655 100%);
+      min-height: 500px;
     }
 
-    .hero-box {
+    .hero-frame {
       position: absolute;
-      inset: 30px;
+      inset: 28px;
       border: 1px solid rgba(255,255,255,0.35);
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
     }
 
-    .hero-card {
+    .hero-sticker {
       position: absolute;
+      left: 21%;
+      top: 22%;
       width: 140px;
       height: 180px;
-      background: #b7f078;
-      left: 22%;
-      top: 24%;
+      background: #b9f279;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 60px;
+      font-size: 56px;
     }
 
-    .jar {
+    .hero-jar {
       position: absolute;
-      bottom: 40px;
+      bottom: 42px;
       width: 160px;
-      height: 260px;
+      height: 258px;
       border-radius: 18px 18px 24px 24px;
-      background: rgba(255,255,255,0.18);
-      border: 2px solid rgba(255,255,255,0.22);
+      border: 2px solid rgba(255,255,255,0.20);
       backdrop-filter: blur(3px);
     }
 
-    .jar::before {
+    .hero-jar::before {
       content: "";
       position: absolute;
       top: -16px;
       left: 18px;
       width: 124px;
       height: 28px;
-      background: #d6c7a1;
+      background: #d7c7a2;
       border-radius: 12px 12px 6px 6px;
     }
 
-    .jar::after {
+    .hero-jar::after {
       content: "BE Y BE";
       position: absolute;
-      left: 18px;
+      left: 16px;
       bottom: 28px;
       color: white;
-      font-weight: 800;
       font-size: 30px;
-      letter-spacing: -0.04em;
+      font-weight: 800;
+      letter-spacing: -0.05em;
     }
 
     .jar-one {
-      right: 180px;
-      background: rgba(227, 105, 62, 0.28);
+      right: 182px;
+      background: rgba(221, 103, 66, 0.28);
     }
 
     .jar-two {
       right: 30px;
-      background: rgba(110, 142, 85, 0.32);
+      background: rgba(112, 132, 87, 0.32);
     }
 
-    .catalog-nav {
+    .products-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 18px;
+      padding: 16px 18px;
       border-bottom: 1px solid var(--line);
       font-size: 14px;
     }
 
-    .catalog-links {
+    .products-filter {
       display: flex;
       gap: 24px;
-      color: #a39a90;
+      color: #a49c92;
     }
 
-    .catalog-links a:first-child {
+    .products-filter a:first-child {
       color: var(--text);
       font-style: italic;
     }
 
-    .products {
+    .products-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
       padding: 14px;
     }
 
     .product-card {
-      background: white;
+      background: transparent;
     }
 
-    .product-image {
+    .product-visual {
       aspect-ratio: 4 / 5;
       display: flex;
       align-items: center;
@@ -211,28 +212,27 @@
       overflow: hidden;
     }
 
-    .tone-1 { background: var(--card-2); }
-    .tone-2 { background: var(--card-1); }
-    .tone-3 { background: #e9c7cc; }
-    .tone-4 { background: var(--card-3); }
+    .tone-1 { background: var(--card-1); }
+    .tone-2 { background: var(--card-2); }
+    .tone-3 { background: var(--card-3); }
 
     .mini-jar {
-      width: 120px;
-      height: 210px;
+      width: 126px;
+      height: 220px;
       border-radius: 16px 16px 22px 22px;
-      background: rgba(255,255,255,0.4);
-      border: 2px solid rgba(255,255,255,0.5);
+      border: 2px solid rgba(255,255,255,0.45);
       position: relative;
+      background: rgba(255,255,255,0.32);
     }
 
     .mini-jar::before {
       content: "";
       position: absolute;
       top: -14px;
-      left: 14px;
-      width: 92px;
+      left: 15px;
+      width: 96px;
       height: 24px;
-      background: #d8ccb1;
+      background: #d7ccb2;
       border-radius: 10px 10px 5px 5px;
     }
 
@@ -249,7 +249,6 @@
 
     .product-info {
       padding-top: 10px;
-      font-size: 11px;
       text-transform: uppercase;
     }
 
@@ -257,14 +256,24 @@
       display: flex;
       justify-content: space-between;
       gap: 8px;
-      font-weight: 700;
       margin-bottom: 5px;
+      font-size: 11px;
+      font-weight: 700;
     }
 
     .product-desc {
       color: var(--muted);
-      line-height: 1.35;
       font-size: 9px;
+      line-height: 1.35;
+    }
+
+    .footer-note {
+      padding: 22px 18px 26px 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      max-width: 760px;
     }
 
     @media (max-width: 980px) {
@@ -277,52 +286,52 @@
         min-height: 380px;
       }
 
-      .products {
+      .products-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 640px) {
       .page {
-        width: calc(100% - 16px);
-        margin: 8px auto;
+        width: calc(100% - 12px);
+        margin: 6px auto;
       }
 
       .topbar {
         flex-direction: column;
-        gap: 12px;
         align-items: flex-start;
+        gap: 12px;
       }
 
       .nav {
-        gap: 14px;
         flex-wrap: wrap;
+        gap: 14px;
       }
 
       .hero-left {
         padding: 20px 18px;
       }
 
-      .hero-kicker {
+      .hero-note {
         font-size: 18px;
       }
 
       .hero-title {
-        font-size: 44px;
+        font-size: 42px;
       }
 
-      .catalog-nav {
+      .products-head {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
       }
 
-      .catalog-links {
-        gap: 14px;
+      .products-filter {
         flex-wrap: wrap;
+        gap: 14px;
       }
 
-      .products {
+      .products-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -335,7 +344,7 @@
 
       <nav class="nav">
         <a href="#">Tienda</a>
-        <a href="#">Sobre nosotros</a>
+        <a href="#">Historia</a>
         <a href="#">Productos</a>
         <a href="#">Contacto</a>
       </nav>
@@ -343,7 +352,7 @@
 
     <section class="hero">
       <div class="hero-left">
-        <p class="hero-kicker">
+        <p class="hero-note">
           Elaboraciones artesanales con carácter, detalle y una identidad propia.
         </p>
 
@@ -351,75 +360,73 @@
       </div>
 
       <div class="hero-right">
-        <div class="hero-box"></div>
-        <div class="hero-card">✦</div>
-        <div class="jar jar-one"></div>
-        <div class="jar jar-two"></div>
+        <div class="hero-frame"></div>
+        <div class="hero-sticker">✦</div>
+        <div class="hero-jar jar-one"></div>
+        <div class="hero-jar jar-two"></div>
       </div>
     </section>
 
-    <section class="catalog-nav">
-      <div class="catalog-links">
+    <section class="products-head">
+      <div class="products-filter">
         <a href="#">Todos</a>
-        <a href="#">Destacados</a>
-        <a href="#">Novedades</a>
+        <a href="#">Artesanales</a>
+        <a href="#">Ediciones</a>
       </div>
 
-      <div>Ver todo</div>
+      <div>3 productos</div>
     </section>
 
-    <section class="products">
+    <section class="products-grid">
       <article class="product-card">
-        <div class="product-image tone-1">
+        <div class="product-visual tone-1">
           <div class="mini-jar"></div>
         </div>
         <div class="product-info">
           <div class="product-topline">
-            <span>Producto uno</span>
+            <span>Producto 1</span>
             <span>Desde 00,00 €</span>
           </div>
-          <p class="product-desc">Descripción breve del producto artesanal.</p>
+          <p class="product-desc">
+            Primera referencia del catálogo. Aquí irá el nombre real y su descripción breve.
+          </p>
         </div>
       </article>
 
       <article class="product-card">
-        <div class="product-image tone-2">
+        <div class="product-visual tone-2">
           <div class="mini-jar"></div>
         </div>
         <div class="product-info">
           <div class="product-topline">
-            <span>Producto dos</span>
+            <span>Producto 2</span>
             <span>Desde 00,00 €</span>
           </div>
-          <p class="product-desc">Descripción breve del producto artesanal.</p>
+          <p class="product-desc">
+            Segunda referencia del catálogo. Aquí irá el nombre real y su descripción breve.
+          </p>
         </div>
       </article>
 
       <article class="product-card">
-        <div class="product-image tone-3">
+        <div class="product-visual tone-3">
           <div class="mini-jar"></div>
         </div>
         <div class="product-info">
           <div class="product-topline">
-            <span>Producto tres</span>
+            <span>Producto 3</span>
             <span>Desde 00,00 €</span>
           </div>
-          <p class="product-desc">Descripción breve del producto artesanal.</p>
+          <p class="product-desc">
+            Tercera referencia del catálogo. Aquí irá el nombre real y su descripción breve.
+          </p>
         </div>
       </article>
+    </section>
 
-      <article class="product-card">
-        <div class="product-image tone-4">
-          <div class="mini-jar"></div>
-        </div>
-        <div class="product-info">
-          <div class="product-topline">
-            <span>Edición especial</span>
-            <span>Próximamente</span>
-          </div>
-          <p class="product-desc">Espacio reservado para futura referencia o formato.</p>
-        </div>
-      </article>
+    <section class="footer-note">
+      Be y Be es una colección pequeña de productos hechos con mimo, presencia y una estética propia.
+      Esta primera home está pensada para presentar solo tres referencias de forma clara, visual y ordenada.
     </section>
   </div>
 </body>
