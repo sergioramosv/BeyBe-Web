@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Be y Be | Bebercios y Beberíos</title>
+  <title>Be y Be Spain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #efe6d6;
-      --surface: #f6efe3;
-      --hero-left: #e7d6b8;
-      --text: #221814;
-      --muted: #6f5b4f;
-      --line: #d5c4b0;
-      --card-1: #d9d0c1;
-      --card-2: #e6d2c0;
-      --card-3: #d2c2ac;
-      --accent-red: #b83a2f;
-      --accent-dark: #2b1d19;
-      --accent-brown: #5a392c;
-      --accent-gold: #b78a4a;
+      --bg: #f6f2ea;
+      --surface: #fbf8f2;
+      --surface-2: #f3eee4;
+      --line: #e5ddd0;
+      --text: #1f1a17;
+      --muted: #84786c;
+      --soft: #a59788;
+      --accent: #c6a57b;
     }
 
     * {
@@ -27,10 +27,14 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Inter", Arial, sans-serif;
     }
 
     a {
@@ -44,298 +48,256 @@
     }
 
     .page {
-      width: min(1400px, calc(100% - 24px));
-      margin: 12px auto;
-      border: 1px solid var(--line);
-      background: var(--surface);
+      width: 100%;
+      min-height: 100vh;
+      background: var(--bg);
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
     .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 22px;
       border-bottom: 1px solid var(--line);
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 0.08em;
+      background: rgba(251, 248, 242, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .topbar-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
     .brand {
-      font-size: 18px;
-      font-weight: 800;
-      text-transform: none;
-      letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #111;
+      color: #f4e9c8;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: -0.02em;
     }
 
     .nav {
       display: flex;
-      gap: 24px;
+      gap: 38px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
       color: var(--muted);
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: 1.05fr 1.35fr;
-      border-bottom: 1px solid var(--line);
-      min-height: 500px;
+      padding: 46px 0 56px;
     }
 
-    .hero-left {
-      background: var(--hero-left);
-      padding: 28px 24px 24px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .hero-note {
-      max-width: 430px;
-      font-size: 22px;
-      line-height: 1.15;
-      color: #4b392f;
+    .eyebrow {
+      margin-bottom: 18px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 12px;
     }
 
     .hero-title {
-      max-width: 540px;
-      font-size: clamp(48px, 8vw, 94px);
-      line-height: 0.92;
-      font-weight: 900;
-      letter-spacing: -0.06em;
-      text-transform: uppercase;
-    }
-
-    .hero-right {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #2b1d19 0%, #5a392c 38%, #8f3b30 72%, #b83a2f 100%);
-      min-height: 500px;
-    }
-
-    .hero-frame {
-      position: absolute;
-      inset: 28px;
-      border: 1px solid rgba(255,255,255,0.25);
-      background: rgba(255,255,255,0.04);
-    }
-
-    .hero-sticker {
-      position: absolute;
-      left: 20%;
-      top: 22%;
-      width: 140px;
-      height: 180px;
-      background: #c7a56a;
-      color: #2b1d19;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 52px;
-    }
-
-    .hero-jar {
-      position: absolute;
-      bottom: 42px;
-      width: 160px;
-      height: 258px;
-      border-radius: 18px 18px 24px 24px;
-      border: 2px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(3px);
-    }
-
-    .hero-jar::before {
-      content: "";
-      position: absolute;
-      top: -16px;
-      left: 18px;
-      width: 124px;
-      height: 28px;
-      background: #cdb893;
-      border-radius: 12px 12px 6px 6px;
-    }
-
-    .hero-jar::after {
-      content: "BE Y BE";
-      position: absolute;
-      left: 16px;
-      bottom: 28px;
-      color: white;
-      font-size: 30px;
-      font-weight: 800;
-      letter-spacing: -0.05em;
-    }
-
-    .jar-one {
-      right: 182px;
-      background: rgba(184, 58, 47, 0.30);
-    }
-
-    .jar-two {
-      right: 30px;
-      background: rgba(43, 29, 25, 0.36);
-    }
-
-    .products-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-    }
-
-    .products-filter {
-      display: flex;
-      gap: 24px;
-      color: #9b8a79;
-    }
-
-    .products-filter a:first-child {
-      color: var(--text);
-      font-style: italic;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(58px, 9vw, 106px);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      font-weight: 500;
+      max-width: 460px;
+      margin-bottom: 44px;
     }
 
     .products-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      padding: 14px;
+      gap: 38px;
+      margin-bottom: 48px;
     }
 
     .product-card {
-      background: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
 
-    .product-visual {
-      aspect-ratio: 4 / 5;
+    .product-frame {
+      background: var(--surface-2);
+      padding: 48px;
+      aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       overflow: hidden;
     }
 
-    .tone-1 { background: var(--card-1); }
-    .tone-2 { background: var(--card-2); }
-    .tone-3 { background: var(--card-3); }
-
-    .mini-jar {
-      width: 126px;
-      height: 220px;
-      border-radius: 16px 16px 22px 22px;
-      border: 2px solid rgba(255,255,255,0.42);
-      position: relative;
-      background: rgba(255,255,255,0.28);
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
-    .mini-jar::before {
-      content: "";
-      position: absolute;
-      top: -14px;
-      left: 15px;
-      width: 96px;
-      height: 24px;
-      background: #cfbea0;
-      border-radius: 10px 10px 5px 5px;
+    .product-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      line-height: 1;
+      margin-bottom: 8px;
     }
 
-    .mini-jar::after {
-      content: "BE Y BE";
-      position: absolute;
-      left: 12px;
-      bottom: 24px;
-      color: white;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-    }
-
-    .product-info {
-      padding-top: 10px;
+    .product-flavor {
+      color: var(--soft);
       text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      margin-bottom: 14px;
     }
 
-    .product-topline {
+    .product-meta {
       display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 5px;
-      font-size: 11px;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .price {
+      font-size: 17px;
       font-weight: 700;
+      color: var(--text);
     }
 
-    .product-desc {
+    .size {
       color: var(--muted);
-      font-size: 9px;
-      line-height: 1.35;
+      font-size: 14px;
     }
 
-    .footer-note {
-      padding: 22px 18px 26px 18px;
+    .feature-image {
+      margin: 10px 0 72px;
+      background: var(--surface-2);
+      overflow: hidden;
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .features {
       border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 44px 0;
+      margin-bottom: 80px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 44px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      flex: 0 0 34px;
+      font-size: 14px;
+    }
+
+    .feature-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .feature-text {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-      max-width: 760px;
+      line-height: 1.7;
+      font-size: 14px;
+      max-width: 28ch;
     }
 
     @media (max-width: 980px) {
-      .hero {
+      .products-grid,
+      .features-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-left,
-      .hero-right {
-        min-height: 380px;
-      }
-
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .product-frame {
+        aspect-ratio: 4 / 3;
       }
     }
 
-    @media (max-width: 640px) {
-      .page {
-        width: calc(100% - 12px);
-        margin: 6px auto;
-      }
-
-      .topbar {
+    @media (max-width: 720px) {
+      .topbar-inner {
+        min-height: auto;
+        padding: 18px 0;
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
       }
 
       .nav {
+        gap: 18px;
         flex-wrap: wrap;
-        gap: 14px;
       }
 
-      .hero-left {
-        padding: 20px 18px;
-      }
-
-      .hero-note {
-        font-size: 18px;
+      .hero {
+        padding: 32px 0 42px;
       }
 
       .hero-title {
-        font-size: 42px;
+        font-size: 56px;
+        max-width: 300px;
       }
 
-      .products-head {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+      .container {
+        width: calc(100% - 24px);
       }
 
-      .products-filter {
-        flex-wrap: wrap;
-        gap: 14px;
+      .topbar-inner {
+        width: calc(100% - 24px);
       }
 
-      .products-grid {
-        grid-template-columns: 1fr;
+      .product-frame {
+        padding: 24px;
+      }
+
+      .features {
+        padding: 32px 0;
+        margin-bottom: 40px;
       }
     }
   </style>
@@ -343,94 +305,107 @@
 <body>
   <div class="page">
     <header class="topbar">
-      <div class="brand">Be y Be</div>
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">🙂</div>
+          <div class="brand-name">Be&Be Spain</div>
+        </div>
 
-      <nav class="nav">
-        <a href="#">Tienda</a>
-        <a href="#">Historia</a>
-        <a href="#">Productos</a>
-        <a href="#">Contacto</a>
-      </nav>
+        <nav class="nav">
+          <a href="#">Inicio</a>
+          <a href="#">Productos</a>
+          <a href="#">Historia</a>
+          <a href="#">Contacto</a>
+        </nav>
+      </div>
     </header>
 
-    <section class="hero">
-      <div class="hero-left">
-        <p class="hero-note">
-          Sabores de inspiración casera, carácter intenso y una receta con alma tradicional.
-        </p>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">La colección</p>
+          <h1 class="hero-title">Nuestros Cócteles</h1>
 
-        <h1 class="hero-title">Recetas con carácter</h1>
-      </div>
+          <section class="products-grid">
+            <article class="product-card">
+              <div class="product-frame">
+                <img class="product-image" src="https://images2.imgbox.com/2d/ee/OHltP2Wn_o.jpeg" alt="Bloody Mary en lata">
+              </div>
+              <div>
+                <h2 class="product-name">Bloody Mary</h2>
+                <p class="product-flavor">Tomate · Vodka · Especias</p>
+                <div class="product-meta">
+                  <span class="price">€4.50</span>
+                  <span class="size">33cl · 19% vol</span>
+                </div>
+              </div>
+            </article>
 
-      <div class="hero-right">
-        <div class="hero-frame"></div>
-        <div class="hero-sticker">✦</div>
-        <div class="hero-jar jar-one"></div>
-        <div class="hero-jar jar-two"></div>
-      </div>
-    </section>
+            <article class="product-card">
+              <div class="product-frame">
+                <img class="product-image" src="https://images2.imgbox.com/40/5f/0M1zKduD_o.jpeg" alt="Hangóver Killer en lata">
+              </div>
+              <div>
+                <h2 class="product-name">Hangóver Killer</h2>
+                <p class="product-flavor">Cítricos · Hierbabuena · Ron</p>
+                <div class="product-meta">
+                  <span class="price">€4.50</span>
+                  <span class="size">33cl · 19% vol</span>
+                </div>
+              </div>
+            </article>
 
-    <section class="products-head">
-      <div class="products-filter">
-        <a href="#">Todos</a>
-        <a href="#">Artesanales</a>
-        <a href="#">Ediciones</a>
-      </div>
+            <article class="product-card">
+              <div class="product-frame">
+                <img class="product-image" src="https://images2.imgbox.com/f6/bb/h7xOCj6Y_o.jpeg" alt="Carajillo del Tío Pío en lata">
+              </div>
+              <div>
+                <h2 class="product-name">Carajillo del Tío Pío</h2>
+                <p class="product-flavor">Coñac quemado · Café · Limón</p>
+                <div class="product-meta">
+                  <span class="price">€4.50</span>
+                  <span class="size">33cl</span>
+                </div>
+              </div>
+            </article>
+          </section>
 
-      <div>3 productos</div>
-    </section>
-
-    <section class="products-grid">
-      <article class="product-card">
-        <div class="product-visual tone-1">
-          <div class="mini-jar"></div>
+          <section class="feature-image">
+            <img src="https://images2.imgbox.com/66/e1/7w5pK3Vy_o.jpg" alt="Escena de producto Be y Be con ingredientes y latas">
+          </section>
         </div>
-        <div class="product-info">
-          <div class="product-topline">
-            <span>Producto 1</span>
-            <span>Desde 00,00 €</span>
+      </section>
+
+      <section class="features">
+        <div class="container">
+          <div class="features-grid">
+            <article class="feature-item">
+              <div class="feature-icon">◌</div>
+              <div>
+                <h3 class="feature-title">100% Natural</h3>
+                <p class="feature-text">Sin conservantes artificiales ni colorantes. Solo ingredientes reales.</p>
+              </div>
+            </article>
+
+            <article class="feature-item">
+              <div class="feature-icon">◔</div>
+              <div>
+                <h3 class="feature-title">Listos para Servir</h3>
+                <p class="feature-text">Enfría, abre y disfruta. El cóctel perfecto sin complicaciones.</p>
+              </div>
+            </article>
+
+            <article class="feature-item">
+              <div class="feature-icon">⌂</div>
+              <div>
+                <h3 class="feature-title">Recetas Artesanales</h3>
+                <p class="feature-text">Formulaciones desarrolladas para mantener personalidad y equilibrio.</p>
+              </div>
+            </article>
           </div>
-          <p class="product-desc">
-            Primera referencia del catálogo. Aquí irá el nombre real y su descripción breve.
-          </p>
         </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-visual tone-2">
-          <div class="mini-jar"></div>
-        </div>
-        <div class="product-info">
-          <div class="product-topline">
-            <span>Producto 2</span>
-            <span>Desde 00,00 €</span>
-          </div>
-          <p class="product-desc">
-            Segunda referencia del catálogo. Aquí irá el nombre real y su descripción breve.
-          </p>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-visual tone-3">
-          <div class="mini-jar"></div>
-        </div>
-        <div class="product-info">
-          <div class="product-topline">
-            <span>Producto 3</span>
-            <span>Desde 00,00 €</span>
-          </div>
-          <p class="product-desc">
-            Tercera referencia del catálogo. Aquí irá el nombre real y su descripción breve.
-          </p>
-        </div>
-      </article>
-    </section>
-
-    <section class="footer-note">
-      Be y Be es una colección pequeña de productos hechos con mimo, presencia y una estética propia.
-      Esta primera home está pensada para presentar solo tres referencias de forma clara, visual y ordenada.
-    </section>
+      </section>
+    </main>
   </div>
 </body>
 </html>
