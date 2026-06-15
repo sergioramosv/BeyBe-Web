@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia | Be&Be Drinks Spain</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f3ec;
+      --surface: #fbf8f3;
+      --surface-soft: #f2ede4;
+      --line: #e7dfd2;
+      --text: #1e1916;
+      --muted: #807467;
+      --soft: #aa9a88;
+      --accent: #c7a27d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(251, 248, 243, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 38px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: auto;
+      align-items: center;
+    }
+
+    .cart-link {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      background: transparent;
+      flex: 0 0 42px;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .cart-link:hover {
+      background: var(--surface-soft);
+      border-color: #dcccba;
+      transform: translateY(-1px);
+    }
+
+    .cart-link svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 64px 0 80px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(48px, 7vw, 80px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .history-block {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 32px;
+      max-width: 860px;
+    }
+
+    .history-block p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .history-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner,
+      .page {
+        width: calc(100% - 24px);
+      }
+
+      .topbar-inner {
+        min-height: auto;
+        padding: 18px 0;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-left: 0;
+        order: 3;
+        width: 100%;
+      }
+
+      .page {
+        padding: 40px 0 56px;
+      }
+
+      .history-block {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-name">Be&Be Drinks Spain</div>
+
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="historia.html">Historia</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
+          <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+          <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <p class="eyebrow">Historia</p>
+    <h1 class="title">Nuestra historia</h1>
+    <p class="intro">
+      Esta página será el espacio donde contar el origen de Be&Be, la idea del proyecto,
+      el proceso artesanal y la personalidad de la marca.
+    </p>
+
+    <section class="history-block">
+      <p>
+        Be&Be nace con la intención de dar forma a una pequeña colección de bebidas con carácter propio,
+        preparadas con cuidado y pensadas para disfrutarse de una manera directa y sencilla.
+      </p>
+      <p>
+        Aquí más adelante podréis explicar quién está detrás del proyecto, cómo surge la idea,
+        qué tradición o inspiración hay en cada receta y qué hace especial a la marca.
+      </p>
+      <p>
+        Por ahora esta es una base visual limpia sobre la que luego podremos construir una historia
+        más completa, más cálida y más personal.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
