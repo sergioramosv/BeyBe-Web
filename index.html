@@ -123,8 +123,8 @@
       justify-content: center;
       text-align: center;
       background:
-        linear-gradient(rgba(247,243,236,0.72), rgba(247,243,236,0.82)),
-        url("images/MARCO GENERAL - BE Y BE.png") center/cover no-repeat;
+        linear-gradient(rgba(247,243,236,0.68), rgba(247,243,236,0.78)),
+        url("images/CHINCHIN -BEYBE.png") center/cover no-repeat;
       border-bottom: 1px solid var(--line);
     }
 
@@ -139,9 +139,9 @@
       align-items: center;
       justify-content: center;
       gap: 28px;
-      color: var(--accent);
+      color: #111111;
       text-transform: uppercase;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.18em;
       font-size: 12px;
       margin-bottom: 28px;
     }
@@ -151,7 +151,7 @@
       content: "";
       width: 90px;
       height: 1px;
-      background: rgba(199,162,125,0.45);
+      background: rgba(17,17,17,0.25);
     }
 
     .hero-logo {
@@ -184,11 +184,11 @@
     }
 
     .hero-subtitle {
-      max-width: 700px;
+      max-width: 760px;
       margin: 0 auto 44px;
-      color: #6f665d;
-      font-size: 18px;
-      line-height: 1.55;
+      color: #3f3934;
+      font-size: 21px;
+      line-height: 1.7;
     }
 
     .hero-scroll {
@@ -196,7 +196,7 @@
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      color: var(--muted);
+      color: #3f3934;
       text-transform: uppercase;
       letter-spacing: 0.24em;
       font-size: 12px;
@@ -317,22 +317,11 @@
       color: var(--muted);
     }
 
-    .hero-image {
-      background: var(--surface-soft);
-      overflow: hidden;
-      margin-bottom: 72px;
-    }
-
-    .hero-image img {
-      width: 100%;
-      object-fit: cover;
-    }
-
     .benefits {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       padding: 44px 0;
-      margin-bottom: 0;
+      margin-bottom: 56px;
     }
 
     .benefits-grid {
@@ -369,6 +358,17 @@
       line-height: 1.7;
       font-size: 14px;
       max-width: 28ch;
+    }
+
+    .hero-image {
+      background: var(--surface-soft);
+      overflow: hidden;
+      margin-bottom: 72px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      object-fit: cover;
     }
 
     .ending {
@@ -575,6 +575,7 @@
 
       .benefits {
         padding: 32px 0;
+        margin-bottom: 40px;
       }
 
       .ending {
@@ -612,7 +613,7 @@
 
   <section class="hero-intro">
     <div class="hero-intro-inner">
-      <p class="hero-kicker">Todo lo que siempre quisiste ahora en lata</p>
+      <p class="hero-kicker">Las recetas que nunca imaginaste encontrar en una lata.</p>
 
       <div class="hero-logo">
         <img src="images/BEYBE.jpeg" alt="Logo principal de Be&Be Drinks Spain">
@@ -624,7 +625,8 @@
       </h1>
 
       <p class="hero-subtitle">
-        Cócteles artesanales listos para servir. Elaborados con ingredientes selectos y la precisión de un mixólogo.
+        Hechas como siempre. Servidas como nunca.<br>
+        Porque algunas bebidas merecían algo mejor que una botella.
       </p>
 
       <a href="#coleccion" class="hero-scroll">
@@ -690,10 +692,6 @@
         </article>
       </section>
 
-      <section class="hero-image">
-        <img src="images/MARCO GENERAL - BE Y BE.png" alt="Composición de producto con ingredientes y latas de Be y Be">
-      </section>
-
       <section class="benefits">
         <div class="benefits-grid">
           <article class="benefit">
@@ -720,6 +718,10 @@
             </div>
           </article>
         </div>
+      </section>
+
+      <section class="hero-image">
+        <img src="images/MARCO GENERAL - BE Y BE.png" alt="Composición de producto con ingredientes y latas de Be y Be">
       </section>
     </div>
   </main>
