@@ -1,1 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos | Be&Be Drinks Spain</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f3ec;
+      --surface: #fbf8f3;
+      --surface-soft: #f2ede4;
+      --line: #e7dfd2;
+      --text: #1e1916;
+      --muted: #807467;
+      --soft: #aa9a88;
+      --accent: #c7a27d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(251, 248, 243, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 38px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 64px 0 80px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(48px, 7vw, 80px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+      margin-bottom: 56px;
+    }
+
+    .products-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .product-row {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 36px;
+      align-items: center;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+
+    .product-image-box {
+      background: var(--surface-soft);
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+    }
+
+    .product-image-box img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+    }
+
+    .product-info h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .product-subtitle {
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    .product-text {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+      max-width: 52ch;
+    }
+
+    @media (max-width: 820px) {
+      .product-row {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image-box {
+        min-height: auto;
+      }
+
+      .product-image-box img {
+        max-height: 320px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner,
+      .page {
+        width: calc(100% - 24px);
+      }
+
+      .topbar-inner {
+        min-height: auto;
+        padding: 18px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .page {
+        padding: 40px 0 56px;
+      }
+
+      .product-row {
+        padding: 18px;
+        gap: 22px;
+      }
+
+      .product-image-box {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-name">Be&Be Drinks Spain</div>
+
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="historia.html">Historia</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <p class="eyebrow">Productos</p>
+    <h1 class="title">Nuestra colección</h1>
+    <p class="intro">
+      Una selección de recetas con personalidad propia, pensadas para disfrutarse de forma sencilla,
+      directa y bien servida.
+    </p>
+
+    <section class="products-list">
+      <article class="product-row">
+        <div class="product-image-box">
+          <img src="images/BOODY.jpeg" alt="Bloody Mary en lata">
+        </div>
+        <div class="product-info">
+          <h2>Bloody Mary</h2>
+          <p class="product-subtitle">Tomate · Vodka · Especias</p>
+          <p class="product-text">
+            Una receta intensa, sabrosa y reconocible. Esta ficha servirá después para añadir detalles,
+            formatos disponibles, notas de sabor y acceso a su página individual.
+          </p>
+        </div>
+      </article>
+
+      <article class="product-row">
+        <div class="product-image-box">
+          <img src="images/CARAJILLO.jpeg" alt="Carajillo del Tío Pío en lata">
+        </div>
+        <div class="product-info">
+          <h2>Carajillo del Tío Pío</h2>
+          <p class="product-subtitle">Coñac quemado · Café · Limón</p>
+          <p class="product-text">
+            Una bebida con carácter y tradición, reinterpretada para un formato más directo y cómodo.
+            Aquí luego podrás desarrollar su historia y sus particularidades.
+          </p>
+        </div>
+      </article>
+
+      <article class="product-row">
+        <div class="product-image-box">
+          <img src="images/HANGOVER.jpeg" alt="Hangover Killer en lata">
+        </div>
+        <div class="product-info">
+          <h2>Hangover Killer</h2>
+          <p class="product-subtitle">Cítricos · Hierbabuena · Ron</p>
+          <p class="product-text">
+            Una opción más fresca y viva dentro de la colección. Esta base te permitirá más adelante
+            sumar descripción completa, formatos y presentación comercial.
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
