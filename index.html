@@ -6,17 +6,19 @@
   <title>Be y Be | Bebercios y Beberíos</title>
   <style>
     :root {
-      --bg: #f4efe7;
-      --surface: #f8f4ec;
-      --hero-left: #eee5aa;
-      --text: #1e1b18;
-      --muted: #7f776d;
-      --line: #d9d0c3;
-      --card-1: #d7dccb;
-      --card-2: #ead7c7;
-      --card-3: #d7cfb4;
-      --accent-1: #c96d37;
-      --accent-2: #708457;
+      --bg: #efe6d6;
+      --surface: #f6efe3;
+      --hero-left: #e7d6b8;
+      --text: #221814;
+      --muted: #6f5b4f;
+      --line: #d5c4b0;
+      --card-1: #d9d0c1;
+      --card-2: #e6d2c0;
+      --card-3: #d2c2ac;
+      --accent-red: #b83a2f;
+      --accent-dark: #2b1d19;
+      --accent-brown: #5a392c;
+      --accent-gold: #b78a4a;
     }
 
     * {
@@ -89,13 +91,13 @@
 
     .hero-note {
       max-width: 430px;
-      font-size: 24px;
-      line-height: 1.08;
-      color: #373229;
+      font-size: 22px;
+      line-height: 1.15;
+      color: #4b392f;
     }
 
     .hero-title {
-      max-width: 520px;
+      max-width: 540px;
       font-size: clamp(48px, 8vw, 94px);
       line-height: 0.92;
       font-weight: 900;
@@ -106,28 +108,29 @@
     .hero-right {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #a44e2d 0%, #ca7745 45%, #768655 100%);
+      background: linear-gradient(135deg, #2b1d19 0%, #5a392c 38%, #8f3b30 72%, #b83a2f 100%);
       min-height: 500px;
     }
 
     .hero-frame {
       position: absolute;
       inset: 28px;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.04);
     }
 
     .hero-sticker {
       position: absolute;
-      left: 21%;
+      left: 20%;
       top: 22%;
       width: 140px;
       height: 180px;
-      background: #b9f279;
+      background: #c7a56a;
+      color: #2b1d19;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 56px;
+      font-size: 52px;
     }
 
     .hero-jar {
@@ -136,7 +139,7 @@
       width: 160px;
       height: 258px;
       border-radius: 18px 18px 24px 24px;
-      border: 2px solid rgba(255,255,255,0.20);
+      border: 2px solid rgba(255,255,255,0.18);
       backdrop-filter: blur(3px);
     }
 
@@ -147,7 +150,7 @@
       left: 18px;
       width: 124px;
       height: 28px;
-      background: #d7c7a2;
+      background: #cdb893;
       border-radius: 12px 12px 6px 6px;
     }
 
@@ -164,12 +167,12 @@
 
     .jar-one {
       right: 182px;
-      background: rgba(221, 103, 66, 0.28);
+      background: rgba(184, 58, 47, 0.30);
     }
 
     .jar-two {
       right: 30px;
-      background: rgba(112, 132, 87, 0.32);
+      background: rgba(43, 29, 25, 0.36);
     }
 
     .products-head {
@@ -184,7 +187,7 @@
     .products-filter {
       display: flex;
       gap: 24px;
-      color: #a49c92;
+      color: #9b8a79;
     }
 
     .products-filter a:first-child {
@@ -220,9 +223,9 @@
       width: 126px;
       height: 220px;
       border-radius: 16px 16px 22px 22px;
-      border: 2px solid rgba(255,255,255,0.45);
+      border: 2px solid rgba(255,255,255,0.42);
       position: relative;
-      background: rgba(255,255,255,0.32);
+      background: rgba(255,255,255,0.28);
     }
 
     .mini-jar::before {
@@ -232,7 +235,7 @@
       left: 15px;
       width: 96px;
       height: 24px;
-      background: #d7ccb2;
+      background: #cfbea0;
       border-radius: 10px 10px 5px 5px;
     }
 
@@ -353,10 +356,10 @@
     <section class="hero">
       <div class="hero-left">
         <p class="hero-note">
-          Elaboraciones artesanales con carácter, detalle y una identidad propia.
+          Sabores de inspiración casera, carácter intenso y una receta con alma tradicional.
         </p>
 
-        <h1 class="hero-title">Sabor con personalidad</h1>
+        <h1 class="hero-title">Recetas con carácter</h1>
       </div>
 
       <div class="hero-right">
