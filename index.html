@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Be&Be Spain</title>
+  <title>Be&Be Drinks Spain</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,16 +84,18 @@
     }
 
     .brand-mark {
-      width: 34px;
-      height: 34px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 38px;
       background: #111111;
-      color: #f2e6c8;
-      display: grid;
-      place-items: center;
-      font-size: 16px;
-      font-weight: 700;
-      flex: 0 0 34px;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .brand-name {
@@ -110,6 +112,99 @@
       letter-spacing: 0.16em;
       font-size: 12px;
       color: var(--muted);
+    }
+
+    .hero-intro {
+      position: relative;
+      overflow: hidden;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(247,243,236,0.72), rgba(247,243,236,0.82)),
+        url("images/MARCO GENERAL - BE Y BE.png") center/cover no-repeat;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-intro-inner {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 70px 0 90px;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero-kicker::before,
+    .hero-kicker::after {
+      content: "";
+      width: 90px;
+      height: 1px;
+      background: rgba(199,162,125,0.45);
+    }
+
+    .hero-logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 28px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+      background: #111;
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(70px, 10vw, 120px);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      margin-bottom: 26px;
+    }
+
+    .hero-subtitle {
+      max-width: 700px;
+      margin: 0 auto 44px;
+      color: #6f665d;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .hero-scroll {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 12px;
+    }
+
+    .hero-scroll span:last-child {
+      font-size: 24px;
+      line-height: 1;
     }
 
     .mini-strip {
@@ -313,7 +408,6 @@
 
     .ending-brand .brand-mark {
       background: #0b0d0b;
-      color: #f2e6c8;
     }
 
     .ending-brand .brand-name {
@@ -404,13 +498,18 @@
       .footer-bottom {
         flex-direction: column;
       }
+
+      .hero-title {
+        gap: 22px;
+      }
     }
 
     @media (max-width: 720px) {
       .container,
       .topbar-inner,
       .mini-strip-inner,
-      .ending-inner {
+      .ending-inner,
+      .hero-intro-inner {
         width: calc(100% - 24px);
       }
 
@@ -424,6 +523,35 @@
       .nav {
         gap: 18px;
         flex-wrap: wrap;
+      }
+
+      .hero-intro {
+        min-height: auto;
+      }
+
+      .hero-intro-inner {
+        padding: 42px 0 56px;
+      }
+
+      .hero-kicker::before,
+      .hero-kicker::after {
+        width: 36px;
+      }
+
+      .hero-logo {
+        width: 86px;
+        height: 86px;
+        margin-bottom: 22px;
+      }
+
+      .hero-title {
+        font-size: 58px;
+        gap: 8px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+        margin-bottom: 34px;
       }
 
       .mini-strip-inner {
@@ -467,8 +595,10 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <div class="brand-mark">🙂</div>
-        <div class="brand-name">Be&Be Spain</div>
+        <div class="brand-mark">
+          <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
 
       <nav class="nav">
@@ -480,6 +610,30 @@
     </div>
   </header>
 
+  <section class="hero-intro">
+    <div class="hero-intro-inner">
+      <p class="hero-kicker">Todo lo que siempre quisiste ahora en lata</p>
+
+      <div class="hero-logo">
+        <img src="images/BEYBE.jpeg" alt="Logo principal de Be&Be Drinks Spain">
+      </div>
+
+      <h1 class="hero-title">
+        <span>Be&Be Drinks</span>
+        <span>Spain</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Cócteles artesanales listos para servir. Elaborados con ingredientes selectos y la precisión de un mixólogo.
+      </p>
+
+      <a href="#coleccion" class="hero-scroll">
+        <span>Explorar</span>
+        <span>⌄</span>
+      </a>
+    </div>
+  </section>
+
   <section class="mini-strip">
     <div class="mini-strip-inner">
       <div class="mini-strip-left">Cócteles artesanales listos para servir.</div>
@@ -487,10 +641,10 @@
     </div>
   </section>
 
-  <main class="collection">
+  <main class="collection" id="coleccion">
     <div class="container">
       <p class="eyebrow">La colección</p>
-      <h1 class="title">Nuestras bebidas:</h1>
+      <h2 class="title">Nuestras bebidas:</h2>
 
       <section class="products-grid">
         <article class="product-card">
@@ -498,7 +652,7 @@
             <img class="product-image" src="images/Bloody Mary - BE YBE.png" alt="Bloody Mary en lata">
           </div>
           <div>
-            <h2 class="product-name">Bloody Mary</h2>
+            <h3 class="product-name">Bloody Mary</h3>
             <p class="product-flavor">Tomate · Vodka · Especias</p>
             <div class="product-meta">
               <span class="price">€4.50</span>
@@ -512,7 +666,7 @@
             <img class="product-image" src="images/Carajillo tio pio - Be y Be.png" alt="Carajillo del Tío Pío en lata">
           </div>
           <div>
-            <h2 class="product-name">Carajillo del Tío Pío</h2>
+            <h3 class="product-name">Carajillo del Tío Pío</h3>
             <p class="product-flavor">Coñac quemado · Café · Limón</p>
             <div class="product-meta">
               <span class="price">€4.50</span>
@@ -526,7 +680,7 @@
             <img class="product-image" src="images/Hangover Killer - be y be.png" alt="Hangover Killer en lata">
           </div>
           <div>
-            <h2 class="product-name">Hangover Killer</h2>
+            <h3 class="product-name">Hangover Killer</h3>
             <p class="product-flavor">Cítricos · Hierbabuena · Ron</p>
             <div class="product-meta">
               <span class="price">€4.50</span>
@@ -578,8 +732,10 @@
       </h2>
 
       <div class="ending-brand">
-        <div class="brand-mark">🙂</div>
-        <div class="brand-name">Be&Be Spain</div>
+        <div class="brand-mark">
+          <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain en footer">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
 
       <div class="newsletter">
@@ -621,8 +777,8 @@
       </div>
 
       <div class="footer-bottom">
-        <div class="footer-brand">Be&Be Spain</div>
-        <div>© 2025 Be&Be Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
+        <div class="footer-brand">Be&Be Drinks Spain</div>
+        <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
       </div>
     </div>
   </section>
