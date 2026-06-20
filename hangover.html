@@ -117,15 +117,16 @@
     }
 
     .cart-link {
-      width: 42px;
+      min-width: 42px;
       height: 42px;
       border: 1px solid var(--line);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       color: var(--accent);
       background: transparent;
-      flex: 0 0 42px;
+      padding: 0 10px;
       transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
@@ -139,6 +140,20 @@
       width: 20px;
       height: 20px;
       display: block;
+    }
+
+    .cart-count {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #111111;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      line-height: 1;
+      padding: 0 6px;
     }
 
     .product-page {
@@ -322,6 +337,18 @@
       line-height: 1.7;
     }
 
+    .cart-feedback {
+      margin-top: 14px;
+      color: #2f5a31;
+      font-size: 14px;
+      line-height: 1.7;
+      display: none;
+    }
+
+    .cart-feedback.show {
+      display: block;
+    }
+
     .product-details {
       border-top: 1px solid var(--line);
       padding-top: 24px;
@@ -447,6 +474,7 @@
           <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
           <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
+        <span id="cartCount" class="cart-count">0</span>
       </a>
     </div>
   </header>
@@ -510,12 +538,16 @@
               <button type="button" onclick="changeQty(1)">+</button>
             </div>
 
-            <button class="add-cart-btn" type="button">
+            <button class="add-cart-btn" id="addToCartBtn" type="button">
               Añadir al carrito
             </button>
 
             <p class="buy-note">
               Ideal para tomar muy frío y disfrutar de su perfil refrescante desde el primer sorbo.
+            </p>
+
+            <p id="cartFeedback" class="cart-feedback">
+              Producto añadido al carrito.
             </p>
           </div>
 
@@ -546,6 +578,41 @@
   </section>
 
   <script>
+    const CART_KEY = "bebeb-drinks-cart";
+
+    function getCart() {
+      const savedCart = localStorage.getItem(CART_KEY);
+      return savedCart ? JSON.parse(savedCart) : [];
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function updateCartCount() {
+      const cart = getCart();
+      const distinctProducts = cart.length;
+      const cartCount = document.getElementById("cartCount");
+
+      if (cartCount) {
+        cartCount.textContent = distinctProducts;
+      }
+    }
+
+    function addProductToCart(product) {
+      const cart = getCart();
+      const existingProduct = cart.find(item => item.id === product.id);
+
+      if (existingProduct) {
+        existingProduct.quantity += product.quantity;
+      } else {
+        cart.push(product);
+      }
+
+      saveCart(cart);
+      updateCartCount();
+    }
+
     function changeImage(newSrc) {
       document.getElementById("mainProductImage").src = newSrc;
     }
@@ -561,6 +628,30 @@
 
       input.value = currentValue;
     }
+
+    document.getElementById("addToCartBtn").addEventListener("click", function () {
+      const quantityInput = document.getElementById("quantity");
+      const quantity = Math.max(1, parseInt(quantityInput.value) || 1);
+
+      const product = {
+        id: "hangover-killer",
+        name: "Hangover Killer",
+        price: 4.50,
+        quantity: quantity,
+        image: "images/HANGOVER.jpeg"
+      };
+
+      addProductToCart(product);
+
+      const feedback = document.getElementById("cartFeedback");
+      feedback.classList.add("show");
+
+      setTimeout(() => {
+        feedback.classList.remove("show");
+      }, 2200);
+    });
+
+    updateCartCount();
   </script>
 </body>
 </html>
