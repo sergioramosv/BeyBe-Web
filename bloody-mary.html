@@ -1,1 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloody Mary | Be&Be Drinks Spain</title>
 
+  <style>
+    :root {
+      --bg: #f5efe8;
+      --bg-soft: #fbf7f2;
+      --line: #ded6cc;
+      --text: #1f1a17;
+      --muted: #7d746a;
+      --accent: #111111;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(245, 239, 232, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(6px);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 86px;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav a {
+      opacity: 0.8;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      opacity: 1;
+    }
+
+    .cart-icon {
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      font-size: 0.95rem;
+    }
+
+    /* PRODUCT PAGE */
+    .product-page {
+      padding: 48px 0 80px;
+    }
+
+    .breadcrumb {
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .product-gallery {
+      display: grid;
+      gap: 18px;
+    }
+
+    .main-image {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      padding: 28px;
+    }
+
+    .main-image img {
+      width: 100%;
+      max-height: 620px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    .thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .thumb {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      padding: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .thumb:hover {
+      transform: translateY(-2px);
+      border-color: #b8aa9b;
+    }
+
+    .thumb img {
+      height: 130px;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .product-info {
+      padding-top: 8px;
+    }
+
+    .product-tag {
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .product-title {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 400;
+      line-height: 0.95;
+      margin-bottom: 18px;
+    }
+
+    .product-subtitle {
+      font-size: 0.92rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .product-description {
+      font-size: 1.05rem;
+      color: #403833;
+      margin-bottom: 28px;
+      max-width: 52ch;
+    }
+
+    .product-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .product-price {
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    .purchase-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .quantity-label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .quantity-selector {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      margin-bottom: 18px;
+      background: var(--white);
+    }
+
+    .quantity-selector button {
+      width: 46px;
+      height: 46px;
+      border: none;
+      background: transparent;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .quantity-selector input {
+      width: 62px;
+      height: 46px;
+      border: none;
+      text-align: center;
+      font-size: 1rem;
+      outline: none;
+      background: transparent;
+    }
+
+    .add-cart-btn {
+      width: 100%;
+      border: none;
+      background: var(--accent);
+      color: var(--white);
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.25s ease;
+    }
+
+    .add-cart-btn:hover {
+      opacity: 0.9;
+    }
+
+    .purchase-note {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .details-box {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    .details-box h2 {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+
+    .details-box ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: #3d3630;
+    }
+
+    .details-box li {
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 28px;
+      color: var(--muted);
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .product-title {
+        font-size: 3rem;
+      }
+
+      .nav {
+        gap: 16px;
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 16px 0;
+      }
+
+      .brand {
+        font-size: 1.4rem;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .thumbs {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .thumb img {
+        height: 90px;
+      }
+
+      .product-page {
+        padding-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Be&Be Drinks Spain</a>
+
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html" class="active">Productos</a>
+        <a href="historia.html">Historia</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="carrito.html" class="cart-icon">🛒</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="product-page">
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="index.html">Inicio</a> / 
+        <a href="productos.html">Productos</a> / 
+        <span>Bloody Mary</span>
+      </div>
+
+      <section class="product-layout">
+        <!-- GALERÍA -->
+        <div class="product-gallery">
+          <div class="main-image">
+            <img id="mainProductImage" src="images/bloody-mary.png" alt="Lata de Bloody Mary Be&Be Drinks Spain">
+          </div>
+
+          <div class="thumbs">
+            <button class="thumb" type="button" onclick="changeImage('images/bloody-mary.png')">
+              <img src="images/bloody-mary.png" alt="Vista principal de Bloody Mary">
+            </button>
+
+            <button class="thumb" type="button" onclick="changeImage('images/bloody-mary-2.png')">
+              <img src="images/bloody-mary-2.png" alt="Segunda vista de Bloody Mary">
+            </button>
+
+            <button class="thumb" type="button" onclick="changeImage('images/bloody-mary-3.png')">
+              <img src="images/bloody-mary-3.png" alt="Tercera vista de Bloody Mary">
+            </button>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="product-info">
+          <p class="product-tag">Cóctel en lata</p>
+          <h1 class="product-title">Bloody Mary</h1>
+          <p class="product-subtitle">Tomate · Vodka · Especias</p>
+
+          <p class="product-description">
+            Una receta intensa, sabrosa y con carácter. Pensada para quienes buscan una bebida lista para servir, con perfil especiado y personalidad propia.
+          </p>
+
+          <div class="product-meta">
+            <span>33cl</span>
+            <span>19% vol</span>
+            <span>Listo para servir</span>
+          </div>
+
+          <div class="product-price">€4.50</div>
+
+          <div class="purchase-box">
+            <label class="quantity-label" for="quantity">Cantidad</label>
+
+            <div class="quantity-selector">
+              <button type="button" onclick="changeQty(-1)">−</button>
+              <input id="quantity" type="number" value="1" min="1">
+              <button type="button" onclick="changeQty(1)">+</button>
+            </div>
+
+            <button class="add-cart-btn" type="button">
+              Añadir al carrito
+            </button>
+
+            <p class="purchase-note">
+              Enfría, abre y sirve. Un formato pensado para disfrutar sin complicaciones.
+            </p>
+          </div>
+
+          <div class="details-box">
+            <h2>Detalles del producto</h2>
+            <ul>
+              <li>Formato: lata de 33cl.</li>
+              <li>Perfil: intenso, vegetal, especiado.</li>
+              <li>Ideal para servir muy frío.</li>
+              <li>Perfecto como aperitivo o brunch.</li>
+            </ul>
+          </div>
+
+          <a class="back-link" href="productos.html">← Volver a productos</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Be&Be Drinks Spain</p>
+      <p>Bebidas en lata con carácter artesanal</p>
+    </div>
+  </footer>
+
+  <script>
+    function changeImage(newSrc) {
+      document.getElementById("mainProductImage").src = newSrc;
+    }
+
+    function changeQty(amount) {
+      const input = document.getElementById("quantity");
+      let currentValue = parseInt(input.value) || 1;
+      currentValue += amount;
+
+      if (currentValue < 1) {
+        currentValue = 1;
+      }
+
+      input.value = currentValue;
+    }
+  </script>
+</body>
+</html>
