@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- =========================================================
+       CONFIGURACIÓN BÁSICA DEL DOCUMENTO
+       ========================================================= -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título de la página -->
   <title>Contacto | Be&Be Drinks Spain</title>
 
+  <!-- =========================================================
+       TIPOGRAFÍAS DE LA WEB
+       - Cormorant Garamond para títulos elegantes
+       - Inter para textos de lectura y navegación
+       ========================================================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    /* =========================================================
+       VARIABLES GLOBALES DE COLOR
+       - Se reutilizan en toda la página para mantener coherencia
+       ========================================================= */
     :root {
       --bg: #f7f3ec;
       --surface: #fbf8f3;
@@ -19,25 +33,37 @@
       --muted: #807467;
       --soft: #aa9a88;
       --accent: #c7a27d;
+      --dark: #111111;
     }
 
+    /* =========================================================
+       RESET BÁSICO
+       - Elimina márgenes y paddings por defecto
+       - Hace más predecible el diseño
+       ========================================================= */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    /* Estilo general del body */
     body {
       background: var(--bg);
       color: var(--text);
       font-family: "Inter", Arial, sans-serif;
     }
 
+    /* Enlaces sin subrayado y con color heredado */
     a {
       color: inherit;
       text-decoration: none;
     }
 
+    /* =========================================================
+       CABECERA SUPERIOR
+       - Mantiene la navegación visible al hacer scroll
+       ========================================================= */
     .topbar {
       position: sticky;
       top: 0;
@@ -47,6 +73,7 @@
       border-bottom: 1px solid var(--line);
     }
 
+    /* Contenedor interior de la cabecera */
     .topbar-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -57,6 +84,7 @@
       gap: 24px;
     }
 
+    /* Nombre de la marca */
     .brand-name {
       font-family: "Cormorant Garamond", serif;
       font-size: 24px;
@@ -65,6 +93,7 @@
       flex-shrink: 0;
     }
 
+    /* Navegación principal */
     .nav {
       display: flex;
       gap: 38px;
@@ -76,37 +105,63 @@
       align-items: center;
     }
 
+    /* =========================================================
+       ICONO DEL CARRITO
+       - Incluye icono + contador visible de productos
+       ========================================================= */
     .cart-link {
-      width: 42px;
+      min-width: 42px;
       height: 42px;
       border: 1px solid var(--line);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       color: var(--accent);
       background: transparent;
-      flex: 0 0 42px;
+      padding: 0 10px;
       transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
+    /* Efecto visual al pasar el ratón por el carrito */
     .cart-link:hover {
       background: var(--surface-soft);
       border-color: #dcccba;
       transform: translateY(-1px);
     }
 
+    /* Tamaño del icono SVG */
     .cart-link svg {
       width: 20px;
       height: 20px;
       display: block;
     }
 
+    /* Contador visible del carrito */
+    .cart-count {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--dark);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      line-height: 1;
+      padding: 0 6px;
+    }
+
+    /* =========================================================
+       CONTENIDO PRINCIPAL DE LA PÁGINA
+       ========================================================= */
     .page {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
       padding: 64px 0 80px;
     }
 
+    /* Texto pequeño superior de sección */
     .eyebrow {
       color: var(--accent);
       text-transform: uppercase;
@@ -115,6 +170,7 @@
       margin-bottom: 16px;
     }
 
+    /* Título principal */
     .title {
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(48px, 7vw, 80px);
@@ -124,6 +180,7 @@
       margin-bottom: 22px;
     }
 
+    /* Texto introductorio */
     .intro {
       max-width: 760px;
       color: var(--muted);
@@ -132,6 +189,10 @@
       margin-bottom: 28px;
     }
 
+    /* =========================================================
+       BLOQUE PRINCIPAL DE CONTACTO
+       - Contenedor suave para organizar los datos
+       ========================================================= */
     .contact-block {
       background: var(--surface);
       border: 1px solid var(--line);
@@ -139,12 +200,14 @@
       max-width: 760px;
     }
 
+    /* Separación entre bloques de información */
     .contact-item + .contact-item {
       margin-top: 22px;
       padding-top: 22px;
       border-top: 1px solid var(--line);
     }
 
+    /* Etiqueta de cada dato de contacto */
     .contact-label {
       color: var(--soft);
       text-transform: uppercase;
@@ -153,12 +216,14 @@
       margin-bottom: 8px;
     }
 
+    /* Valor principal del dato */
     .contact-value {
       color: var(--text);
       font-size: 18px;
       line-height: 1.6;
     }
 
+    /* Nota explicativa inferior */
     .contact-note {
       color: var(--muted);
       font-size: 15px;
@@ -166,6 +231,9 @@
       margin-top: 6px;
     }
 
+    /* =========================================================
+       AJUSTES RESPONSIVE PARA MÓVIL
+       ========================================================= */
     @media (max-width: 720px) {
       .topbar-inner,
       .page {
@@ -203,10 +271,18 @@
   </style>
 </head>
 <body>
+  <!-- =========================================================
+       CABECERA PRINCIPAL
+       - Marca
+       - Navegación
+       - Acceso al carrito con contador
+       ========================================================= -->
   <header class="topbar">
     <div class="topbar-inner">
+      <!-- Nombre de la marca -->
       <div class="brand-name">Be&Be Drinks Spain</div>
 
+      <!-- Menú principal -->
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
@@ -214,24 +290,31 @@
         <a href="contacto.html">Contacto</a>
       </nav>
 
+      <!-- Enlace al carrito con contador -->
       <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
           <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
           <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
+        <span id="cartCount" class="cart-count">0</span>
       </a>
     </div>
   </header>
 
+  <!-- =========================================================
+       CONTENIDO PRINCIPAL DE CONTACTO
+       ========================================================= -->
   <main class="page">
     <p class="eyebrow">Contacto</p>
     <h1 class="title">Hablemos</h1>
+
     <p class="intro">
       Esta página puede servir para centralizar los datos de contacto de la marca,
       consultas comerciales, distribución y cualquier información básica para clientes o colaboradores.
     </p>
 
+    <!-- Bloque con datos de contacto -->
     <section class="contact-block">
       <div class="contact-item">
         <p class="contact-label">Correo</p>
@@ -252,5 +335,51 @@
       </div>
     </section>
   </main>
+
+  <script>
+    /* =========================================================
+       CLAVE COMPARTIDA DEL CARRITO
+       ---------------------------------------------------------
+       Esta clave debe ser la misma en todas las páginas para
+       que el carrito y su contador funcionen correctamente.
+       ========================================================= */
+    const CART_KEY = "bebeb-drinks-cart";
+
+    /* =========================================================
+       OBTENER EL CARRITO GUARDADO
+       ---------------------------------------------------------
+       - Lee la información guardada en localStorage.
+       - Si existe, la convierte de texto JSON a array.
+       - Si no existe, devuelve un array vacío.
+       ========================================================= */
+    function getCart() {
+      const savedCart = localStorage.getItem(CART_KEY);
+      return savedCart ? JSON.parse(savedCart) : [];
+    }
+
+    /* =========================================================
+       ACTUALIZAR EL CONTADOR DEL CARRITO
+       ---------------------------------------------------------
+       - Cuenta cuántos productos distintos hay en el carrito.
+       - Coloca ese número dentro del span #cartCount.
+       ========================================================= */
+    function updateCartCount() {
+      const cart = getCart();
+      const totalProducts = cart.length;
+      const cartCount = document.getElementById("cartCount");
+
+      if (cartCount) {
+        cartCount.textContent = totalProducts;
+      }
+    }
+
+    /* =========================================================
+       EJECUCIÓN INICIAL
+       ---------------------------------------------------------
+       En cuanto la página carga, se actualiza el contador para
+       que el número del carrito no desaparezca.
+       ========================================================= */
+    updateCartCount();
+  </script>
 </body>
 </html>
