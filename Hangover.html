@@ -1,1 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta básica -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Título -->
+  <title>Hangover Killer | Be&Be Drinks Spain</title>
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f3ec;
+      --surface: #fbf8f3;
+      --surface-soft: #f2ede4;
+      --line: #e7dfd2;
+      --text: #1e1916;
+      --muted: #807467;
+      --soft: #aa9a88;
+      --accent: #c7a27d;
+
+      --dark-bg: #141913;
+      --dark-text: #f2ede5;
+      --dark-muted: #a8a39b;
+      --dark-line: rgba(255,255,255,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(251, 248, 243, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 38px;
+      background: #111111;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 38px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: auto;
+      align-items: center;
+    }
+
+    .cart-link {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      background: transparent;
+      flex: 0 0 42px;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .cart-link:hover {
+      background: var(--surface-soft);
+      border-color: #dcccba;
+      transform: translateY(-1px);
+    }
+
+    .cart-link svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .product-page {
+      padding: 34px 0 72px;
+    }
+
+    .breadcrumb {
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .product-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .main-image {
+      background: var(--surface-soft);
+      padding: 18px;
+    }
+
+    .main-image img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+    }
+
+    .thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .thumb {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .thumb:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .thumb img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+    }
+
+    .product-tag {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    .product-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(52px, 7vw, 82px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .product-flavor {
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+
+    .product-description {
+      color: #4b433c;
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+      max-width: 54ch;
+    }
+
+    .product-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .product-price {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .buy-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .quantity-label {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .quantity-selector {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: white;
+      margin-bottom: 18px;
+    }
+
+    .quantity-selector button {
+      width: 46px;
+      height: 46px;
+      border: 0;
+      background: transparent;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .quantity-selector input {
+      width: 60px;
+      height: 46px;
+      border: 0;
+      text-align: center;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .add-cart-btn {
+      width: 100%;
+      border: 0;
+      background: #111111;
+      color: white;
+      padding: 16px 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .add-cart-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .buy-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .product-details {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    .product-details h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .product-details ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .product-details li {
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: #453d36;
+      line-height: 1.7;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .ending {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 50px 0 24px;
+      margin-top: 30px;
+    }
+
+    .ending-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--dark-line);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--dark-muted);
+      font-size: 13px;
+    }
+
+    .footer-brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      color: var(--dark-text);
+    }
+
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container,
+      .topbar-inner,
+      .ending-inner {
+        width: calc(100% - 24px);
+      }
+
+      .topbar-inner {
+        min-height: auto;
+        padding: 18px 0;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .product-page {
+        padding: 24px 0 48px;
+      }
+
+      .product-title {
+        font-size: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabecera -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="historia.html">Historia</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
+          <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+          <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="product-page">
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="index.html">Inicio</a> /
+        <a href="productos.html">Productos</a> /
+        <span>Hangover Killer</span>
+      </div>
+
+      <section class="product-layout">
+        <!-- Galería -->
+        <div class="product-gallery">
+          <div class="main-image">
+            <img id="mainProductImage" src="images/HANGOVER.jpeg" alt="Hangover Killer en lata">
+          </div>
+
+          <div class="thumbs">
+            <button class="thumb" type="button" onclick="changeImage('images/HANGOVER.jpeg')">
+              <img src="images/HANGOVER.jpeg" alt="Vista principal de Hangover Killer">
+            </button>
+
+            <button class="thumb" type="button" onclick="changeImage('images/HANGOVER.jpeg')">
+              <img src="images/HANGOVER.jpeg" alt="Segunda vista de Hangover Killer">
+            </button>
+
+            <button class="thumb" type="button" onclick="changeImage('images/HANGOVER.jpeg')">
+              <img src="images/HANGOVER.jpeg" alt="Tercera vista de Hangover Killer">
+            </button>
+          </div>
+        </div>
+
+        <!-- Información -->
+        <div class="product-info">
+          <p class="product-tag">Cóctel en lata</p>
+          <h1 class="product-title">Hangover Killer</h1>
+          <p class="product-flavor">Cítricos · Hierbabuena · Ron</p>
+
+          <p class="product-description">
+            Una receta fresca, viva y con perfil cítrico. Pensada para quienes buscan una bebida más ligera, aromática y directa, con un punto refrescante que la hace muy fácil de disfrutar.
+          </p>
+
+          <div class="product-meta">
+            <span>33cl</span>
+            <span>Listo para servir</span>
+            <span>Servir muy frío</span>
+          </div>
+
+          <div class="product-price">€4.50</div>
+
+          <div class="buy-box">
+            <label class="quantity-label" for="quantity">Cantidad</label>
+
+            <div class="quantity-selector">
+              <button type="button" onclick="changeQty(-1)">−</button>
+              <input id="quantity" type="number" value="1" min="1">
+              <button type="button" onclick="changeQty(1)">+</button>
+            </div>
+
+            <button class="add-cart-btn" type="button">
+              Añadir al carrito
+            </button>
+
+            <p class="buy-note">
+              Ideal para tomar muy frío y disfrutar de su perfil refrescante desde el primer sorbo.
+            </p>
+          </div>
+
+          <div class="product-details">
+            <h2>Detalles del producto</h2>
+            <ul>
+              <li>Formato: lata de 33cl.</li>
+              <li>Perfil: fresco, cítrico y herbal.</li>
+              <li>Receta pensada para momentos informales, verano y consumo fácil.</li>
+              <li>Muy buena opción para quienes prefieren un cóctel más ligero y refrescante.</li>
+            </ul>
+          </div>
+
+          <a class="back-link" href="productos.html">← Volver a productos</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <section class="ending">
+    <div class="ending-inner">
+      <div class="footer-bottom">
+        <div class="footer-brand">Be&Be Drinks Spain</div>
+        <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function changeImage(newSrc) {
+      document.getElementById("mainProductImage").src = newSrc;
+    }
+
+    function changeQty(amount) {
+      const input = document.getElementById("quantity");
+      let currentValue = parseInt(input.value) || 1;
+      currentValue += amount;
+
+      if (currentValue < 1) {
+        currentValue = 1;
+      }
+
+      input.value = currentValue;
+    }
+  </script>
+</body>
+</html>
