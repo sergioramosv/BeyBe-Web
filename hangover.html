@@ -23,6 +23,8 @@
       --muted: #807467;
       --soft: #aa9a88;
       --accent: #c7a27d;
+      --white: #ffffff;
+      --success: #2f5a31;
 
       --dark-bg: #141913;
       --dark-text: #f2ede5;
@@ -51,6 +53,11 @@
       display: block;
       max-width: 100%;
       height: auto;
+    }
+
+    button,
+    input {
+      font: inherit;
     }
 
     .container {
@@ -266,7 +273,17 @@
     .product-price {
       font-size: 30px;
       font-weight: 700;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
+    }
+
+    .product-price-unit {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 6px;
     }
 
     .buy-box {
@@ -285,12 +302,49 @@
       margin-bottom: 10px;
     }
 
+    .quantity-label-center {
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .pack-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .pack-btn {
+      min-width: 124px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--text);
+      padding: 13px 16px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .pack-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      background: #f8f4ee;
+    }
+
+    .quantity-selector-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
     .quantity-selector {
       display: inline-flex;
       align-items: center;
       border: 1px solid var(--line);
       background: white;
-      margin-bottom: 18px;
     }
 
     .quantity-selector button {
@@ -304,7 +358,7 @@
     }
 
     .quantity-selector input {
-      width: 60px;
+      width: 68px;
       height: 46px;
       border: 0;
       text-align: center;
@@ -335,14 +389,16 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.7;
+      text-align: center;
     }
 
     .cart-feedback {
       margin-top: 14px;
-      color: #2f5a31;
+      color: var(--success);
       font-size: 14px;
       line-height: 1.7;
       display: none;
+      text-align: center;
     }
 
     .cart-feedback.show {
@@ -447,6 +503,10 @@
       .product-title {
         font-size: 50px;
       }
+
+      .pack-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -527,15 +587,28 @@
             <span>Servir muy frío</span>
           </div>
 
-          <div class="product-price">€4.50</div>
+          <div class="product-price">
+            €3.30
+            <span class="product-price-unit">por lata</span>
+          </div>
 
           <div class="buy-box">
-            <label class="quantity-label" for="quantity">Cantidad</label>
+            <label class="quantity-label">Elige tu pack</label>
 
-            <div class="quantity-selector">
-              <button type="button" onclick="changeQty(-1)">−</button>
-              <input id="quantity" type="number" value="1" min="1">
-              <button type="button" onclick="changeQty(1)">+</button>
+            <div class="pack-options">
+              <button type="button" class="pack-btn" onclick="setPackQuantity(6)">Pack de 6</button>
+              <button type="button" class="pack-btn" onclick="setPackQuantity(12)">Pack de 12</button>
+              <button type="button" class="pack-btn" onclick="setPackQuantity(24)">Pack de 24</button>
+            </div>
+
+            <label class="quantity-label quantity-label-center" for="quantity">O elige una cantidad manual</label>
+
+            <div class="quantity-selector-wrap">
+              <div class="quantity-selector">
+                <button type="button" onclick="changeQty(-1)">−</button>
+                <input id="quantity" type="number" value="1" min="1">
+                <button type="button" onclick="changeQty(1)">+</button>
+              </div>
             </div>
 
             <button class="add-cart-btn" id="addToCartBtn" type="button">
@@ -617,6 +690,10 @@
       document.getElementById("mainProductImage").src = newSrc;
     }
 
+    function setPackQuantity(amount) {
+      document.getElementById("quantity").value = amount;
+    }
+
     function changeQty(amount) {
       const input = document.getElementById("quantity");
       let currentValue = parseInt(input.value) || 1;
@@ -636,7 +713,7 @@
       const product = {
         id: "hangover-killer",
         name: "Hangover Killer",
-        price: 4.50,
+        price: 3.30,
         quantity: quantity,
         image: "images/HANGOVER.jpeg"
       };
