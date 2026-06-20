@@ -19,6 +19,7 @@
       --muted: #807467;
       --soft: #aa9a88;
       --accent: #c7a27d;
+      --dark: #111111;
     }
 
     * {
@@ -83,15 +84,16 @@
     }
 
     .cart-link {
-      width: 42px;
+      min-width: 42px;
       height: 42px;
       border: 1px solid var(--line);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       color: var(--accent);
       background: transparent;
-      flex: 0 0 42px;
+      padding: 0 10px;
       transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
@@ -105,6 +107,20 @@
       width: 20px;
       height: 20px;
       display: block;
+    }
+
+    .cart-count {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--dark);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      line-height: 1;
+      padding: 0 6px;
     }
 
     .page {
@@ -278,6 +294,7 @@
           <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
           <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
+        <span id="cartCount" class="cart-count">0</span>
       </a>
     </div>
   </header>
@@ -340,5 +357,42 @@
       </a>
     </section>
   </main>
+
+  <script>
+    /* =========================================
+       CLAVE DEL CARRITO EN EL NAVEGADOR
+       ========================================= */
+    const CART_KEY = "bebeb-drinks-cart";
+
+    /* =========================================
+       OBTENER EL CARRITO GUARDADO
+       - Lee localStorage
+       - Si no hay datos, devuelve []
+       ========================================= */
+    function getCart() {
+      const savedCart = localStorage.getItem(CART_KEY);
+      return savedCart ? JSON.parse(savedCart) : [];
+    }
+
+    /* =========================================
+       ACTUALIZAR EL CONTADOR DEL ICONO
+       - Cuenta productos distintos del carrito
+       - Escribe el número en #cartCount
+       ========================================= */
+    function updateCartCount() {
+      const cart = getCart();
+      const distinctProducts = cart.length;
+      const cartCount = document.getElementById("cartCount");
+
+      if (cartCount) {
+        cartCount.textContent = distinctProducts;
+      }
+    }
+
+    /* =========================================
+       EJECUCIÓN INICIAL
+       ========================================= */
+    updateCartCount();
+  </script>
 </body>
 </html>
