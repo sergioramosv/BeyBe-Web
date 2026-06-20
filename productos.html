@@ -144,6 +144,10 @@
       gap: 32px;
     }
 
+    .product-link {
+      display: block;
+    }
+
     .product-row {
       display: grid;
       grid-template-columns: 320px 1fr;
@@ -152,6 +156,13 @@
       padding: 28px;
       background: var(--surface);
       border: 1px solid var(--line);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .product-link:hover .product-row {
+      transform: translateY(-2px);
+      border-color: #dcccba;
+      background: #fcfaf6;
     }
 
     .product-image-box {
@@ -176,6 +187,11 @@
       letter-spacing: -0.04em;
       font-weight: 500;
       margin-bottom: 12px;
+      transition: opacity 0.25s ease;
+    }
+
+    .product-link:hover .product-info h2 {
+      opacity: 0.8;
     }
 
     .product-subtitle {
@@ -275,47 +291,53 @@
     </p>
 
     <section class="products-list">
-      <article class="product-row">
-        <div class="product-image-box">
-          <img src="images/BOODY.jpeg" alt="Bloody Mary en lata">
-        </div>
-        <div class="product-info">
-          <h2>Bloody Mary</h2>
-          <p class="product-subtitle">Tomate · Vodka · Especias</p>
-          <p class="product-text">
-            Una receta intensa, sabrosa y reconocible. Esta ficha servirá después para añadir detalles,
-            formatos disponibles, notas de sabor y acceso a su página individual.
-          </p>
-        </div>
-      </article>
+      <a href="bloody-mary.html" class="product-link">
+        <article class="product-row">
+          <div class="product-image-box">
+            <img src="images/BOODY.jpeg" alt="Bloody Mary en lata">
+          </div>
+          <div class="product-info">
+            <h2>Bloody Mary</h2>
+            <p class="product-subtitle">Tomate · Vodka · Especias</p>
+            <p class="product-text">
+              Una receta intensa, sabrosa y reconocible. Accede a su ficha individual para ver más
+              detalles, cantidad, galería y opción de añadir al carrito.
+            </p>
+          </div>
+        </article>
+      </a>
 
-      <article class="product-row">
-        <div class="product-image-box">
-          <img src="images/CARAJILLO.jpeg" alt="Carajillo del Tío Pío en lata">
-        </div>
-        <div class="product-info">
-          <h2>Carajillo del Tío Pío</h2>
-          <p class="product-subtitle">Coñac quemado · Café · Limón</p>
-          <p class="product-text">
-            Una bebida con carácter y tradición, reinterpretada para un formato más directo y cómodo.
-            Aquí luego podrás desarrollar su historia y sus particularidades.
-          </p>
-        </div>
-      </article>
+      <a href="carajillo.html" class="product-link">
+        <article class="product-row">
+          <div class="product-image-box">
+            <img src="images/CARAJILLO.jpeg" alt="Carajillo del Tío Pío en lata">
+          </div>
+          <div class="product-info">
+            <h2>Carajillo del Tío Pío</h2>
+            <p class="product-subtitle">Coñac quemado · Café · Limón</p>
+            <p class="product-text">
+              Una bebida con carácter y tradición, reinterpretada para un formato más directo y cómodo.
+              Entra en su página individual para ver toda su información.
+            </p>
+          </div>
+        </article>
+      </a>
 
-      <article class="product-row">
-        <div class="product-image-box">
-          <img src="images/HANGOVER.jpeg" alt="Hangover Killer en lata">
-        </div>
-        <div class="product-info">
-          <h2>Hangover Killer</h2>
-          <p class="product-subtitle">Cítricos · Hierbabuena · Ron</p>
-          <p class="product-text">
-            Una opción más fresca y viva dentro de la colección. Esta base te permitirá más adelante
-            sumar descripción completa, formatos y presentación comercial.
-          </p>
-        </div>
-      </article>
+      <a href="hangover.html" class="product-link">
+        <article class="product-row">
+          <div class="product-image-box">
+            <img src="images/HANGOVER.jpeg" alt="Hangover Killer en lata">
+          </div>
+          <div class="product-info">
+            <h2>Hangover Killer</h2>
+            <p class="product-subtitle">Cítricos · Hierbabuena · Ron</p>
+            <p class="product-text">
+              Una opción más fresca y viva dentro de la colección. Desde aquí se accede a su ficha
+              completa con selección de cantidad y compra.
+            </p>
+          </div>
+        </article>
+      </a>
     </section>
   </main>
 </body>
