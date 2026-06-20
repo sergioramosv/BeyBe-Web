@@ -937,19 +937,5 @@
       </div>
     </div>
   </section>
-  <script>
-  function localStorageDisponible() {
-    try {
-      const clave = "__test_storage__";
-      localStorage.setItem(clave, "ok");
-      localStorage.removeItem(clave);
-      return true;
-    } catch (error) {
-      return false;
-    }
-  }
-
-  console.log("¿localStorage funciona?", localStorageDisponible());
-</script>
-</body>
+  </body>
 </html>
