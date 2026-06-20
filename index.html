@@ -332,7 +332,25 @@
     .product-card {
       display: flex;
       flex-direction: column;
+    }
+
+    /* Enlace completo del producto */
+    .product-link {
+      display: flex;
+      flex-direction: column;
       gap: 22px;
+    }
+
+    .product-link:hover {
+      cursor: pointer;
+    }
+
+    .product-link:hover .product-frame {
+      transform: translateY(-2px);
+    }
+
+    .product-link:hover .product-name {
+      opacity: 0.8;
     }
 
     /* Marco visual de la imagen del producto */
@@ -344,6 +362,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      transition: transform 0.25s ease;
     }
 
     /* Imagen del producto */
@@ -359,6 +378,7 @@
       font-size: 24px;
       line-height: 1;
       margin-bottom: 8px;
+      transition: opacity 0.25s ease;
     }
 
     /* Sabor o composición del producto */
@@ -767,48 +787,54 @@
       <p class="eyebrow">La colección</p>
       <h2 class="title">Nuestras bebidas:</h2>
 
-      <!-- Rejilla de productos -->
+      <!-- Rejilla de productos con acceso a páginas individuales -->
       <section class="products-grid">
         <article class="product-card">
-          <div class="product-frame">
-            <img class="product-image" src="images/BOODY.jpeg" alt="Bloody Mary en lata">
-          </div>
-          <div>
-            <h3 class="product-name">Bloody Mary</h3>
-            <p class="product-flavor">Tomate · Vodka · Especias</p>
-            <div class="product-meta">
-              <span class="price">€4.50</span>
-              <span class="size">33cl · 19% vol</span>
+          <a href="bloody-mary.html" class="product-link">
+            <div class="product-frame">
+              <img class="product-image" src="images/BOODY.jpeg" alt="Bloody Mary en lata">
             </div>
-          </div>
+            <div>
+              <h3 class="product-name">Bloody Mary</h3>
+              <p class="product-flavor">Tomate · Vodka · Especias</p>
+              <div class="product-meta">
+                <span class="price">€4.50</span>
+                <span class="size">33cl · 19% vol</span>
+              </div>
+            </div>
+          </a>
         </article>
 
         <article class="product-card">
-          <div class="product-frame">
-            <img class="product-image" src="images/CARAJILLO.jpeg" alt="Carajillo del Tío Pío en lata">
-          </div>
-          <div>
-            <h3 class="product-name">Carajillo del Tío Pío</h3>
-            <p class="product-flavor">Coñac quemado · Café · Limón</p>
-            <div class="product-meta">
-              <span class="price">€4.50</span>
-              <span class="size">33cl · 8% vol</span>
+          <a href="carajillo-tio-pio.html" class="product-link">
+            <div class="product-frame">
+              <img class="product-image" src="images/CARAJILLO.jpeg" alt="Carajillo del Tío Pío en lata">
             </div>
-          </div>
+            <div>
+              <h3 class="product-name">Carajillo del Tío Pío</h3>
+              <p class="product-flavor">Coñac quemado · Café · Limón</p>
+              <div class="product-meta">
+                <span class="price">€4.50</span>
+                <span class="size">33cl · 8% vol</span>
+              </div>
+            </div>
+          </a>
         </article>
 
         <article class="product-card">
-          <div class="product-frame">
-            <img class="product-image" src="images/HANGOVER.jpeg" alt="Hangover Killer en lata">
-          </div>
-          <div>
-            <h3 class="product-name">Hangover Killer</h3>
-            <p class="product-flavor">Cítricos · Hierbabuena · Ron</p>
-            <div class="product-meta">
-              <span class="price">€4.50</span>
-              <span class="size">33cl</span>
+          <a href="hangover-killer.html" class="product-link">
+            <div class="product-frame">
+              <img class="product-image" src="images/HANGOVER.jpeg" alt="Hangover Killer en lata">
             </div>
-          </div>
+            <div>
+              <h3 class="product-name">Hangover Killer</h3>
+              <p class="product-flavor">Cítricos · Hierbabuena · Ron</p>
+              <div class="product-meta">
+                <span class="price">€4.50</span>
+                <span class="size">33cl</span>
+              </div>
+            </div>
+          </a>
         </article>
       </section>
 
@@ -877,14 +903,14 @@
       <div class="footer-links">
         <div class="footer-column">
           <h4>Productos</h4>
-          <a href="#">Bloody Mary</a>
-          <a href="#">Carajillo del Tío Pío</a>
-          <a href="#">Hangover Killer</a>
+          <a href="bloody-mary.html">Bloody Mary</a>
+          <a href="carajillo-tio-pio.html">Carajillo del Tío Pío</a>
+          <a href="hangover-killer.html">Hangover Killer</a>
         </div>
 
         <div class="footer-column">
           <h4>Empresa</h4>
-          <a href="#">Nuestra Historia</a>
+          <a href="historia.html">Nuestra Historia</a>
           <a href="#">Ingredientes</a>
           <a href="#">Sostenibilidad</a>
         </div>
