@@ -22,11 +22,9 @@
       --dark: #111111;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 
     body {
       background: var(--bg);
@@ -34,10 +32,7 @@
       font-family: "Inter", Arial, sans-serif;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .topbar {
       position: sticky;
@@ -97,11 +92,7 @@
       transform: translateY(-1px);
     }
 
-    .cart-link svg {
-      width: 20px;
-      height: 20px;
-      display: block;
-    }
+    .cart-link svg { width: 20px; height: 20px; display: block; }
 
     .cart-count {
       min-width: 20px;
@@ -153,6 +144,7 @@
       border: 1px solid var(--line);
       padding: 32px;
       max-width: 860px;
+      margin-bottom: 80px;
     }
 
     .history-block p {
@@ -162,15 +154,67 @@
       margin-bottom: 18px;
     }
 
-    .history-block p:last-child {
-      margin-bottom: 0;
+    .history-block p:last-child { margin-bottom: 0; }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 0 0 72px;
+      max-width: 860px;
+    }
+
+    .sostenibilidad-section { max-width: 860px; }
+
+    .sostenibilidad-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .sost-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 28px 24px;
+    }
+
+    .sost-card-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.20em;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    .sost-card-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .sost-card-text {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .sost-note {
+      margin-top: 36px;
+      padding: 24px 28px;
+      border-left: 2px solid var(--accent);
+      background: var(--surface);
+    }
+
+    .sost-note p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
     }
 
     @media (max-width: 720px) {
-      .topbar-inner,
-      .page {
-        width: calc(100% - 24px);
-      }
+      .topbar-inner, .page { width: calc(100% - 24px); }
 
       .topbar-inner {
         min-height: auto;
@@ -188,13 +232,9 @@
         width: 100%;
       }
 
-      .page {
-        padding: 40px 0 56px;
-      }
-
-      .history-block {
-        padding: 20px;
-      }
+      .page { padding: 40px 0 56px; }
+      .history-block { padding: 20px; margin-bottom: 52px; }
+      .sostenibilidad-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -222,6 +262,8 @@
   </header>
 
   <main class="page">
+
+    <!-- ══ HISTORIA ══ -->
     <p class="eyebrow">Historia</p>
     <h1 class="title">Nuestra historia</h1>
     <p class="intro">
@@ -243,42 +285,73 @@
         más completa, más cálida y más personal.
       </p>
     </section>
+
+    <hr class="section-divider">
+
+    <!-- ══ SOSTENIBILIDAD ══ -->
+    <section id="sostenibilidad" class="sostenibilidad-section">
+      <p class="eyebrow">Sostenibilidad</p>
+      <h2 class="title">Nuestro compromiso</h2>
+      <p class="intro">
+        En Be&Be creemos que hacer bien las cosas implica hacerlas con responsabilidad.
+        Desde el envase hasta la logística, tomamos decisiones pensando en el impacto que generamos.
+      </p>
+
+      <div class="sostenibilidad-grid">
+        <div class="sost-card">
+          <p class="sost-card-label">Envase</p>
+          <h3 class="sost-card-title">La lata, un formato eficiente</h3>
+          <p class="sost-card-text">
+            El aluminio es uno de los materiales más reciclables del mundo. Una lata puede
+            reciclarse infinitas veces sin perder sus propiedades, reduciendo significativamente
+            la huella de carbono frente al vidrio en transporte.
+          </p>
+        </div>
+
+        <div class="sost-card">
+          <p class="sost-card-label">Ingredientes</p>
+          <h3 class="sost-card-title">Natural por convicción</h3>
+          <p class="sost-card-text">
+            Trabajamos con ingredientes naturales, sin conservantes artificiales ni colorantes.
+            Menos química, más producto real. Mejor para quien lo bebe y mejor para el entorno.
+          </p>
+        </div>
+
+        <div class="sost-card">
+          <p class="sost-card-label">Logística</p>
+          <h3 class="sost-card-title">Envíos conscientes</h3>
+          <p class="sost-card-text">
+            Optimizamos el embalaje para minimizar residuos en cada envío. Seguimos buscando
+            fórmulas para reducir el impacto del transporte de última milla.
+          </p>
+        </div>
+      </div>
+
+      <div class="sost-note">
+        <p>
+          Este es un camino en construcción. No tenemos todas las respuestas, pero sí el
+          compromiso de mejorar en cada decisión que tomamos. Si tienes ideas o propuestas,
+          escríbenos a <a href="mailto:hola@bebedrinks.es" style="color: var(--accent);">hola@bebedrinks.es</a>.
+        </p>
+      </div>
+    </section>
+
   </main>
 
   <script>
-    /* =========================================
-       CLAVE DEL CARRITO EN EL NAVEGADOR
-       ========================================= */
     const CART_KEY = "bebeb-drinks-cart";
 
-    /* =========================================
-       OBTENER EL CARRITO GUARDADO
-       - Lee localStorage
-       - Si no hay datos, devuelve []
-       ========================================= */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
     }
 
-    /* =========================================
-       ACTUALIZAR EL CONTADOR DEL ICONO
-       - Cuenta productos distintos del carrito
-       - Escribe el número en #cartCount
-       ========================================= */
     function updateCartCount() {
       const cart = getCart();
-      const distinctProducts = cart.length;
       const cartCount = document.getElementById("cartCount");
-
-      if (cartCount) {
-        cartCount.textContent = distinctProducts;
-      }
+      if (cartCount) cartCount.textContent = cart.length;
     }
 
-    /* =========================================
-       EJECUCIÓN INICIAL
-       ========================================= */
     updateCartCount();
   </script>
 </body>
