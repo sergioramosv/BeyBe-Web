@@ -31,63 +31,114 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; height: auto; }
 
-    /* TOPBAR */
     .topbar {
-      position: sticky; top: 0; z-index: 30;
+      position: sticky;
+      top: 0;
+      z-index: 30;
       background: rgba(251,248,243,0.95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
     }
+
     .topbar-inner {
       width: min(1120px, calc(100% - 40px));
-      margin: 0 auto; min-height: 86px;
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 24px;
+      margin: 0 auto;
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
-    .brand { display: flex; align-items: center; gap: 12px; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .brand-mark {
-      width: 38px; height: 38px; border-radius: 50%;
-      overflow: hidden; flex: 0 0 38px; background: #111;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 38px;
+      background: #111;
     }
-    .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .brand-name {
       font-family: "Cormorant Garamond", serif;
-      font-size: 24px; line-height: 1; letter-spacing: -0.02em;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: -0.02em;
     }
+
     .nav {
-      display: flex; gap: 38px;
-      text-transform: uppercase; letter-spacing: 0.16em;
-      font-size: 12px; color: var(--muted);
-      margin-left: auto; align-items: center;
+      display: flex;
+      gap: 38px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: auto;
+      align-items: center;
     }
+
     .cart-link {
-      min-width: 42px; height: 42px;
+      min-width: 42px;
+      height: 42px;
       border: 1px solid var(--line);
-      display: inline-flex; align-items: center;
-      justify-content: center; gap: 8px;
-      color: var(--accent); background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--accent);
+      background: transparent;
       padding: 0 10px;
       transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
-    .cart-link:hover { background: var(--surface-soft); border-color: #dcccba; transform: translateY(-1px); }
-    .cart-link svg { width: 20px; height: 20px; display: block; }
-    .cart-count {
-      min-width: 20px; height: 20px; border-radius: 999px;
-      background: #111; color: white;
-      display: inline-flex; align-items: center;
-      justify-content: center; font-size: 11px; padding: 0 6px;
+
+    .cart-link:hover {
+      background: var(--surface-soft);
+      border-color: #dcccba;
+      transform: translateY(-1px);
     }
 
-    /* HERO LEGAL */
+    .cart-link svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .cart-count {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #111;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      padding: 0 6px;
+    }
+
     .legal-hero {
       border-bottom: 1px solid var(--line);
       background: var(--surface);
       padding: 64px 0 48px;
     }
+
     .legal-hero-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
+
     .legal-eyebrow {
       color: var(--accent);
       text-transform: uppercase;
@@ -95,6 +146,7 @@
       font-size: 12px;
       margin-bottom: 16px;
     }
+
     .legal-hero h1 {
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(42px, 6vw, 72px);
@@ -103,12 +155,12 @@
       font-weight: 500;
       margin-bottom: 16px;
     }
+
     .legal-hero p {
       color: var(--muted);
       font-size: 14px;
     }
 
-    /* TABS */
     .tabs-wrap {
       border-bottom: 1px solid var(--line);
       background: var(--surface);
@@ -116,6 +168,7 @@
       top: 86px;
       z-index: 20;
     }
+
     .tabs {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -123,8 +176,10 @@
       gap: 0;
       overflow-x: auto;
     }
+
     .tab-btn {
-      background: none; border: none;
+      background: none;
+      border: none;
       padding: 18px 24px;
       font-size: 12px;
       text-transform: uppercase;
@@ -136,20 +191,30 @@
       transition: color 0.2s, border-color 0.2s;
       font-family: "Inter", sans-serif;
     }
-    .tab-btn:hover { color: var(--text); }
+
+    .tab-btn:hover {
+      color: var(--text);
+    }
+
     .tab-btn.active {
       color: var(--text);
       border-bottom-color: var(--text);
     }
 
-    /* CONTENIDO LEGAL */
     .legal-body {
       width: min(760px, calc(100% - 40px));
       margin: 0 auto;
       padding: 64px 0 96px;
     }
-    .legal-section { display: none; }
-    .legal-section.active { display: block; }
+
+    .legal-section {
+      display: none;
+      scroll-margin-top: 180px;
+    }
+
+    .legal-section.active {
+      display: block;
+    }
 
     .legal-section h2 {
       font-family: "Cormorant Garamond", serif;
@@ -159,6 +224,7 @@
       font-weight: 500;
       margin-bottom: 32px;
     }
+
     .legal-section h3 {
       font-size: 14px;
       font-weight: 600;
@@ -167,6 +233,7 @@
       margin: 40px 0 14px;
       color: var(--text);
     }
+
     .legal-section p {
       font-size: 15px;
       line-height: 1.8;
@@ -174,10 +241,12 @@
       margin-bottom: 18px;
       max-width: 70ch;
     }
+
     .legal-section ul {
       list-style: none;
       margin-bottom: 18px;
     }
+
     .legal-section ul li {
       font-size: 15px;
       line-height: 1.8;
@@ -186,18 +255,23 @@
       position: relative;
       margin-bottom: 8px;
     }
+
     .legal-section ul li::before {
       content: "—";
       position: absolute;
       left: 0;
       color: var(--soft);
     }
+
     .legal-section a {
       color: var(--text);
       border-bottom: 1px solid var(--line);
       transition: border-color 0.2s;
     }
-    .legal-section a:hover { border-color: var(--text); }
+
+    .legal-section a:hover {
+      border-color: var(--text);
+    }
 
     .update-note {
       display: inline-block;
@@ -211,13 +285,13 @@
       width: 100%;
     }
 
-    /* TABLA COOKIES */
     .cookie-table {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 32px;
       font-size: 13px;
     }
+
     .cookie-table th {
       text-align: left;
       padding: 12px 14px;
@@ -228,6 +302,7 @@
       color: var(--muted);
       font-weight: 500;
     }
+
     .cookie-table td {
       padding: 14px 14px;
       border-bottom: 1px solid var(--line);
@@ -235,24 +310,29 @@
       color: #3f3934;
       vertical-align: top;
     }
-    .cookie-table tr:last-child td { border-bottom: none; }
 
-    /* FOOTER */
+    .cookie-table tr:last-child td {
+      border-bottom: none;
+    }
+
     .ending {
       background: var(--dark-bg);
       color: var(--dark-text);
       padding: 56px 0 28px;
     }
+
     .ending-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
+
     .footer-links {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
       padding: 0 0 48px;
     }
+
     .footer-column h4 {
       text-transform: uppercase;
       letter-spacing: 0.18em;
@@ -260,12 +340,19 @@
       color: var(--dark-muted);
       margin-bottom: 18px;
     }
+
     .footer-column a {
       display: block;
       margin-bottom: 14px;
       color: var(--dark-text);
       opacity: 0.92;
     }
+
+    .footer-column a:hover {
+      opacity: 1;
+      color: #ffffff;
+    }
+
     .footer-bottom {
       border-top: 1px solid var(--dark-line);
       padding-top: 24px;
@@ -275,29 +362,56 @@
       color: var(--dark-muted);
       font-size: 13px;
     }
+
     .footer-bottom .footer-brand {
       font-family: "Cormorant Garamond", serif;
       font-size: 22px;
       color: var(--dark-text);
     }
 
-    /* RESPONSIVE */
     @media (max-width: 980px) {
-      .footer-links { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; }
+      .footer-links {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
     }
+
     @media (max-width: 720px) {
-      .topbar-inner { min-height: auto; padding: 18px 0; flex-wrap: wrap; gap: 16px; }
-      .nav { gap: 18px; flex-wrap: wrap; margin-left: 0; order: 3; width: 100%; }
-      .tabs-wrap { top: 72px; }
-      .tab-btn { padding: 14px 16px; font-size: 11px; }
-      .legal-body { padding: 40px 0 64px; }
+      .topbar-inner {
+        min-height: auto;
+        padding: 18px 0;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-left: 0;
+        order: 3;
+        width: 100%;
+      }
+
+      .tabs-wrap {
+        top: 72px;
+      }
+
+      .tab-btn {
+        padding: 14px 16px;
+        font-size: 11px;
+      }
+
+      .legal-body {
+        padding: 40px 0 64px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- CABECERA -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
@@ -306,12 +420,14 @@
         </div>
         <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
+
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="historia.html">Historia</a>
         <a href="contacto.html">Contacto</a>
       </nav>
+
       <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
@@ -323,7 +439,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <div class="legal-hero">
     <div class="legal-hero-inner">
       <p class="legal-eyebrow">Información legal</p>
@@ -332,21 +447,18 @@
     </div>
   </div>
 
-  <!-- TABS -->
   <div class="tabs-wrap">
     <div class="tabs">
       <button class="tab-btn active" data-tab="aviso">Aviso Legal</button>
-      <button class="tab-btn" data-tab="condiciones">Condiciones de compra</button>
+      <button class="tab-btn" data-tab="terminos">Condiciones de compra</button>
       <button class="tab-btn" data-tab="privacidad">Privacidad</button>
       <button class="tab-btn" data-tab="cookies">Cookies</button>
     </div>
   </div>
 
-  <!-- CONTENIDO -->
   <main class="legal-body">
 
-    <!-- AVISO LEGAL -->
-    <section class="legal-section active" id="tab-aviso">
+    <section class="legal-section active" id="aviso">
       <h2>Aviso Legal</h2>
 
       <h3>1. Titular del sitio web</h3>
@@ -377,8 +489,7 @@
       <span class="update-note">Última actualización: junio 2025</span>
     </section>
 
-    <!-- CONDICIONES DE COMPRA -->
-    <section class="legal-section" id="tab-condiciones">
+    <section class="legal-section" id="terminos">
       <h2>Condiciones de compra</h2>
 
       <h3>1. Quién puede comprar</h3>
@@ -397,29 +508,28 @@
       <ul>
         <li>Envíos disponibles en España peninsular e Islas Baleares.</li>
         <li>Plazo estimado de entrega: 2–5 días hábiles desde la confirmación del pedido.</li>
-        <li>En todo caso, el plazo máximo de entrega es de 30 días naturales desde la aceptación del pedido, conforme al artículo 66 bis del TRLGDCU.</li>
+        <li>En todo caso, el plazo máximo de entrega es de 30 días naturales desde la aceptación del pedido.</li>
         <li>Los gastos de envío se indican en el proceso de compra antes de confirmar el pago.</li>
       </ul>
 
       <h3>6. Derecho de desistimiento</h3>
-      <p>De acuerdo con el artículo 102 del Real Decreto Legislativo 1/2007, el usuario dispone de un plazo de <strong>14 días naturales</strong> desde la recepción del pedido para ejercer el derecho de desistimiento, sin necesidad de indicar el motivo.</p>
+      <p>De acuerdo con la normativa española de consumidores, el usuario dispone de un plazo de <strong>14 días naturales</strong> desde la recepción del pedido para ejercer el derecho de desistimiento, sin necesidad de indicar el motivo.</p>
       <p>Para ejercerlo, deberá contactarnos en <strong>hola@bebedrinksspain.com</strong> indicando su intención de desistir y el número de pedido. Los productos deberán devolverse en su embalaje original, sin abrir y en perfecto estado. Los gastos de devolución correrán a cargo del usuario en caso de desistimiento.</p>
 
       <h3>7. Devolución por producto defectuoso o error en el pedido</h3>
       <p>Si el producto recibido presenta algún defecto o no coincide con el pedido realizado, Be&Be Drinks Spain asumirá los gastos de recogida y procederá al reenvío del producto correcto o al reembolso íntegro del importe abonado, incluidos los gastos de envío originales.</p>
-      <p>Para informar de cualquier incidencia, escriba a <strong>hola@bebedrinksspain.com</strong> en un plazo máximo de 7 días desde la recepción del pedido, adjuntando fotografías del producto y del embalaje.</p>
+      <p>Para informar de cualquier incidencia, escribe a <strong>hola@bebedrinksspain.com</strong> en un plazo máximo de 7 días desde la recepción del pedido, adjuntando fotografías del producto y del embalaje.</p>
 
       <h3>8. Reembolsos</h3>
-      <p>Los reembolsos se gestionarán a través del mismo método de pago utilizado (Stripe) en un plazo máximo de 14 días naturales desde la confirmación de la devolución por nuestra parte, una vez comprobado que los productos cumplen las condiciones establecidas.</p>
+      <p>Los reembolsos se gestionarán a través del mismo método de pago utilizado en un plazo máximo de 14 días naturales desde la confirmación de la devolución por nuestra parte, una vez comprobado que los productos cumplen las condiciones establecidas.</p>
 
       <h3>9. Ley aplicable</h3>
-      <p>Las presentes condiciones se rigen por la legislación española, en particular por el Real Decreto Legislativo 1/2007, de 16 de noviembre, por el que se aprueba el Texto Refundido de la Ley General para la Defensa de los Consumidores y Usuarios, y por la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información.</p>
+      <p>Las presentes condiciones se rigen por la legislación española, en particular por la normativa aplicable en materia de defensa de consumidores y usuarios y de comercio electrónico.</p>
 
       <span class="update-note">Última actualización: junio 2025</span>
     </section>
 
-    <!-- PRIVACIDAD -->
-    <section class="legal-section" id="tab-privacidad">
+    <section class="legal-section" id="privacidad">
       <h2>Política de Privacidad</h2>
 
       <h3>1. Responsable del tratamiento</h3>
@@ -437,39 +547,38 @@
         <li>Dirección de envío y facturación</li>
         <li>Correo electrónico</li>
         <li>Teléfono de contacto</li>
-        <li>Datos de pago (gestionados íntegramente por Stripe; no los almacenamos nosotros)</li>
+        <li>Datos de pago, gestionados íntegramente por Stripe</li>
       </ul>
       <p>No requerimos registro de usuario previo. Los datos se recogen únicamente en el momento de realizar una compra o de contactar con nosotros.</p>
 
       <h3>3. Finalidad y base jurídica</h3>
       <ul>
-        <li><strong>Gestión del pedido y envío:</strong> base jurídica — ejecución del contrato (art. 6.1.b RGPD).</li>
-        <li><strong>Facturación y obligaciones fiscales:</strong> base jurídica — cumplimiento de obligación legal (art. 6.1.c RGPD).</li>
-        <li><strong>Atención al cliente:</strong> base jurídica — ejecución del contrato o interés legítimo.</li>
-        <li><strong>Comunicaciones comerciales propias:</strong> solo si el usuario ha dado su consentimiento expreso; base jurídica — consentimiento (art. 6.1.a RGPD).</li>
+        <li><strong>Gestión del pedido y envío:</strong> ejecución del contrato.</li>
+        <li><strong>Facturación y obligaciones fiscales:</strong> cumplimiento de obligación legal.</li>
+        <li><strong>Atención al cliente:</strong> ejecución del contrato o interés legítimo.</li>
+        <li><strong>Comunicaciones comerciales propias:</strong> solo si el usuario ha dado su consentimiento expreso.</li>
       </ul>
 
       <h3>4. Proveedores y encargados del tratamiento</h3>
       <p>Para prestar el servicio, compartimos o permitimos el acceso a los datos a los siguientes proveedores, que actúan como encargados del tratamiento bajo nuestras instrucciones:</p>
       <ul>
-        <li><strong>GitHub Pages</strong> (Microsoft Corp.): alojamiento del sitio web. <a href="https://docs.github.com/es/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">Política de privacidad</a>.</li>
-        <li><strong>Cloudflare, Inc.</strong>: CDN, seguridad y protección frente a ataques. <a href="https://www.cloudflare.com/es-es/privacypolicy/" target="_blank" rel="noopener">Política de privacidad</a>.</li>
-        <li><strong>Stripe, Inc.</strong>: pasarela de pago segura. Be&Be Drinks Spain no almacena datos de tarjetas. <a href="https://stripe.com/es/privacy" target="_blank" rel="noopener">Política de privacidad</a>.</li>
-        <li><strong>Empresa de transporte</strong>: a quien se ceden los datos de nombre y dirección de entrega para gestionar el envío.</li>
+        <li><strong>GitHub Pages</strong> (Microsoft Corp.): alojamiento del sitio web. <a href="https://docs.github.com/es/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">Política de privacidad</a>.</li>
+        <li><strong>Cloudflare, Inc.</strong>: CDN, seguridad y protección frente a ataques. <a href="https://www.cloudflare.com/es-es/privacypolicy/" target="_blank" rel="noopener noreferrer">Política de privacidad</a>.</li>
+        <li><strong>Stripe, Inc.</strong>: pasarela de pago segura. <a href="https://stripe.com/es/privacy" target="_blank" rel="noopener noreferrer">Política de privacidad</a>.</li>
+        <li><strong>Empresa de transporte</strong>: para gestionar la entrega del pedido.</li>
       </ul>
       <p>No cedemos datos a terceros con fines comerciales propios.</p>
 
       <h3>5. Plazo de conservación</h3>
-      <p>Los datos se conservarán durante el tiempo necesario para la ejecución y cumplimiento del contrato, y posteriormente durante los plazos establecidos por la legislación fiscal y mercantil española (en general, 5 años para datos de facturación). Los datos de envío se eliminan una vez entregado el pedido y resueltos posibles incidentes.</p>
+      <p>Los datos se conservarán durante el tiempo necesario para la ejecución y cumplimiento del contrato, y posteriormente durante los plazos establecidos por la legislación fiscal y mercantil española. Los datos de envío se eliminan una vez entregado el pedido y resueltos posibles incidentes.</p>
 
       <h3>6. Tus derechos</h3>
-      <p>Puedes ejercer en cualquier momento los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de tus datos escribiendo a <strong>hola@bebedrinksspain.com</strong>. También tienes derecho a presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos (AEPD)</a>.</p>
+      <p>Puedes ejercer en cualquier momento los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de tus datos escribiendo a <strong>hola@bebedrinksspain.com</strong>. También tienes derecho a presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos (AEPD)</a>.</p>
 
       <span class="update-note">Última actualización: junio 2025</span>
     </section>
 
-    <!-- COOKIES -->
-    <section class="legal-section" id="tab-cookies">
+    <section class="legal-section" id="cookies">
       <h2>Política de Cookies</h2>
 
       <p>Be&Be Drinks Spain utiliza cookies y tecnologías similares en su sitio web. A continuación explicamos qué cookies se instalan, para qué sirven y cómo puedes controlarlas.</p>
@@ -488,9 +597,9 @@
         </thead>
         <tbody>
           <tr>
-            <td><code>beybe-cart</code></td>
-            <td>Almacena el contenido del carrito de compra en el navegador (localStorage). Técnica y necesaria para el funcionamiento del sitio.</td>
-            <td>Sesión / hasta que se vacía el carrito</td>
+            <td><code>bebeb-drinks-cart</code></td>
+            <td>Almacena el contenido del carrito de compra en el navegador. Técnica y necesaria para el funcionamiento del sitio.</td>
+            <td>Sesión / hasta vaciar carrito</td>
           </tr>
         </tbody>
       </table>
@@ -507,27 +616,27 @@
         <tbody>
           <tr>
             <td><strong>Cloudflare</strong></td>
-            <td>Cookies de seguridad, protección frente a ataques (DDoS) y optimización de la caché. Son técnicas y necesarias.</td>
+            <td>Cookies de seguridad, protección frente a ataques y optimización técnica del sitio.</td>
             <td>Sesión / hasta 1 año</td>
           </tr>
           <tr>
             <td><strong>Stripe</strong></td>
-            <td>Cookies necesarias para el funcionamiento seguro de la pasarela de pago: prevención de fraude, identificación de sesión de pago.</td>
+            <td>Cookies necesarias para el funcionamiento seguro de la pasarela de pago, prevención de fraude e identificación de la sesión de pago.</td>
             <td>Sesión</td>
           </tr>
         </tbody>
       </table>
 
       <h3>¿Usamos cookies analíticas o de marketing?</h3>
-      <p>Actualmente este sitio <strong>no instala cookies analíticas ni de publicidad</strong>. Si en el futuro se añaden (por ejemplo, Google Analytics), se actualizará esta política y se solicitará tu consentimiento previo mediante un banner visible.</p>
+      <p>Actualmente este sitio <strong>no instala cookies analíticas ni de publicidad</strong>. Si en el futuro se añaden, se actualizará esta política y se solicitará tu consentimiento previo mediante un banner visible.</p>
 
       <h3>¿Cómo controlar las cookies?</h3>
       <p>Puedes configurar tu navegador para bloquear o eliminar las cookies en cualquier momento. Ten en cuenta que deshabilitar las cookies técnicas puede afectar al correcto funcionamiento del carrito de compra y del proceso de pago.</p>
       <ul>
-        <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Cómo gestionar cookies en Edge / Internet Explorer</a></li>
-        <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener">Cómo gestionar cookies en Firefox</a></li>
-        <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank" rel="noopener">Cómo gestionar cookies en Chrome</a></li>
-        <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Cómo gestionar cookies en Safari</a></li>
+        <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Cómo gestionar cookies en Edge / Internet Explorer</a></li>
+        <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer">Cómo gestionar cookies en Firefox</a></li>
+        <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank" rel="noopener noreferrer">Cómo gestionar cookies en Chrome</a></li>
+        <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Cómo gestionar cookies en Safari</a></li>
       </ul>
 
       <span class="update-note">Última actualización: junio 2025</span>
@@ -535,7 +644,6 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="ending">
     <div class="ending-inner">
       <div class="footer-links">
@@ -545,19 +653,22 @@
           <a href="carajillo.html">Carajillo del Tío Pío</a>
           <a href="hangover.html">Hangover Killer</a>
         </div>
+
         <div class="footer-column">
           <h4>Empresa</h4>
           <a href="historia.html">Nuestra Historia</a>
-          <a href="#">Ingredientes</a>
-          <a href="#">Sostenibilidad</a>
+          <a href="empresa.html#ingredientes">Ingredientes</a>
+          <a href="empresa.html#sostenibilidad">Sostenibilidad</a>
         </div>
+
         <div class="footer-column">
           <h4>Legal</h4>
-          <a href="legal.html">Aviso Legal</a>
-          <a href="legal.html">Privacidad</a>
-          <a href="legal.html">Cookies</a>
+          <a href="legal.html#aviso">Aviso Legal</a>
+          <a href="legal.html#privacidad">Privacidad</a>
+          <a href="legal.html#cookies">Cookies</a>
         </div>
       </div>
+
       <div class="footer-bottom">
         <div class="footer-brand">Be&Be Drinks Spain</div>
         <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Venta prohibida a menores de 18 años. Bebe con responsabilidad.</div>
@@ -566,38 +677,52 @@
   </footer>
 
   <script>
-    /* === TABS === */
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabSections = document.querySelectorAll('.legal-section');
 
+    function activateTab(tabId, updateHash = true) {
+      const validIds = ['aviso', 'terminos', 'privacidad', 'cookies'];
+      const finalTab = validIds.includes(tabId) ? tabId : 'aviso';
+
+      tabBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === finalTab);
+      });
+
+      tabSections.forEach(section => {
+        section.classList.toggle('active', section.id === finalTab);
+      });
+
+      if (updateHash) {
+        history.replaceState(null, '', '#' + finalTab);
+      }
+    }
+
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        const target = btn.dataset.tab;
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabSections.forEach(s => s.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('tab-' + target).classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        activateTab(btn.dataset.tab, true);
       });
     });
 
-    /* Activar tab por hash en la URL: legal.html#privacidad */
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      const matchBtn = document.querySelector(`[data-tab="${hash}"]`);
-      if (matchBtn) matchBtn.click();
+    function activateTabFromHash() {
+      const hash = window.location.hash.replace('#', '');
+      activateTab(hash || 'aviso', false);
     }
 
-    /* === CARRITO === */
+    window.addEventListener('hashchange', activateTabFromHash);
+    activateTabFromHash();
+
     const CART_KEY = "bebeb-drinks-cart";
+
     function getCart() {
-      const s = localStorage.getItem(CART_KEY);
-      return s ? JSON.parse(s) : [];
+      const savedCart = localStorage.getItem(CART_KEY);
+      return savedCart ? JSON.parse(savedCart) : [];
     }
+
     function updateCartCount() {
       const el = document.getElementById("cartCount");
       if (el) el.textContent = getCart().length;
     }
+
     updateCartCount();
   </script>
 </body>
