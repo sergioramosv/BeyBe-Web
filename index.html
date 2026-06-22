@@ -515,34 +515,13 @@
       letter-spacing: -0.03em;
     }
 
-    .newsletter {
-      max-width: 540px;
-      margin-bottom: 72px;
-    }
-
-    .newsletter-label {
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-size: 12px;
-      color: #9f9a91;
-      margin-bottom: 22px;
-    }
-
-    .newsletter-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.16);
-      color: rgba(255,255,255,0.52);
-      font-size: 17px;
-    }
-
-    .newsletter-arrow {
-      font-size: 24px;
-      color: rgba(255,255,255,0.65);
-    }
+    /* Se elimina el bloque newsletter del footer.
+       Por eso no hacen falta ya estilos para:
+       .newsletter
+       .newsletter-label
+       .newsletter-row
+       .newsletter-arrow
+    */
 
     .footer-links {
       display: grid;
@@ -699,10 +678,6 @@
       .ending-brand {
         margin-bottom: 52px;
       }
-
-      .newsletter {
-        margin-bottom: 48px;
-      }
     }
   </style>
 </head>
@@ -720,12 +695,15 @@
         <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
 
-      <!-- Menú principal -->
+      <!-- Menú principal
+           CAMBIO:
+           - Se elimina "Historia"
+           - Se elimina "Contacto"
+           - Se sustituye por "Nosotros" apuntando a nosotros.html -->
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
-        <a href="historia.html">Historia</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="nosotros.html">Nosotros</a>
       </nav>
 
       <!-- Carrito -->
@@ -891,14 +869,8 @@
         <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
 
-      <!-- Zona newsletter -->
-      <div class="newsletter">
-        <p class="newsletter-label">Únete a la lista</p>
-        <div class="newsletter-row">
-          <span>tu@email.com</span>
-          <span class="newsletter-arrow">→</span>
-        </div>
-      </div>
+      <!-- Se elimina completamente el bloque newsletter
+           que antes contenía "Únete a la lista" y el email -->
 
       <!-- Enlaces del footer -->
       <div class="footer-links">
@@ -911,13 +883,13 @@
         </div>
 
         <!-- Columna empresa
-             CAMBIO 1: "Ingredientes" ahora es "Contacto" y enlaza a contacto.html
-             CAMBIO 2: "Sostenibilidad" ahora enlaza a historia.html -->
+             Se actualiza "Nuestra Historia" para apuntar a nosotros.html
+             Se mantiene Contacto y Sostenibilidad de momento -->
         <div class="footer-column">
           <h4>Empresa</h4>
-          <a href="historia.html">Nuestra Historia</a>
+          <a href="nosotros.html">Nuestra Historia</a>
           <a href="contacto.html">Contacto</a>
-          <a href="historia.html">Sostenibilidad</a>
+          <a href="nosotros.html">Sostenibilidad</a>
         </div>
 
         <!-- Columna legal -->
