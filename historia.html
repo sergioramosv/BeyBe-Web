@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Configuración básica del documento -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título de la página -->
   <title>Historia | Be&Be Drinks Spain</title>
 
+  <!-- Tipografías principales -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    /* =========================
+       VARIABLES GLOBALES
+    ========================= */
     :root {
       --bg: #f7f3ec;
       --surface: #fbf8f3;
@@ -20,11 +27,26 @@
       --soft: #aa9a88;
       --accent: #c7a27d;
       --dark: #111111;
+
+      --dark-bg: #141913;
+      --dark-text: #f2ede5;
+      --dark-muted: #a8a39b;
+      --dark-line: rgba(255,255,255,0.12);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* =========================
+       RESET GENERAL
+    ========================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
 
     body {
       background: var(--bg);
@@ -32,8 +54,20 @@
       font-family: "Inter", Arial, sans-serif;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* =========================
+       CABECERA
+    ========================= */
     .topbar {
       position: sticky;
       top: 0;
@@ -92,7 +126,11 @@
       transform: translateY(-1px);
     }
 
-    .cart-link svg { width: 20px; height: 20px; display: block; }
+    .cart-link svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
 
     .cart-count {
       min-width: 20px;
@@ -108,6 +146,9 @@
       padding: 0 6px;
     }
 
+    /* =========================
+       CONTENIDO PRINCIPAL
+    ========================= */
     .page {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -139,12 +180,56 @@
       margin-bottom: 28px;
     }
 
+    /* =========================
+       PESTAÑAS
+    ========================= */
+    .tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 0 0 36px;
+    }
+
+    .tab-button {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      padding: 12px 18px;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-button:hover {
+      background: var(--surface-soft);
+      color: var(--text);
+    }
+
+    .tab-button.active {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* =========================
+       BLOQUE HISTORIA
+    ========================= */
     .history-block {
       background: var(--surface);
       border: 1px solid var(--line);
       padding: 32px;
       max-width: 860px;
-      margin-bottom: 80px;
+      margin-bottom: 40px;
     }
 
     .history-block p {
@@ -154,16 +239,16 @@
       margin-bottom: 18px;
     }
 
-    .history-block p:last-child { margin-bottom: 0; }
-
-    .section-divider {
-      border: none;
-      border-top: 1px solid var(--line);
-      margin: 0 0 72px;
-      max-width: 860px;
+    .history-block p:last-child {
+      margin-bottom: 0;
     }
 
-    .sostenibilidad-section { max-width: 860px; }
+    /* =========================
+       BLOQUE SOSTENIBILIDAD
+    ========================= */
+    .sostenibilidad-section {
+      max-width: 860px;
+    }
 
     .sostenibilidad-grid {
       display: grid;
@@ -213,8 +298,119 @@
       font-size: 15px;
     }
 
+    /* =========================
+       FOOTER OSCURO
+    ========================= */
+    .ending {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 84px 0 28px;
+    }
+
+    .ending-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .ending-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(78px, 13vw, 150px);
+      line-height: 0.84;
+      letter-spacing: -0.055em;
+      font-weight: 500;
+      margin-bottom: 32px;
+      max-width: 760px;
+    }
+
+    .ending-title .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.20);
+      opacity: 0.9;
+    }
+
+    .ending-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 96px;
+      color: #d8d0c4;
+    }
+
+    .ending-brand .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 38px;
+      background: #0b0d0b;
+    }
+
+    .ending-brand .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ending-brand .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      padding: 28px 0 48px;
+    }
+
+    .footer-column h4 {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--dark-muted);
+      margin-bottom: 18px;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--dark-text);
+      opacity: 0.92;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      opacity: 1;
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--dark-line);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--dark-muted);
+      font-size: 13px;
+    }
+
+    .footer-bottom .footer-brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      color: var(--dark-text);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
     @media (max-width: 720px) {
-      .topbar-inner, .page { width: calc(100% - 24px); }
+      .topbar-inner,
+      .page,
+      .ending-inner {
+        width: calc(100% - 24px);
+      }
 
       .topbar-inner {
         min-height: auto;
@@ -232,17 +428,44 @@
         width: 100%;
       }
 
-      .page { padding: 40px 0 56px; }
-      .history-block { padding: 20px; margin-bottom: 52px; }
-      .sostenibilidad-grid { grid-template-columns: 1fr; }
+      .page {
+        padding: 40px 0 56px;
+      }
+
+      .history-block {
+        padding: 20px;
+        margin-bottom: 32px;
+      }
+
+      .sostenibilidad-grid,
+      .footer-links {
+        grid-template-columns: 1fr;
+      }
+
+      .ending {
+        padding: 56px 0 24px;
+      }
+
+      .ending-brand {
+        margin-bottom: 52px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- =========================
+       CABECERA
+  ========================= -->
   <header class="topbar">
     <div class="topbar-inner">
+      <!-- Nombre de marca -->
       <div class="brand-name">Be&Be Drinks Spain</div>
 
+      <!-- Navegación principal -->
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
@@ -250,6 +473,7 @@
         <a href="contacto.html">Contacto</a>
       </nav>
 
+      <!-- Carrito -->
       <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
@@ -261,97 +485,198 @@
     </div>
   </header>
 
+  <!-- =========================
+       CONTENIDO PRINCIPAL
+  ========================= -->
   <main class="page">
-
-    <!-- ══ HISTORIA ══ -->
+    <!-- Cabecera de la página -->
     <p class="eyebrow">Historia</p>
     <h1 class="title">Nuestra historia</h1>
     <p class="intro">
-      Esta página será el espacio donde contar el origen de Be&Be, la idea del proyecto,
-      el proceso artesanal y la personalidad de la marca.
+      En esta página puedes separar el relato de marca en dos bloques claros:
+      por un lado el origen de Be&Be y por otro el compromiso con la sostenibilidad.
     </p>
 
-    <section class="history-block">
-      <p>
-        Be&Be nace con la intención de dar forma a una pequeña colección de bebidas con carácter propio,
-        preparadas con cuidado y pensadas para disfrutarse de una manera directa y sencilla.
-      </p>
-      <p>
-        Aquí más adelante podréis explicar quién está detrás del proyecto, cómo surge la idea,
-        qué tradición o inspiración hay en cada receta y qué hace especial a la marca.
-      </p>
-      <p>
-        Por ahora esta es una base visual limpia sobre la que luego podremos construir una historia
-        más completa, más cálida y más personal.
-      </p>
-    </section>
+    <!-- Pestañas -->
+    <div class="tabs">
+      <button class="tab-button active" data-tab="historia">Historia / Origen</button>
+      <button class="tab-button" data-tab="sostenibilidad">Sostenibilidad</button>
+    </div>
 
-    <hr class="section-divider">
-
-    <!-- ══ SOSTENIBILIDAD ══ -->
-    <section id="sostenibilidad" class="sostenibilidad-section">
-      <p class="eyebrow">Sostenibilidad</p>
-      <h2 class="title">Nuestro compromiso</h2>
-      <p class="intro">
-        En Be&Be creemos que hacer bien las cosas implica hacerlas con responsabilidad.
-        Desde el envase hasta la logística, tomamos decisiones pensando en el impacto que generamos.
-      </p>
-
-      <div class="sostenibilidad-grid">
-        <div class="sost-card">
-          <p class="sost-card-label">Envase</p>
-          <h3 class="sost-card-title">La lata, un formato eficiente</h3>
-          <p class="sost-card-text">
-            El aluminio es uno de los materiales más reciclables del mundo. Una lata puede
-            reciclarse infinitas veces sin perder sus propiedades, reduciendo significativamente
-            la huella de carbono frente al vidrio en transporte.
-          </p>
-        </div>
-
-        <div class="sost-card">
-          <p class="sost-card-label">Ingredientes</p>
-          <h3 class="sost-card-title">Natural por convicción</h3>
-          <p class="sost-card-text">
-            Trabajamos con ingredientes naturales, sin conservantes artificiales ni colorantes.
-            Menos química, más producto real. Mejor para quien lo bebe y mejor para el entorno.
-          </p>
-        </div>
-
-        <div class="sost-card">
-          <p class="sost-card-label">Logística</p>
-          <h3 class="sost-card-title">Envíos conscientes</h3>
-          <p class="sost-card-text">
-            Optimizamos el embalaje para minimizar residuos en cada envío. Seguimos buscando
-            fórmulas para reducir el impacto del transporte de última milla.
-          </p>
-        </div>
-      </div>
-
-      <div class="sost-note">
+    <!-- =========================
+         PANEL 1: HISTORIA / ORIGEN
+    ========================= -->
+    <section id="historia" class="tab-panel active">
+      <section class="history-block">
         <p>
-          Este es un camino en construcción. No tenemos todas las respuestas, pero sí el
-          compromiso de mejorar en cada decisión que tomamos. Si tienes ideas o propuestas,
-          escríbenos a <a href="mailto:hola@bebedrinks.es" style="color: var(--accent);">hola@bebedrinks.es</a>.
+          Be&Be nace con la intención de dar forma a una pequeña colección de bebidas con carácter propio,
+          preparadas con cuidado y pensadas para disfrutarse de una manera directa y sencilla.
         </p>
-      </div>
+        <p>
+          Aquí podéis contar quién está detrás del proyecto, cómo surge la idea,
+          qué tradición o inspiración hay en cada receta y qué hace especial a la marca.
+        </p>
+        <p>
+          Este espacio funciona como la parte más emocional y más humana de la marca:
+          el origen, la filosofía y el motivo por el que Be&Be existe.
+        </p>
+      </section>
     </section>
 
+    <!-- =========================
+         PANEL 2: SOSTENIBILIDAD
+    ========================= -->
+    <section id="sostenibilidad" class="tab-panel">
+      <section class="sostenibilidad-section">
+        <p class="eyebrow">Sostenibilidad</p>
+        <h2 class="title">Nuestro compromiso</h2>
+        <p class="intro">
+          En Be&Be creemos que hacer bien las cosas implica hacerlas con responsabilidad.
+          Desde el envase hasta la logística, tomamos decisiones pensando en el impacto que generamos.
+        </p>
+
+        <div class="sostenibilidad-grid">
+          <div class="sost-card">
+            <p class="sost-card-label">Envase</p>
+            <h3 class="sost-card-title">La lata, un formato eficiente</h3>
+            <p class="sost-card-text">
+              El aluminio es uno de los materiales más reciclables del mundo. Una lata puede
+              reciclarse infinitas veces sin perder sus propiedades, reduciendo significativamente
+              la huella de carbono frente al vidrio en transporte.
+            </p>
+          </div>
+
+          <div class="sost-card">
+            <p class="sost-card-label">Ingredientes</p>
+            <h3 class="sost-card-title">Natural por convicción</h3>
+            <p class="sost-card-text">
+              Trabajamos con ingredientes naturales, sin conservantes artificiales ni colorantes.
+              Menos química, más producto real. Mejor para quien lo bebe y mejor para el entorno.
+            </p>
+          </div>
+
+          <div class="sost-card">
+            <p class="sost-card-label">Logística</p>
+            <h3 class="sost-card-title">Envíos conscientes</h3>
+            <p class="sost-card-text">
+              Optimizamos el embalaje para minimizar residuos en cada envío. Seguimos buscando
+              fórmulas para reducir el impacto del transporte de última milla.
+            </p>
+          </div>
+        </div>
+
+        <div class="sost-note">
+          <p>
+            Este es un camino en construcción. No tenemos todas las respuestas, pero sí el
+            compromiso de mejorar en cada decisión que tomamos. Si tienes ideas o propuestas,
+            escríbenos a
+            <a href="mailto:hola@bebedrinks.es" style="color: var(--accent);">hola@bebedrinks.es</a>.
+          </p>
+        </div>
+      </section>
+    </section>
   </main>
 
+  <!-- =========================
+       FOOTER OSCURO
+  ========================= -->
+  <section class="ending">
+    <div class="ending-inner">
+      <h2 class="ending-title">
+        <span class="outline">Eleva cada</span><br>
+        momento.
+      </h2>
+
+      <!-- Marca -->
+      <div class="ending-brand">
+        <div class="brand-mark">
+          <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain en footer">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
+      </div>
+
+      <!-- Enlaces footer -->
+      <div class="footer-links">
+        <!-- Productos -->
+        <div class="footer-column">
+          <h4>Productos</h4>
+          <a href="bloody-mary.html">Bloody Mary</a>
+          <a href="carajillo.html">Carajillo del Tío Pío</a>
+          <a href="hangover.html">Hangover Killer</a>
+        </div>
+
+        <!-- Empresa -->
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <a href="historia.html">Nuestra Historia</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="historia.html#sostenibilidad">Sostenibilidad</a>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="legal.html#privacidad">Privacidad</a>
+          <a href="legal.html#terminos">Términos</a>
+          <a href="legal.html#cookies">Cookies</a>
+        </div>
+      </div>
+
+      <!-- Línea final -->
+      <div class="footer-bottom">
+        <div class="footer-brand">Be&Be Drinks Spain</div>
+        <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
+      </div>
+    </div>
+  </section>
+
   <script>
+    /* =========================
+       CLAVE DEL CARRITO
+    ========================= */
     const CART_KEY = "bebeb-drinks-cart";
 
+    /* Obtener carrito guardado en localStorage */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
     }
 
+    /* Actualizar contador visible del carrito */
     function updateCartCount() {
       const cart = getCart();
       const cartCount = document.getElementById("cartCount");
       if (cartCount) cartCount.textContent = cart.length;
     }
 
+    /* =========================
+       FUNCIONAMIENTO DE PESTAÑAS
+    ========================= */
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
+
+        /* Quitar estado activo de todos los botones */
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+        /* Ocultar todos los paneles */
+        tabPanels.forEach((panel) => panel.classList.remove("active"));
+
+        /* Activar botón actual */
+        button.classList.add("active");
+
+        /* Mostrar panel correspondiente */
+        const targetPanel = document.getElementById(target);
+        if (targetPanel) {
+          targetPanel.classList.add("active");
+        }
+      });
+    });
+
+    /* Ejecutar contador del carrito al cargar */
     updateCartCount();
   </script>
 </body>
