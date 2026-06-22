@@ -54,6 +54,12 @@
       text-decoration: none;
     }
 
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
     button,
     input,
     textarea,
@@ -365,23 +371,54 @@
 
     .summary-items {
       display: grid;
-      gap: 12px;
+      gap: 14px;
       margin-top: 20px;
       padding-top: 20px;
       border-top: 1px solid var(--line);
     }
 
     .summary-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 12px;
+      align-items: center;
       font-size: 14px;
       color: var(--muted);
     }
 
-    .summary-item strong {
+    .summary-item-image {
+      width: 56px;
+      height: 56px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      padding: 6px;
+    }
+
+    .summary-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .summary-item-info {
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-item-info strong {
       color: var(--text);
       font-weight: 600;
+    }
+
+    .summary-item-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .summary-item-price {
+      color: var(--text);
+      font-weight: 600;
+      white-space: nowrap;
     }
 
     .summary-note {
@@ -510,6 +547,15 @@
         text-align: left;
       }
 
+      .summary-item {
+        grid-template-columns: 56px 1fr;
+        align-items: start;
+      }
+
+      .summary-item-price {
+        grid-column: 2 / 3;
+      }
+
       .final-actions {
         display: grid;
         grid-template-columns: 1fr;
@@ -542,7 +588,7 @@
     <div class="checkout-steps">
       <div class="checkout-step is-completed">
         <div class="checkout-step-circle">1</div>
-        <p class="checkout-step-label">Confirmación</p>
+        <p class="checkout-step-label">Revisión</p>
       </div>
 
       <div class="checkout-step-line is-completed"></div>
@@ -617,8 +663,6 @@
 
     /* =========================================================
        GENERAR NÚMERO DE PEDIDO SIMPLE
-       - Solo para esta versión visual del proyecto
-       - Más adelante esto vendrá del sistema real
        ========================================================= */
     function generateOrderNumber() {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
@@ -627,8 +671,6 @@
 
     /* =========================================================
        GUARDAR UNA FOTO FIJA DEL PEDIDO
-       - Así el resumen final no depende del carrito vivo
-       - Evitamos que desaparezca el contenido al vaciarlo
        ========================================================= */
     function createOrderSnapshot(cart, customerData) {
       const existingSnapshot = localStorage.getItem(ORDER_SNAPSHOT_KEY);
@@ -657,9 +699,6 @@
 
     /* =========================================================
        VACIAR EL CARRITO TRAS CONFIRMAR
-       - El carrito se limpia
-       - Los datos del cliente se conservan por ahora
-       - El resumen final vive en ORDER_SNAPSHOT_KEY
        ========================================================= */
     function clearCartAfterConfirmation() {
       localStorage.removeItem(CART_KEY);
@@ -667,7 +706,6 @@
 
     /* =========================================================
        MOSTRAR ESTADO VACÍO / NO VÁLIDO
-       - Si el usuario entra aquí sin haber confirmado antes
        ========================================================= */
     function renderInvalidAccess() {
       const confirmationContent = document.getElementById("confirmationContent");
@@ -688,9 +726,6 @@
 
     /* =========================================================
        RENDERIZAR LA PÁGINA FINAL DE CONFIRMACIÓN
-       - Muestra pedido confirmado
-       - Resume datos clave
-       - Indica que llegará un correo de confirmación
        ========================================================= */
     function renderCheckoutStepFour() {
       const confirmationContent = document.getElementById("confirmationContent");
@@ -699,24 +734,31 @@
       const customerData = getSavedCheckoutData();
       const storedSnapshot = localStorage.getItem(ORDER_SNAPSHOT_KEY);
 
-      /* Si no hay confirmación previa ni resumen guardado, bloqueamos acceso */
       if (!isConfirmed && !storedSnapshot) {
         renderInvalidAccess();
         return;
       }
 
-      /* Creamos o recuperamos una foto del pedido ya confirmado */
       const snapshot = storedSnapshot
         ? JSON.parse(storedSnapshot)
         : createOrderSnapshot(cart, customerData);
 
-      /* Limpiamos el carrito para que no siga activo tras confirmar */
       clearCartAfterConfirmation();
 
       const summaryItemsHTML = snapshot.cart.map(item => `
         <div class="summary-item">
-          <span><strong>${item.name}</strong> × ${item.quantity}</span>
-          <span>${formatPrice(item.price * item.quantity)}</span>
+          <div class="summary-item-image">
+            <img src="${item.image}" alt="${item.name}">
+          </div>
+
+          <div class="summary-item-info">
+            <strong>${item.name}</strong>
+            <span class="summary-item-meta">Cantidad: ${item.quantity}</span>
+          </div>
+
+          <div class="summary-item-price">
+            ${formatPrice(item.price * item.quantity)}
+          </div>
         </div>
       `).join("");
 
