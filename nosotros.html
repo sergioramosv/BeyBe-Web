@@ -7,8 +7,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Título de la página -->
-  <title>Historia | Be&Be Drinks Spain</title>
+  <!-- Título de la página
+       Nota: si renombras el archivo a nosotros.html, este título ya encaja -->
+  <title>Nosotros | Be&Be Drinks Spain</title>
 
   <!-- =========================================================
        TIPOGRAFÍAS DE LA WEB
@@ -108,6 +109,8 @@
       flex-shrink: 0;
     }
 
+    /* Navegación principal
+       - Ahora se mostrará: Inicio | Productos | Nosotros */
     .nav {
       display: flex;
       gap: 38px;
@@ -260,7 +263,7 @@
 
     /* =========================================================
        BLOQUE CONTACTO
-       - Integrado ahora dentro de historia.html como pestaña
+       - Integrado como pestaña dentro de nosotros.html
        ========================================================= */
     .contact-block {
       background: var(--surface);
@@ -353,7 +356,6 @@
 
     /* =========================================================
        FOOTER OSCURO
-       - Se añade al final para mantener coherencia con index
        ========================================================= */
     .ending {
       background: var(--dark-bg);
@@ -518,6 +520,9 @@
 <body>
   <!-- =========================================================
        CABECERA PRINCIPAL
+       - CAMBIO:
+       - Se elimina "Contacto" del menú superior
+       - "Historia" pasa a llamarse "Nosotros"
        ========================================================= -->
   <header class="topbar">
     <div class="topbar-inner">
@@ -528,8 +533,7 @@
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
-        <a href="historia.html">Historia</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="nosotros.html">Nosotros</a>
       </nav>
 
       <!-- Enlace al carrito con contador -->
@@ -545,14 +549,14 @@
   </header>
 
   <!-- =========================================================
-       CONTENIDO PRINCIPAL DE HISTORIA
-       - Ahora con 3 pestañas:
+       CONTENIDO PRINCIPAL DE NOSOTROS
+       - 3 pestañas:
          1. Nuestra Historia
          2. Contacto
          3. Sostenibilidad
        ========================================================= -->
   <main class="page">
-    <p class="eyebrow">Historia</p>
+    <p class="eyebrow">Nosotros</p>
     <h1 class="title">Nuestra historia</h1>
 
     <p class="intro">
@@ -589,7 +593,6 @@
 
     <!-- =====================================================
          PESTAÑA 2: CONTACTO
-         - Contenido integrado desde contacto.html
          ===================================================== -->
     <section id="contacto" class="tab-panel">
       <p class="eyebrow">Contacto</p>
@@ -704,9 +707,9 @@
 
         <div class="footer-column">
           <h4>Empresa</h4>
-          <a href="historia.html">Nuestra Historia</a>
-          <a href="contacto.html">Contacto</a>
-          <a href="historia.html#sostenibilidad">Sostenibilidad</a>
+          <a href="nosotros.html">Nuestra Historia</a>
+          <a href="nosotros.html#contacto">Contacto</a>
+          <a href="nosotros.html#sostenibilidad">Sostenibilidad</a>
         </div>
 
         <div class="footer-column">
@@ -778,7 +781,8 @@
     /* =========================================================
        EJECUCIÓN INICIAL
        - Actualiza carrito
-       - Si la URL lleva #contacto o #sostenibilidad, abre esa pestaña
+       - Si la URL lleva #contacto o #sostenibilidad o #historia,
+         abre esa pestaña automáticamente
        ========================================================= */
     updateCartCount();
 
