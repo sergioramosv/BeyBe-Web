@@ -260,8 +260,6 @@
       white-space: nowrap;
     }
 
-    /* CAMBIO 1:
-       más espacio entre el título y el subtítulo */
     .product-flavor {
       color: var(--soft);
       text-transform: uppercase;
@@ -271,8 +269,9 @@
       margin-bottom: 24px;
     }
 
-    /* CAMBIO 2:
-       nueva descripción actualizada */
+    /* CAMBIO:
+       la descripción ya no va aquí arriba.
+       La dejamos sin renderizar en esta zona. */
     .product-description {
       color: #4b433c;
       font-size: 17px;
@@ -445,8 +444,6 @@
       transform: translateY(-1px);
     }
 
-    /* CAMBIO 3:
-       nuevo texto de cómo tomarlo */
     .buy-note {
       margin-top: 14px;
       color: var(--muted);
@@ -466,6 +463,24 @@
 
     .cart-feedback.show {
       display: block;
+    }
+
+    /* CAMBIO:
+       nueva posición de la descripción, debajo del bloque de compra */
+    .product-description-below {
+      color: #4b433c;
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+      max-width: 54ch;
+    }
+
+    .product-description-below p {
+      margin-bottom: 16px;
+    }
+
+    .product-description-below p:last-child {
+      margin-bottom: 0;
     }
 
     .product-details {
@@ -628,18 +643,58 @@
         width: calc(100% - 24px);
       }
 
+      /* CAMBIO:
+         barra superior más compacta en móvil */
       .topbar-inner {
         min-height: auto;
-        padding: 18px 0;
-        flex-wrap: wrap;
-        gap: 16px;
+        padding: 12px 0;
+        gap: 10px;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .brand-mark {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+      }
+
+      .brand-name {
+        font-size: 17px;
+        letter-spacing: -0.01em;
       }
 
       .nav {
-        gap: 18px;
-        flex-wrap: wrap;
-        margin-left: 0;
-        width: 100%;
+        gap: 10px;
+        margin-left: auto;
+        width: auto;
+        flex-wrap: nowrap;
+        order: 0;
+        font-size: 9px;
+        letter-spacing: 0.08em;
+      }
+
+      .cart-link {
+        min-width: 36px;
+        height: 36px;
+        padding: 0 8px;
+        gap: 6px;
+      }
+
+      .cart-link svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .cart-count {
+        min-width: 17px;
+        height: 17px;
+        font-size: 10px;
+        padding: 0 5px;
       }
 
       .product-page {
@@ -743,14 +798,7 @@
           <h1 class="product-title">Carajillo del Tío Pío</h1>
           <p class="product-flavor">Coñac quemado · Café · Limón</p>
 
-          <!-- CAMBIO 2:
-               descripción actualizada -->
-          <div class="product-description">
-            <p>Bebida mixta elaborada con café expreso natural y brandy flambeado.</p>
-            <p>Auténtico carajillo elaborada de forma tradicional según la receta del mítico Tío Pío de Almazora.</p>
-            <p>NO APTO para: vegetarianos, celiacos, pánfilos y menores de 18.</p>
-            <p>2 MEJOR QUE 1, Aunque... 3 MEJOR QUE 2 </p>
-          </div>
+          <!-- La descripción ya no va aquí arriba -->
 
           <div class="product-meta">
             <span>33cl</span>
@@ -793,8 +841,6 @@
               Añadir al carrito
             </button>
 
-            <!-- CAMBIO 3:
-                 cómo tomarlo actualizado -->
             <p class="buy-note">
               Tómalo ardiento o a tope de hielos, pero siempre con una cáscara de limón.
             </p>
@@ -804,8 +850,15 @@
             </p>
           </div>
 
-          <!-- CAMBIO 4, 5 y 6:
-               bloque desplegable actualizado -->
+          <!-- CAMBIO:
+               descripción movida debajo del bloque de compra -->
+          <div class="product-description-below">
+            <p>Bebida mixta elaborada con café expreso natural y brandy flambeado.</p>
+            <p>Auténtico carajillo elaborada de forma tradicional según la receta del mítico Tío Pío de Almazora.</p>
+            <p>NO APTO para: vegetarianos, celiacos, pánfilos y menores de 18.</p>
+            <p>2 MEJOR QUE 1, Aunque... 3 MEJOR QUE 2</p>
+          </div>
+
           <div class="product-details">
             <button id="detailsToggle" class="details-toggle" type="button" aria-expanded="false">
               <h2>Detalles del producto</h2>
@@ -893,24 +946,18 @@
   </section>
 
   <script>
-    /* =========================================================
-       CLAVE COMPARTIDA DEL CARRITO
-       ========================================================= */
     const CART_KEY = "bebeb-drinks-cart";
     const UNIT_PRICE = 3.30;
 
-    /* Obtener carrito guardado */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
     }
 
-    /* Guardar carrito actualizado */
     function saveCart(cart) {
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
     }
 
-    /* Actualizar contador del carrito en cabecera */
     function updateCartCount() {
       const cart = getCart();
       const distinctProducts = cart.length;
@@ -921,7 +968,6 @@
       }
     }
 
-    /* Añadir producto al carrito */
     function addProductToCart(product) {
       const cart = getCart();
       const existingProduct = cart.find(item => item.id === product.id);
@@ -936,18 +982,15 @@
       updateCartCount();
     }
 
-    /* Cambiar imagen principal desde miniaturas */
     function changeImage(newSrc) {
       document.getElementById("mainProductImage").src = newSrc;
     }
 
-    /* Seleccionar cantidad rápida por pack */
     function setPackQuantity(amount) {
       document.getElementById("quantity").value = amount;
       updateCalculatedPrice();
     }
 
-    /* Subir o bajar cantidad manual */
     function changeQty(amount) {
       const input = document.getElementById("quantity");
       let currentValue = parseInt(input.value) || 1;
@@ -961,12 +1004,10 @@
       updateCalculatedPrice();
     }
 
-    /* Formatear precio en español */
     function formatPrice(value) {
       return value.toFixed(2).replace(".", ",") + " €";
     }
 
-    /* Recalcular precio total */
     function updateCalculatedPrice() {
       const quantityInput = document.getElementById("quantity");
       const calculatedPrice = document.getElementById("calculatedPrice");
@@ -978,14 +1019,12 @@
       }
     }
 
-    /* Detectar cambios manuales en el input */
     document.getElementById("quantity").addEventListener("input", function () {
       const currentValue = parseInt(this.value) || 1;
       if (currentValue < 1) this.value = 1;
       updateCalculatedPrice();
     });
 
-    /* Evento de añadir al carrito */
     document.getElementById("addToCartBtn").addEventListener("click", function () {
       const quantityInput = document.getElementById("quantity");
       const quantity = Math.max(1, parseInt(quantityInput.value) || 1);
@@ -1008,7 +1047,6 @@
       }, 2200);
     });
 
-    /* Lógica del desplegable de detalles del producto */
     const detailsToggle = document.getElementById("detailsToggle");
     const detailsContent = document.getElementById("detailsContent");
 
@@ -1020,9 +1058,9 @@
       detailsToggle.setAttribute("aria-expanded", String(!isOpen));
     });
 
-    /* Ejecución inicial */
     updateCartCount();
     updateCalculatedPrice();
   </script>
 </body>
 </html>
+</query>
