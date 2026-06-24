@@ -648,13 +648,15 @@
       .topbar-inner {
         min-height: auto;
         padding: 12px 0;
-        gap: 10px;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         align-items: center;
+        gap: 10px 12px;
       }
 
       .brand {
         gap: 8px;
+        width: 100%;
+        order: 1;
       }
 
       .brand-mark {
@@ -669,16 +671,18 @@
       }
 
       .nav {
-        gap: 10px;
-        margin-left: auto;
+        order: 2;
+        margin-left: 0;
         width: auto;
         flex-wrap: nowrap;
-        order: 0;
+        gap: 12px;
         font-size: 9px;
         letter-spacing: 0.08em;
       }
 
       .cart-link {
+        order: 3;
+        margin-left: auto;
         min-width: 36px;
         height: 36px;
         padding: 0 8px;
