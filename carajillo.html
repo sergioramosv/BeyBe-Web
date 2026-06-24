@@ -260,20 +260,33 @@
       white-space: nowrap;
     }
 
+    /* CAMBIO 1:
+       más espacio entre el título y el subtítulo */
     .product-flavor {
       color: var(--soft);
       text-transform: uppercase;
       letter-spacing: 0.16em;
       font-size: 12px;
+      margin-top: 10px;
       margin-bottom: 24px;
     }
 
+    /* CAMBIO 2:
+       nueva descripción actualizada */
     .product-description {
       color: #4b433c;
       font-size: 17px;
       line-height: 1.8;
       margin-bottom: 28px;
       max-width: 54ch;
+    }
+
+    .product-description p {
+      margin-bottom: 16px;
+    }
+
+    .product-description p:last-child {
+      margin-bottom: 0;
     }
 
     .product-meta {
@@ -285,6 +298,10 @@
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+    }
+
+    .product-price-block {
+      margin-bottom: 22px;
     }
 
     .product-price {
@@ -305,12 +322,6 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       margin-top: 0;
-    }
-
-    /* CAMBIO 1:
-       se añade más espacio debajo del precio */
-    .product-price-block {
-      margin-bottom: 22px;
     }
 
     .buy-box {
@@ -434,6 +445,8 @@
       transform: translateY(-1px);
     }
 
+    /* CAMBIO 3:
+       nuevo texto de cómo tomarlo */
     .buy-note {
       margin-top: 14px;
       color: var(--muted);
@@ -455,8 +468,6 @@
       display: block;
     }
 
-    /* CAMBIO 2:
-       detalles del producto se convierte en acordeón desplegable */
     .product-details {
       border-top: 1px solid var(--line);
       padding-top: 24px;
@@ -524,6 +535,11 @@
       color: #453d36;
       line-height: 1.8;
       font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .details-section p:last-child {
+      margin-bottom: 0;
     }
 
     .back-link {
@@ -723,13 +739,17 @@
 
         <!-- Información del producto -->
         <div class="product-info">
-          <p class="product-tag">Cóctel en lata</p>
+          <p class="product-tag">Bebida combinada en lata</p>
           <h1 class="product-title">Carajillo del Tío Pío</h1>
           <p class="product-flavor">Coñac quemado · Café · Limón</p>
 
-          <p class="product-description">
-            Una bebida con carácter castizo y final aromático. El equilibrio entre café, cítrico y calidez la convierte en una receta intensa, directa y fácil de disfrutar.
-          </p>
+          <!-- CAMBIO 2:
+               descripción actualizada -->
+          <div class="product-description">
+            <p>Bebida mixta elaborada con café expreso natural y brandy flambeado.</p>
+            <p>Auténtico carajillo elaborada de forma tradicional según la receta del mítico "Tío Pío de Almazora".</p>
+            <p>NO APTO para: vegetarianos, veganos, celiacos, pánfilos y menos de 18 años.</p>
+          </div>
 
           <div class="product-meta">
             <span>33cl</span>
@@ -737,8 +757,6 @@
             <span>Listo para servir</span>
           </div>
 
-          <!-- CAMBIO 1:
-               Se envuelve el precio en un bloque con más margen inferior -->
           <div class="product-price-block">
             <div class="product-price">
               3,30 €
@@ -774,8 +792,10 @@
               Añadir al carrito
             </button>
 
+            <!-- CAMBIO 3:
+                 cómo tomarlo actualizado -->
             <p class="buy-note">
-              Perfecto para servir frío o muy ligeramente templado según el momento.
+              Tómalo ardiento o a tope de hielos, pero siempre con una cáscara de limón.
             </p>
 
             <p id="cartFeedback" class="cart-feedback">
@@ -783,9 +803,8 @@
             </p>
           </div>
 
-          <!-- CAMBIO 2:
-               Detalles del producto pasa a ser desplegable
-               y muestra solo ingredientes y alérgenos -->
+          <!-- CAMBIO 4, 5 y 6:
+               bloque desplegable actualizado -->
           <div class="product-details">
             <button id="detailsToggle" class="details-toggle" type="button" aria-expanded="false">
               <h2>Detalles del producto</h2>
@@ -795,16 +814,35 @@
             <div id="detailsContent" class="details-content">
               <div class="details-section">
                 <h3>Ingredientes y cantidades</h3>
-                <p>
-                  Café, agua, azúcar, limón, coñac y aromas naturales.
-                </p>
+                <p><strong>Por cada lata de 33 cl:</strong></p>
+                <p>50% café</p>
+                <p>50% brandy</p>
+                <p>Azúcar 100g</p>
+                <p>2 granos de café (físicos)</p>
+                <p>Piel de limón (física)</p>
               </div>
 
               <div class="details-section">
                 <h3>Aviso de alérgenos</h3>
-                <p>
-                  No contiene alérgenos de declaración obligatoria conocidos. Revisar siempre el etiquetado final del producto antes de su comercialización.
-                </p>
+                <p>No apto para vegetarianos, veganos, celiacos, pánfilos y menores de 18 años.</p>
+              </div>
+
+              <div class="details-section">
+                <h3>Información nutricional</h3>
+                <p><strong>Por 33cl:</strong></p>
+                <p>312kj / 75 kcal</p>
+                <p>Grasas: 0g</p>
+                <p>Hidratos: 7.5g, de los cuales azúcares 7.5g</p>
+                <p>Proteína: 0g</p>
+                <p>Sal: 0.01g</p>
+                <p>Alcohol: 6.8g</p>
+                <p>Graduación alcohólica: 8.0% vol</p>
+              </div>
+
+              <div class="details-section">
+                <h3>Extra</h3>
+                <p>Despierta y activa al instante.</p>
+                <p>Dos mejor que uno. Tres mejor que dos.</p>
               </div>
             </div>
           </div>
@@ -969,8 +1007,7 @@
       }, 2200);
     });
 
-    /* CAMBIO 2:
-       Lógica del desplegable de detalles del producto */
+    /* Lógica del desplegable de detalles del producto */
     const detailsToggle = document.getElementById("detailsToggle");
     const detailsContent = document.getElementById("detailsContent");
 
