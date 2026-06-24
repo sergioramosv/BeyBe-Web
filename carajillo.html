@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Meta básica -->
+  <!-- =========================================================
+       META BÁSICA DEL DOCUMENTO
+       ========================================================= -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Título -->
+  <!-- Título de la página -->
   <title>Carajillo del Tío Pío | Be&Be Drinks Spain</title>
 
-  <!-- Tipografías -->
+  <!-- =========================================================
+       TIPOGRAFÍAS
+       ========================================================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    /* =========================================================
+       VARIABLES GLOBALES
+       ========================================================= */
     :root {
       --bg: #f7f3ec;
       --surface: #fbf8f3;
@@ -32,6 +39,9 @@
       --dark-line: rgba(255,255,255,0.12);
     }
 
+    /* =========================================================
+       RESET GENERAL
+       ========================================================= */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -65,6 +75,9 @@
       margin: 0 auto;
     }
 
+    /* =========================================================
+       CABECERA SUPERIOR
+       ========================================================= */
     .topbar {
       position: sticky;
       top: 0;
@@ -112,6 +125,11 @@
       letter-spacing: -0.02em;
     }
 
+    /* Menú superior
+       CAMBIO:
+       - Se elimina "Historia"
+       - Se elimina "Contacto"
+       - Se añade "Nosotros" apuntando a nosotros.html */
     .nav {
       display: flex;
       gap: 38px;
@@ -163,6 +181,9 @@
       padding: 0 6px;
     }
 
+    /* =========================================================
+       CONTENIDO DE LA FICHA DE PRODUCTO
+       ========================================================= */
     .product-page {
       padding: 34px 0 72px;
     }
@@ -441,6 +462,9 @@
       text-decoration: underline;
     }
 
+    /* =========================================================
+       FOOTER OSCURO COMPLETO
+       ========================================================= */
     .ending {
       background: var(--dark-bg);
       color: var(--dark-text);
@@ -451,6 +475,34 @@
     .ending-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      padding: 0 0 36px;
+    }
+
+    .footer-column h4 {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--dark-muted);
+      margin-bottom: 18px;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--dark-text);
+      opacity: 0.92;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      opacity: 1;
+      color: #ffffff;
     }
 
     .footer-bottom {
@@ -469,6 +521,9 @@
       color: var(--dark-text);
     }
 
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
     @media (max-width: 900px) {
       .product-layout {
         grid-template-columns: 1fr;
@@ -507,13 +562,24 @@
       .pack-btn {
         width: 100%;
       }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Cabecera -->
+  <!-- =========================================================
+       CABECERA
+       ========================================================= -->
   <header class="topbar">
     <div class="topbar-inner">
+      <!-- Marca -->
       <div class="brand">
         <div class="brand-mark">
           <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
@@ -521,13 +587,14 @@
         <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
 
+      <!-- Menú principal actualizado -->
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
-        <a href="historia.html">Historia</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="nosotros.html">Nosotros</a>
       </nav>
 
+      <!-- Carrito -->
       <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
@@ -539,10 +606,13 @@
     </div>
   </header>
 
-  <!-- Contenido principal del producto -->
+  <!-- =========================================================
+       CONTENIDO PRINCIPAL DEL PRODUCTO
+       ========================================================= -->
   <main class="product-page">
     <div class="container">
 
+      <!-- Migas de pan -->
       <div class="breadcrumb">
         <a href="index.html">Inicio</a> /
         <a href="productos.html">Productos</a> /
@@ -640,9 +710,37 @@
     </div>
   </main>
 
-  <!-- Footer final -->
+  <!-- =========================================================
+       FOOTER OSCURO COMPLETO
+       ========================================================= -->
   <section class="ending">
     <div class="ending-inner">
+      <div class="footer-links">
+        <!-- Columna productos -->
+        <div class="footer-column">
+          <h4>Productos</h4>
+          <a href="bloody-mary.html">Bloody Mary</a>
+          <a href="carajillo.html">Carajillo del Tío Pío</a>
+          <a href="hangover.html">Hangover Killer</a>
+        </div>
+
+        <!-- Columna empresa -->
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <a href="nosotros.html">Nuestra Historia</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="nosotros.html#sostenibilidad">Sostenibilidad</a>
+        </div>
+
+        <!-- Columna legal -->
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="legal.html#privacidad">Privacidad</a>
+          <a href="legal.html#terminos">Términos</a>
+          <a href="legal.html#cookies">Cookies</a>
+        </div>
+      </div>
+
       <div class="footer-bottom">
         <div class="footer-brand">Be&Be Drinks Spain</div>
         <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
@@ -651,17 +749,23 @@
   </section>
 
   <script>
+    /* =========================================================
+       CLAVE COMPARTIDA DEL CARRITO
+       ========================================================= */
     const CART_KEY = "bebeb-drinks-cart";
 
+    /* Obtener carrito guardado */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
     }
 
+    /* Guardar carrito actualizado */
     function saveCart(cart) {
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
     }
 
+    /* Actualizar contador del carrito en cabecera */
     function updateCartCount() {
       const cart = getCart();
       const distinctProducts = cart.length;
@@ -672,6 +776,7 @@
       }
     }
 
+    /* Añadir producto al carrito */
     function addProductToCart(product) {
       const cart = getCart();
       const existingProduct = cart.find(item => item.id === product.id);
@@ -686,14 +791,17 @@
       updateCartCount();
     }
 
+    /* Cambiar imagen principal desde miniaturas */
     function changeImage(newSrc) {
       document.getElementById("mainProductImage").src = newSrc;
     }
 
+    /* Seleccionar cantidad rápida por pack */
     function setPackQuantity(amount) {
       document.getElementById("quantity").value = amount;
     }
 
+    /* Subir o bajar cantidad manual */
     function changeQty(amount) {
       const input = document.getElementById("quantity");
       let currentValue = parseInt(input.value) || 1;
@@ -706,6 +814,7 @@
       input.value = currentValue;
     }
 
+    /* Evento de añadir al carrito */
     document.getElementById("addToCartBtn").addEventListener("click", function () {
       const quantityInput = document.getElementById("quantity");
       const quantity = Math.max(1, parseInt(quantityInput.value) || 1);
@@ -728,6 +837,7 @@
       }, 2200);
     });
 
+    /* Ejecución inicial */
     updateCartCount();
   </script>
 </body>
