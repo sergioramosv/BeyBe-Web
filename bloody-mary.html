@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- =========================================================
+       CONFIGURACIÓN BÁSICA DEL DOCUMENTO
+       ========================================================= -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título de la página -->
   <title>Bloody Mary | Be&Be Drinks Spain</title>
 
+  <!-- =========================================================
+       TIPOGRAFÍAS DE LA WEB
+       ========================================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
+    /* =========================================================
+       VARIABLES GLOBALES
+       ========================================================= */
     :root {
       --bg: #f5efe8;
       --bg-soft: #fbf7f2;
@@ -15,8 +30,17 @@
       --accent: #111111;
       --white: #ffffff;
       --success: #2f5a31;
+
+      --dark-bg: #141913;
+      --dark-text: #f2ede5;
+      --dark-muted: #a8a39b;
+      --dark-line: rgba(255,255,255,0.12);
+      --gold: #c7a27d;
     }
 
+    /* =========================================================
+       RESET GENERAL
+       ========================================================= */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -24,7 +48,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Inter", Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.5;
@@ -50,6 +74,11 @@
       margin: 0 auto;
     }
 
+    /* =========================================================
+       CABECERA SUPERIOR
+       - Ajustada al nuevo formato:
+         Inicio | Productos | Nosotros | carrito
+       ========================================================= */
     .site-header {
       position: sticky;
       top: 0;
@@ -68,6 +97,7 @@
     }
 
     .brand {
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.8rem;
       letter-spacing: 0.5px;
     }
@@ -79,6 +109,7 @@
       font-size: 0.9rem;
       letter-spacing: 2px;
       text-transform: uppercase;
+      margin-left: auto;
     }
 
     .nav a {
@@ -98,6 +129,15 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      color: #c7a27d;
+      background: transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .cart-icon:hover {
+      background: var(--bg-soft);
+      border-color: #dcccba;
+      transform: translateY(-1px);
     }
 
     .cart-count {
@@ -114,6 +154,9 @@
       padding: 0 6px;
     }
 
+    /* =========================================================
+       PÁGINA DE PRODUCTO
+       ========================================================= */
     .product-page {
       padding: 48px 0 80px;
     }
@@ -135,6 +178,9 @@
       align-items: start;
     }
 
+    /* =========================================================
+       GALERÍA DE IMÁGENES
+       ========================================================= */
     .product-gallery {
       display: grid;
       gap: 18px;
@@ -178,6 +224,9 @@
       object-fit: contain;
     }
 
+    /* =========================================================
+       INFORMACIÓN DEL PRODUCTO
+       ========================================================= */
     .product-info {
       padding-top: 8px;
     }
@@ -191,6 +240,7 @@
     }
 
     .product-title {
+      font-family: "Cormorant Garamond", serif;
       font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 400;
       line-height: 0.95;
@@ -224,6 +274,7 @@
     .product-price {
       font-size: 2rem;
       margin-bottom: 8px;
+      font-family: "Cormorant Garamond", serif;
     }
 
     .product-price-unit {
@@ -233,8 +284,12 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       margin-top: 6px;
+      font-family: "Inter", Arial, sans-serif;
     }
 
+    /* =========================================================
+       CAJA DE COMPRA
+       ========================================================= */
     .purchase-box {
       background: var(--bg-soft);
       border: 1px solid var(--line);
@@ -315,6 +370,36 @@
       background: transparent;
     }
 
+    /* =========================================================
+       PRECIO TOTAL CALCULADO
+       - Nuevo bloque solicitado
+       ========================================================= */
+    .total-box {
+      margin: 6px 0 20px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .total-label {
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .total-price {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--accent);
+      text-align: right;
+    }
+
     .add-cart-btn {
       width: 100%;
       border: none;
@@ -351,6 +436,9 @@
       display: block;
     }
 
+    /* =========================================================
+       DETALLES DEL PRODUCTO
+       ========================================================= */
     .details-box {
       border-top: 1px solid var(--line);
       padding-top: 24px;
@@ -360,18 +448,45 @@
       font-size: 1.2rem;
       margin-bottom: 14px;
       font-weight: 400;
+      font-family: "Cormorant Garamond", serif;
     }
 
-    .details-box ul {
-      list-style: none;
-      display: grid;
-      gap: 10px;
+    /* Tabla de ingredientes y alérgenos */
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      margin-top: 8px;
+    }
+
+    .details-table th,
+    .details-table td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .details-table th {
+      width: 30%;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      background: rgba(255,255,255,0.4);
+    }
+
+    .details-table td {
       color: #3d3630;
+      font-size: 0.96rem;
+      line-height: 1.7;
     }
 
-    .details-box li {
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    .details-table tr:last-child th,
+    .details-table tr:last-child td {
+      border-bottom: none;
     }
 
     .back-link {
@@ -384,21 +499,114 @@
       text-decoration: underline;
     }
 
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0;
-      margin-top: 30px;
+    /* =========================================================
+       FOOTER OSCURO
+       ========================================================= */
+    .ending {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 84px 0 28px;
+      margin-top: 40px;
     }
 
-    .footer-inner {
+    .ending-inner {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    .ending-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(78px, 13vw, 150px);
+      line-height: 0.84;
+      letter-spacing: -0.055em;
+      font-weight: 500;
+      margin-bottom: 32px;
+      max-width: 760px;
+    }
+
+    .ending-title .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.20);
+      opacity: 0.9;
+    }
+
+    .ending-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 96px;
+      color: #d8d0c4;
+    }
+
+    .ending-brand .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 38px;
+      background: #0b0d0b;
+    }
+
+    .ending-brand .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ending-brand .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      padding: 28px 0 48px;
+    }
+
+    .footer-column h4 {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--dark-muted);
+      margin-bottom: 18px;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--dark-text);
+      opacity: 0.92;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      opacity: 1;
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--dark-line);
+      padding-top: 24px;
       display: flex;
       justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
+      gap: 24px;
+      color: var(--dark-muted);
+      font-size: 13px;
     }
 
+    .footer-bottom .footer-brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      color: var(--dark-text);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
     @media (max-width: 900px) {
       .product-layout {
         grid-template-columns: 1fr;
@@ -412,6 +620,15 @@
       .nav {
         gap: 16px;
         font-size: 0.78rem;
+      }
+
+      .total-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .total-price {
+        text-align: left;
       }
     }
 
@@ -446,11 +663,32 @@
       .pack-btn {
         width: 100%;
       }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .ending {
+        padding: 56px 0 24px;
+      }
+
+      .ending-brand {
+        margin-bottom: 52px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- =========================================================
+       CABECERA PRINCIPAL
+       - Ajustada al nuevo formato:
+         Inicio | Productos | Nosotros | carrito
+       ========================================================= -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">Be&Be Drinks Spain</a>
@@ -458,8 +696,7 @@
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html" class="active">Productos</a>
-        <a href="historia.html">Historia</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="nosotros.html">Nosotros</a>
         <a href="carrito.html" class="cart-icon" aria-label="Ver carrito">
           <span>🛒</span>
           <span id="cartCount" class="cart-count">0</span>
@@ -468,9 +705,13 @@
     </div>
   </header>
 
+  <!-- =========================================================
+       CONTENIDO PRINCIPAL DEL PRODUCTO
+       ========================================================= -->
   <main class="product-page">
     <div class="container">
 
+      <!-- Migas de pan -->
       <div class="breadcrumb">
         <a href="index.html">Inicio</a> /
         <a href="productos.html">Productos</a> /
@@ -478,6 +719,9 @@
       </div>
 
       <section class="product-layout">
+        <!-- =====================================================
+             GALERÍA DE IMÁGENES
+             ===================================================== -->
         <div class="product-gallery">
           <div class="main-image">
             <img id="mainProductImage" src="images/BOODY.jpeg" alt="Lata de Bloody Mary Be&Be Drinks Spain">
@@ -494,6 +738,9 @@
           </div>
         </div>
 
+        <!-- =====================================================
+             INFORMACIÓN Y COMPRA
+             ===================================================== -->
         <div class="product-info">
           <p class="product-tag">Cóctel en lata</p>
           <h1 class="product-title">Bloody Mary</h1>
@@ -509,11 +756,13 @@
             <span>Listo para servir</span>
           </div>
 
+          <!-- Precio por unidad -->
           <div class="product-price">
             €3.30
             <span class="product-price-unit">por lata</span>
           </div>
 
+          <!-- Caja de compra -->
           <div class="purchase-box">
             <label class="quantity-label">Elige tu pack</label>
 
@@ -533,6 +782,12 @@
               </div>
             </div>
 
+            <!-- Precio total calculado según cantidad -->
+            <div class="total-box">
+              <div class="total-label">Precio total</div>
+              <div id="totalPrice" class="total-price">€3.30</div>
+            </div>
+
             <button class="add-cart-btn" id="addToCartBtn" type="button">
               Añadir al carrito
             </button>
@@ -546,14 +801,35 @@
             </p>
           </div>
 
+          <!-- =====================================================
+               DETALLES DEL PRODUCTO
+               - Ahora con tabla de ingredientes y alérgenos
+               ===================================================== -->
           <div class="details-box">
             <h2>Detalles del producto</h2>
-            <ul>
-              <li>Formato: lata de 33cl.</li>
-              <li>Perfil: intenso, vegetal, especiado.</li>
-              <li>Ideal para servir muy frío.</li>
-              <li>Perfecto como aperitivo o brunch.</li>
-            </ul>
+
+            <table class="details-table">
+              <tr>
+                <th>Ingredientes</th>
+                <td>Zumo de tomate, vodka, zumo de limón, mezcla de especias, sal y salsas aromáticas.</td>
+              </tr>
+              <tr>
+                <th>Alérgenos</th>
+                <td>Puede contener apio y trazas de mostaza. Revisar siempre el etiquetado final del producto.</td>
+              </tr>
+              <tr>
+                <th>Formato</th>
+                <td>Lata de 33cl.</td>
+              </tr>
+              <tr>
+                <th>Graduación</th>
+                <td>19% vol.</td>
+              </tr>
+              <tr>
+                <th>Consumo</th>
+                <td>Servir muy frío. Ideal para aperitivo o brunch.</td>
+              </tr>
+            </table>
           </div>
 
           <a class="back-link" href="productos.html">← Volver a productos</a>
@@ -562,16 +838,68 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>Be&Be Drinks Spain</p>
-      <p>Bebidas en lata con carácter artesanal</p>
+  <!-- =========================================================
+       FOOTER OSCURO
+       ========================================================= -->
+  <section class="ending">
+    <div class="ending-inner">
+      <h2 class="ending-title">
+        <span class="outline">Eleva cada</span><br>
+        momento.
+      </h2>
+
+      <!-- Marca en el footer -->
+      <div class="ending-brand">
+        <div class="brand-mark">
+          <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain en footer">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
+      </div>
+
+      <!-- Enlaces del footer -->
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Productos</h4>
+          <a href="bloody-mary.html">Bloody Mary</a>
+          <a href="carajillo.html">Carajillo del Tío Pío</a>
+          <a href="hangover.html">Hangover Killer</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <a href="nosotros.html">Nuestra Historia</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="nosotros.html#sostenibilidad">Sostenibilidad</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="legal.html#privacidad">Privacidad</a>
+          <a href="legal.html#terminos">Términos</a>
+          <a href="legal.html#cookies">Cookies</a>
+        </div>
+      </div>
+
+      <!-- Línea inferior -->
+      <div class="footer-bottom">
+        <div class="footer-brand">Be&Be Drinks Spain</div>
+        <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
+      </div>
     </div>
-  </footer>
+  </section>
 
   <script>
+    /* =========================================================
+       CLAVE COMPARTIDA DEL CARRITO
+       ========================================================= */
     const CART_KEY = "bebeb-drinks-cart";
 
+    /* Precio unitario del producto */
+    const UNIT_PRICE = 3.30;
+
+    /* =========================================================
+       OBTENER Y GUARDAR CARRITO
+       ========================================================= */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
@@ -581,6 +909,9 @@
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
     }
 
+    /* =========================================================
+       ACTUALIZAR CONTADOR DEL CARRITO
+       ========================================================= */
     function updateCartCount() {
       const cart = getCart();
       const distinctProducts = cart.length;
@@ -591,6 +922,9 @@
       }
     }
 
+    /* =========================================================
+       AÑADIR PRODUCTO AL CARRITO
+       ========================================================= */
     function addProductToCart(product) {
       const cart = getCart();
       const existingProduct = cart.find(item => item.id === product.id);
@@ -605,14 +939,24 @@
       updateCartCount();
     }
 
+    /* =========================================================
+       CAMBIAR IMAGEN PRINCIPAL
+       ========================================================= */
     function changeImage(newSrc) {
       document.getElementById("mainProductImage").src = newSrc;
     }
 
+    /* =========================================================
+       ASIGNAR PACK
+       ========================================================= */
     function setPackQuantity(amount) {
       document.getElementById("quantity").value = amount;
+      updateTotalPrice();
     }
 
+    /* =========================================================
+       CAMBIAR CANTIDAD MANUALMENTE
+       ========================================================= */
     function changeQty(amount) {
       const input = document.getElementById("quantity");
       let currentValue = parseInt(input.value) || 1;
@@ -623,8 +967,37 @@
       }
 
       input.value = currentValue;
+      updateTotalPrice();
     }
 
+    /* =========================================================
+       ACTUALIZAR PRECIO TOTAL
+       - Multiplica cantidad por precio unitario
+       ========================================================= */
+    function updateTotalPrice() {
+      const quantityInput = document.getElementById("quantity");
+      const totalPriceBox = document.getElementById("totalPrice");
+      const quantity = Math.max(1, parseInt(quantityInput.value) || 1);
+      const total = quantity * UNIT_PRICE;
+
+      totalPriceBox.textContent = "€" + total.toFixed(2);
+    }
+
+    /* Si el usuario escribe a mano la cantidad */
+    document.getElementById("quantity").addEventListener("input", function () {
+      let value = parseInt(this.value) || 1;
+
+      if (value < 1) {
+        value = 1;
+        this.value = 1;
+      }
+
+      updateTotalPrice();
+    });
+
+    /* =========================================================
+       BOTÓN AÑADIR AL CARRITO
+       ========================================================= */
     document.getElementById("addToCartBtn").addEventListener("click", function () {
       const quantityInput = document.getElementById("quantity");
       const quantity = Math.max(1, parseInt(quantityInput.value) || 1);
@@ -632,7 +1005,7 @@
       const product = {
         id: "bloody-mary",
         name: "Bloody Mary",
-        price: 3.30,
+        price: UNIT_PRICE,
         quantity: quantity,
         image: "images/BOODY.jpeg"
       };
@@ -647,7 +1020,11 @@
       }, 2200);
     });
 
+    /* =========================================================
+       EJECUCIÓN INICIAL
+       ========================================================= */
     updateCartCount();
+    updateTotalPrice();
   </script>
 </body>
 </html>
