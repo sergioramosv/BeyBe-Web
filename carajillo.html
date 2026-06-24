@@ -387,6 +387,33 @@
       outline: none;
     }
 
+    /* =========================================================
+       PRECIO TOTAL CALCULADO
+       - NUEVO BLOQUE AÑADIDO SIN TOCAR LO DEMÁS
+       ========================================================= */
+    .calculated-price {
+      margin: 0 0 18px;
+      padding: 14px 0 18px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .calculated-price-label {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .calculated-price-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
     .add-cart-btn {
       width: 100%;
       border: 0;
@@ -449,6 +476,32 @@
       border-bottom: 1px solid var(--line);
       color: #453d36;
       line-height: 1.7;
+    }
+
+    /* =========================================================
+       INGREDIENTES Y ALÉRGENOS
+       - NUEVA SECCIÓN
+       ========================================================= */
+    .ingredients-block {
+      margin-top: 28px;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    .ingredients-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .ingredients-item {
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: #453d36;
+      line-height: 1.7;
+    }
+
+    .ingredients-item strong {
+      color: var(--text);
     }
 
     .back-link {
@@ -681,6 +734,15 @@
               </div>
             </div>
 
+            <!-- =================================================
+                 PRECIO TOTAL CALCULADO
+                 - NUEVO
+                 ================================================= -->
+            <div class="calculated-price">
+              <span class="calculated-price-label">Precio total</span>
+              <span id="calculatedPrice" class="calculated-price-value">3,30 €</span>
+            </div>
+
             <button class="add-cart-btn" id="addToCartBtn" type="button">
               Añadir al carrito
             </button>
@@ -702,6 +764,28 @@
               <li>Inspirado en el carajillo tradicional reinterpretado en formato listo para servir.</li>
               <li>Ideal para sobremesa o momentos de pausa con personalidad.</li>
             </ul>
+          </div>
+
+          <!-- =================================================
+               INGREDIENTES Y ALÉRGENOS
+               - NUEVO
+               ================================================= -->
+          <div class="ingredients-block">
+            <h2>Ingredientes y alérgenos</h2>
+
+            <div class="ingredients-grid">
+              <div class="ingredients-item">
+                <strong>Ingredientes:</strong> café, agua, azúcar, limón, coñac y aromas naturales.
+              </div>
+
+              <div class="ingredients-item">
+                <strong>Alérgenos:</strong> no contiene alérgenos de declaración obligatoria conocidos.
+              </div>
+
+              <div class="ingredients-item">
+                <strong>Nota:</strong> revisar siempre el etiquetado final del producto antes de su comercialización.
+              </div>
+            </div>
           </div>
 
           <a class="back-link" href="productos.html">← Volver a productos</a>
@@ -754,6 +838,12 @@
        ========================================================= */
     const CART_KEY = "bebeb-drinks-cart";
 
+    /* =========================================================
+       PRECIO BASE DEL PRODUCTO
+       - NUEVO: se usa para recalcular el total
+       ========================================================= */
+    const UNIT_PRICE = 3.30;
+
     /* Obtener carrito guardado */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
@@ -799,6 +889,7 @@
     /* Seleccionar cantidad rápida por pack */
     function setPackQuantity(amount) {
       document.getElementById("quantity").value = amount;
+      updateCalculatedPrice();
     }
 
     /* Subir o bajar cantidad manual */
@@ -812,7 +903,38 @@
       }
 
       input.value = currentValue;
+      updateCalculatedPrice();
     }
+
+    /* =========================================================
+       FORMATEAR PRECIO A FORMATO ESPAÑOL
+       - NUEVO
+       ========================================================= */
+    function formatPrice(value) {
+      return value.toFixed(2).replace(".", ",") + " €";
+    }
+
+    /* =========================================================
+       RECALCULAR PRECIO TOTAL
+       - NUEVO
+       ========================================================= */
+    function updateCalculatedPrice() {
+      const quantityInput = document.getElementById("quantity");
+      const calculatedPrice = document.getElementById("calculatedPrice");
+      const quantity = Math.max(1, parseInt(quantityInput.value) || 1);
+      const total = UNIT_PRICE * quantity;
+
+      if (calculatedPrice) {
+        calculatedPrice.textContent = formatPrice(total);
+      }
+    }
+
+    /* Detectar cambios manuales en el input */
+    document.getElementById("quantity").addEventListener("input", function () {
+      const currentValue = parseInt(this.value) || 1;
+      if (currentValue < 1) this.value = 1;
+      updateCalculatedPrice();
+    });
 
     /* Evento de añadir al carrito */
     document.getElementById("addToCartBtn").addEventListener("click", function () {
@@ -822,7 +944,7 @@
       const product = {
         id: "carajillo",
         name: "Carajillo del Tío Pío",
-        price: 3.30,
+        price: UNIT_PRICE,
         quantity: quantity,
         image: "images/CARAJILLO.jpeg"
       };
@@ -839,6 +961,7 @@
 
     /* Ejecución inicial */
     updateCartCount();
+    updateCalculatedPrice();
   </script>
 </body>
 </html>
