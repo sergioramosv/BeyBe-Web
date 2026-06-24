@@ -250,8 +250,6 @@
       margin-bottom: 18px;
     }
 
-    /* CAMBIO 1:
-       Se fuerza una sola línea para el título */
     .product-title {
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(42px, 5vw, 72px);
@@ -289,8 +287,6 @@
       letter-spacing: 0.08em;
     }
 
-    /* CAMBIO 2 y 3:
-       Precio en formato 3,30 € y "por lata" en la misma línea */
     .product-price {
       font-size: 30px;
       font-weight: 700;
@@ -309,6 +305,12 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       margin-top: 0;
+    }
+
+    /* CAMBIO 1:
+       se añade más espacio debajo del precio */
+    .product-price-block {
+      margin-bottom: 22px;
     }
 
     .buy-box {
@@ -453,51 +455,75 @@
       display: block;
     }
 
+    /* CAMBIO 2:
+       detalles del producto se convierte en acordeón desplegable */
     .product-details {
       border-top: 1px solid var(--line);
       padding-top: 24px;
     }
 
-    .product-details h2 {
+    .details-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: transparent;
+      border: 0;
+      padding: 0 0 10px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .details-toggle h2 {
       font-family: "Cormorant Garamond", serif;
       font-size: 32px;
-      margin-bottom: 16px;
       font-weight: 500;
     }
 
-    .product-details ul {
-      list-style: none;
-      display: grid;
-      gap: 12px;
+    .details-icon {
+      font-size: 24px;
+      line-height: 1;
+      color: var(--muted);
+      transition: transform 0.2s ease;
     }
 
-    .product-details li {
-      padding-bottom: 12px;
+    .details-toggle.active .details-icon {
+      transform: rotate(45deg);
+    }
+
+    .details-content {
+      display: none;
+      padding-top: 14px;
+    }
+
+    .details-content.open {
+      display: block;
+    }
+
+    .details-section {
+      padding-bottom: 14px;
+      margin-bottom: 14px;
       border-bottom: 1px solid var(--line);
+    }
+
+    .details-section:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .details-section h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .details-section p {
       color: #453d36;
-      line-height: 1.7;
-    }
-
-    .ingredients-block {
-      margin-top: 28px;
-      border-top: 1px solid var(--line);
-      padding-top: 24px;
-    }
-
-    .ingredients-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .ingredients-item {
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
-      color: #453d36;
-      line-height: 1.7;
-    }
-
-    .ingredients-item strong {
-      color: var(--text);
+      line-height: 1.8;
+      font-size: 15px;
     }
 
     .back-link {
@@ -604,8 +630,6 @@
         padding: 24px 0 48px;
       }
 
-      /* En móvil permitimos que el título respire un poco,
-         pero sigue intentándose mantener muy compacto */
       .product-title {
         font-size: 40px;
         letter-spacing: -0.03em;
@@ -678,9 +702,6 @@
             <img id="mainProductImage" src="images/CARAJILLO.jpeg" alt="Carajillo del Tío Pío en lata">
           </div>
 
-          <!-- CAMBIO 4:
-               Se mantiene la imagen principal actual
-               y se añaden miniaturas distintas del repositorio -->
           <div class="thumbs">
             <button class="thumb" type="button" onclick="changeImage('images/CARAJILLO.jpeg')">
               <img src="images/CARAJILLO.jpeg" alt="Vista principal de Carajillo del Tío Pío">
@@ -716,12 +737,13 @@
             <span>Listo para servir</span>
           </div>
 
-          <!-- CAMBIO 2 y 3:
-               Precio en formato español con símbolo al final
-               y "por lata" en la misma línea -->
-          <div class="product-price">
-            3,30 €
-            <span class="product-price-unit">por lata</span>
+          <!-- CAMBIO 1:
+               Se envuelve el precio en un bloque con más margen inferior -->
+          <div class="product-price-block">
+            <div class="product-price">
+              3,30 €
+              <span class="product-price-unit">por lata</span>
+            </div>
           </div>
 
           <div class="buy-box">
@@ -761,30 +783,28 @@
             </p>
           </div>
 
+          <!-- CAMBIO 2:
+               Detalles del producto pasa a ser desplegable
+               y muestra solo ingredientes y alérgenos -->
           <div class="product-details">
-            <h2>Detalles del producto</h2>
-            <ul>
-              <li>Formato: lata de 33cl.</li>
-              <li>Perfil: tostado, cítrico y cálido.</li>
-              <li>Inspirado en el carajillo tradicional reinterpretado en formato listo para servir.</li>
-              <li>Ideal para sobremesa o momentos de pausa con personalidad.</li>
-            </ul>
-          </div>
+            <button id="detailsToggle" class="details-toggle" type="button" aria-expanded="false">
+              <h2>Detalles del producto</h2>
+              <span class="details-icon">+</span>
+            </button>
 
-          <div class="ingredients-block">
-            <h2>Ingredientes y alérgenos</h2>
-
-            <div class="ingredients-grid">
-              <div class="ingredients-item">
-                <strong>Ingredientes:</strong> café, agua, azúcar, limón, coñac y aromas naturales.
+            <div id="detailsContent" class="details-content">
+              <div class="details-section">
+                <h3>Ingredientes y cantidades</h3>
+                <p>
+                  Café, agua, azúcar, limón, coñac y aromas naturales.
+                </p>
               </div>
 
-              <div class="ingredients-item">
-                <strong>Alérgenos:</strong> no contiene alérgenos de declaración obligatoria conocidos.
-              </div>
-
-              <div class="ingredients-item">
-                <strong>Nota:</strong> revisar siempre el etiquetado final del producto antes de su comercialización.
+              <div class="details-section">
+                <h3>Aviso de alérgenos</h3>
+                <p>
+                  No contiene alérgenos de declaración obligatoria conocidos. Revisar siempre el etiquetado final del producto antes de su comercialización.
+                </p>
               </div>
             </div>
           </div>
@@ -947,6 +967,19 @@
       setTimeout(() => {
         feedback.classList.remove("show");
       }, 2200);
+    });
+
+    /* CAMBIO 2:
+       Lógica del desplegable de detalles del producto */
+    const detailsToggle = document.getElementById("detailsToggle");
+    const detailsContent = document.getElementById("detailsContent");
+
+    detailsToggle.addEventListener("click", function () {
+      const isOpen = detailsContent.classList.contains("open");
+
+      detailsContent.classList.toggle("open");
+      detailsToggle.classList.toggle("active");
+      detailsToggle.setAttribute("aria-expanded", String(!isOpen));
     });
 
     /* Ejecución inicial */
