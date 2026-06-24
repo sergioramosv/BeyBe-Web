@@ -125,11 +125,6 @@
       letter-spacing: -0.02em;
     }
 
-    /* Menú superior
-       CAMBIO:
-       - Se elimina "Historia"
-       - Se elimina "Contacto"
-       - Se añade "Nosotros" apuntando a nosotros.html */
     .nav {
       display: flex;
       gap: 38px;
@@ -224,7 +219,7 @@
 
     .thumbs {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
@@ -255,13 +250,16 @@
       margin-bottom: 18px;
     }
 
+    /* CAMBIO 1:
+       Se fuerza una sola línea para el título */
     .product-title {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(52px, 7vw, 82px);
+      font-size: clamp(42px, 5vw, 72px);
       line-height: 0.95;
       letter-spacing: -0.04em;
       font-weight: 500;
       margin-bottom: 12px;
+      white-space: nowrap;
     }
 
     .product-flavor {
@@ -291,20 +289,26 @@
       letter-spacing: 0.08em;
     }
 
+    /* CAMBIO 2 y 3:
+       Precio en formato 3,30 € y "por lata" en la misma línea */
     .product-price {
       font-size: 30px;
       font-weight: 700;
       margin-bottom: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .product-price-unit {
-      display: block;
+      display: inline;
       font-size: 13px;
       font-weight: 400;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-top: 6px;
+      margin-top: 0;
     }
 
     .buy-box {
@@ -387,10 +391,6 @@
       outline: none;
     }
 
-    /* =========================================================
-       PRECIO TOTAL CALCULADO
-       - NUEVO BLOQUE AÑADIDO SIN TOCAR LO DEMÁS
-       ========================================================= */
     .calculated-price {
       margin: 0 0 18px;
       padding: 14px 0 18px;
@@ -478,10 +478,6 @@
       line-height: 1.7;
     }
 
-    /* =========================================================
-       INGREDIENTES Y ALÉRGENOS
-       - NUEVA SECCIÓN
-       ========================================================= */
     .ingredients-block {
       margin-top: 28px;
       border-top: 1px solid var(--line);
@@ -608,8 +604,11 @@
         padding: 24px 0 48px;
       }
 
+      /* En móvil permitimos que el título respire un poco,
+         pero sigue intentándose mantener muy compacto */
       .product-title {
-        font-size: 50px;
+        font-size: 40px;
+        letter-spacing: -0.03em;
       }
 
       .pack-btn {
@@ -679,17 +678,24 @@
             <img id="mainProductImage" src="images/CARAJILLO.jpeg" alt="Carajillo del Tío Pío en lata">
           </div>
 
+          <!-- CAMBIO 4:
+               Se mantiene la imagen principal actual
+               y se añaden miniaturas distintas del repositorio -->
           <div class="thumbs">
             <button class="thumb" type="button" onclick="changeImage('images/CARAJILLO.jpeg')">
               <img src="images/CARAJILLO.jpeg" alt="Vista principal de Carajillo del Tío Pío">
             </button>
 
-            <button class="thumb" type="button" onclick="changeImage('images/CARAJILLO.jpeg')">
-              <img src="images/CARAJILLO.jpeg" alt="Segunda vista de Carajillo del Tío Pío">
+            <button class="thumb" type="button" onclick="changeImage('images/carajillo - pack 6.jpeg')">
+              <img src="images/carajillo - pack 6.jpeg" alt="Pack de 6 Carajillo del Tío Pío">
             </button>
 
-            <button class="thumb" type="button" onclick="changeImage('images/CARAJILLO.jpeg')">
-              <img src="images/CARAJILLO.jpeg" alt="Tercera vista de Carajillo del Tío Pío">
+            <button class="thumb" type="button" onclick="changeImage('images/carajillo - pack 12.jpeg')">
+              <img src="images/carajillo - pack 12.jpeg" alt="Pack de 12 Carajillo del Tío Pío">
+            </button>
+
+            <button class="thumb" type="button" onclick="changeImage('images/carajillo - pack 24.jpeg')">
+              <img src="images/carajillo - pack 24.jpeg" alt="Pack de 24 Carajillo del Tío Pío">
             </button>
           </div>
         </div>
@@ -710,8 +716,11 @@
             <span>Listo para servir</span>
           </div>
 
+          <!-- CAMBIO 2 y 3:
+               Precio en formato español con símbolo al final
+               y "por lata" en la misma línea -->
           <div class="product-price">
-            €3.30
+            3,30 €
             <span class="product-price-unit">por lata</span>
           </div>
 
@@ -734,10 +743,6 @@
               </div>
             </div>
 
-            <!-- =================================================
-                 PRECIO TOTAL CALCULADO
-                 - NUEVO
-                 ================================================= -->
             <div class="calculated-price">
               <span class="calculated-price-label">Precio total</span>
               <span id="calculatedPrice" class="calculated-price-value">3,30 €</span>
@@ -766,10 +771,6 @@
             </ul>
           </div>
 
-          <!-- =================================================
-               INGREDIENTES Y ALÉRGENOS
-               - NUEVO
-               ================================================= -->
           <div class="ingredients-block">
             <h2>Ingredientes y alérgenos</h2>
 
@@ -837,11 +838,6 @@
        CLAVE COMPARTIDA DEL CARRITO
        ========================================================= */
     const CART_KEY = "bebeb-drinks-cart";
-
-    /* =========================================================
-       PRECIO BASE DEL PRODUCTO
-       - NUEVO: se usa para recalcular el total
-       ========================================================= */
     const UNIT_PRICE = 3.30;
 
     /* Obtener carrito guardado */
@@ -906,18 +902,12 @@
       updateCalculatedPrice();
     }
 
-    /* =========================================================
-       FORMATEAR PRECIO A FORMATO ESPAÑOL
-       - NUEVO
-       ========================================================= */
+    /* Formatear precio en español */
     function formatPrice(value) {
       return value.toFixed(2).replace(".", ",") + " €";
     }
 
-    /* =========================================================
-       RECALCULAR PRECIO TOTAL
-       - NUEVO
-       ========================================================= */
+    /* Recalcular precio total */
     function updateCalculatedPrice() {
       const quantityInput = document.getElementById("quantity");
       const calculatedPrice = document.getElementById("calculatedPrice");
