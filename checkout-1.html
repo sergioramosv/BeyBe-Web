@@ -12,6 +12,8 @@
 
   <!-- =========================================================
        TIPOGRAFÍAS PRINCIPALES DE LA WEB
+       - Serif elegante para títulos
+       - Sans serif limpia para lectura y navegación
        ========================================================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +38,8 @@
 
     /* =========================================================
        RESET BÁSICO
+       - Limpia márgenes y paddings por defecto
+       - Hace más consistente el renderizado
        ========================================================= */
     * {
       box-sizing: border-box;
@@ -67,6 +71,8 @@
 
     /* =========================================================
        CABECERA DE CHECKOUT
+       - Mantiene una versión más limpia que el header general
+       - Centra la atención del usuario en el proceso de compra
        ========================================================= */
     .topbar {
       position: sticky;
@@ -104,10 +110,19 @@
 
     /* =========================================================
        FLUJO VISUAL DE PASOS
+       - Círculos numerados unidos por líneas
+       - Paso activo resaltado
        ========================================================= */
     .checkout-steps-wrap {
       border-bottom: 1px solid var(--line);
       background: var(--surface);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .checkout-steps-wrap::-webkit-scrollbar {
+      display: none;
     }
 
     .checkout-steps {
@@ -141,7 +156,6 @@
       justify-content: center;
       font-size: 14px;
       font-weight: 600;
-      flex: 0 0 42px;
       transition: all 0.25s ease;
     }
 
@@ -151,6 +165,7 @@
       text-transform: uppercase;
       color: var(--muted);
       line-height: 1.3;
+      white-space: nowrap;
     }
 
     .checkout-step-line {
@@ -159,6 +174,7 @@
       width: 100%;
     }
 
+    /* Estado del paso actual */
     .checkout-step.is-active .checkout-step-circle {
       background: var(--accent);
       border-color: var(--accent);
@@ -170,6 +186,7 @@
       font-weight: 600;
     }
 
+    /* Estado de paso completado */
     .checkout-step.is-completed .checkout-step-circle {
       background: var(--dark);
       border-color: var(--dark);
@@ -220,6 +237,8 @@
 
     /* =========================================================
        ESTRUCTURA PRINCIPAL DEL CHECKOUT
+       - Columna izquierda: pedido
+       - Columna derecha: resumen y acciones
        ========================================================= */
     .checkout-layout {
       display: grid;
@@ -383,6 +402,7 @@
 
     /* =========================================================
        ESTADO VACÍO DEL CHECKOUT
+       - Si no hay productos en carrito, no dejamos avanzar
        ========================================================= */
     .empty-box {
       max-width: 760px;
@@ -436,49 +456,30 @@
         letter-spacing: 0.10em;
       }
 
-      .checkout-steps-wrap {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-
-      .checkout-steps-wrap::-webkit-scrollbar {
-        display: none;
-      }
-
       .checkout-steps {
         width: max-content;
         min-width: 100%;
         padding: 16px 0 18px;
-        grid-template-columns: max-content 28px max-content 28px max-content 28px max-content;
-        align-items: center;
+        grid-template-columns: max-content 26px max-content 26px max-content 26px max-content;
       }
 
       .checkout-step {
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 10px;
-        text-align: left;
+        gap: 6px;
       }
 
       .checkout-step-circle {
         width: 34px;
         height: 34px;
-        flex: 0 0 34px;
         font-size: 12px;
       }
 
       .checkout-step-label {
         font-size: 10px;
         letter-spacing: 0.08em;
-        white-space: nowrap;
       }
 
       .checkout-step-line {
-        height: 1px;
-        width: 100%;
-        min-width: 28px;
+        min-width: 26px;
       }
 
       .page {
@@ -531,8 +532,7 @@
         margin-top: 4px;
       }
 
-      .summary-line,
-      .summary-total {
+      .summary-line {
         font-size: 14px;
       }
 
@@ -553,6 +553,8 @@
 <body>
   <!-- =========================================================
        CABECERA DEL CHECKOUT
+       - Marca principal
+       - Enlace para volver al carrito
        ========================================================= -->
   <header class="topbar">
     <div class="topbar-inner">
@@ -563,6 +565,7 @@
 
   <!-- =========================================================
        FLUJO VISUAL DE PASOS
+       - En esta primera página solo está activo el paso 1
        ========================================================= -->
   <section class="checkout-steps-wrap">
     <div class="checkout-steps">
@@ -605,21 +608,40 @@
       los datos necesarios para preparar el pedido.
     </p>
 
+    <!-- Aquí se insertará dinámicamente el contenido del checkout -->
     <div id="checkoutContent"></div>
   </main>
 
   <script>
+    /* =========================================================
+       CLAVE DEL CARRITO EN EL NAVEGADOR
+       - Debe coincidir con la usada en carrito y productos
+       ========================================================= */
     const CART_KEY = "bebeb-drinks-cart";
 
+    /* =========================================================
+       OBTENER EL CARRITO DESDE LOCALSTORAGE
+       - Si hay datos guardados, los convertimos en array
+       - Si no hay nada, devolvemos un array vacío
+       ========================================================= */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
     }
 
+    /* =========================================================
+       FORMATEAR PRECIOS
+       - Convierte un número al formato visual en euros
+       ========================================================= */
     function formatPrice(price) {
       return "€" + price.toFixed(2);
     }
 
+    /* =========================================================
+       CALCULAR TOTALES DEL PEDIDO
+       - totalUnits: suma de todas las cantidades
+       - totalPrice: importe total del pedido
+       ========================================================= */
     function getCartTotals(cart) {
       const totalUnits = cart.reduce((sum, item) => sum + item.quantity, 0);
       const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -630,6 +652,10 @@
       };
     }
 
+    /* =========================================================
+       MOSTRAR ESTADO VACÍO
+       - Si el carrito está vacío, no permitimos seguir checkout
+       ========================================================= */
     function renderEmptyCheckout() {
       const checkoutContent = document.getElementById("checkoutContent");
 
@@ -647,10 +673,17 @@
       `;
     }
 
+    /* =========================================================
+       RENDERIZAR EL PASO 1 DEL CHECKOUT
+       - Muestra los productos seleccionados
+       - Muestra el resumen del pedido
+       - Ofrece avanzar o cancelar y volver al carrito
+       ========================================================= */
     function renderCheckoutStepOne() {
       const cart = getCart();
       const checkoutContent = document.getElementById("checkoutContent");
 
+      /* Si no hay productos, mostramos el estado vacío */
       if (cart.length === 0) {
         renderEmptyCheckout();
         return;
@@ -658,6 +691,7 @@
 
       const { totalUnits, totalPrice } = getCartTotals(cart);
 
+      /* Creamos el HTML de cada línea del pedido */
       const itemsHTML = cart.map(item => `
         <article class="checkout-item">
           <div class="checkout-item-image">
@@ -676,6 +710,7 @@
         </article>
       `).join("");
 
+      /* Insertamos la estructura completa del paso 1 */
       checkoutContent.innerHTML = `
         <div class="checkout-layout">
           <section class="panel">
@@ -724,6 +759,10 @@
       `;
     }
 
+    /* =========================================================
+       INICIO DE LA PÁGINA
+       - Al cargar, pintamos el paso 1 del checkout
+       ========================================================= */
     renderCheckoutStepOne();
   </script>
 </body>
