@@ -18,9 +18,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================================================
-       VARIABLES GLOBALES
-       ========================================================= */
     :root {
       --bg: #f7f3ec;
       --surface: #fbf8f3;
@@ -35,9 +32,6 @@
       --error: #9f4d45;
     }
 
-    /* =========================================================
-       RESET BÁSICO
-       ========================================================= */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -68,9 +62,6 @@
       font: inherit;
     }
 
-    /* =========================================================
-       CABECERA DE CHECKOUT
-       ========================================================= */
     .topbar {
       position: sticky;
       top: 0;
@@ -104,11 +95,6 @@
       letter-spacing: 0.12em;
     }
 
-    /* =========================================================
-       FLUJO VISUAL DE PASOS
-       - Pasos 1 y 2 completados
-       - Paso 3 activo
-       ========================================================= */
     .checkout-steps-wrap {
       border-bottom: 1px solid var(--line);
       background: var(--surface);
@@ -185,9 +171,6 @@
       background: var(--accent);
     }
 
-    /* =========================================================
-       CONTENIDO PRINCIPAL
-       ========================================================= */
     .page {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -252,9 +235,6 @@
       font-size: 16px;
     }
 
-    /* =========================================================
-       BLOQUES DE REVISIÓN
-       ========================================================= */
     .review-section + .review-section {
       margin-top: 28px;
       padding-top: 28px;
@@ -294,9 +274,6 @@
       line-height: 1.7;
     }
 
-    /* =========================================================
-       BLOQUE DE PAGO VISUAL
-       ========================================================= */
     .payment-box {
       margin-top: 22px;
       padding: 22px;
@@ -337,9 +314,6 @@
       background: white;
     }
 
-    /* =========================================================
-       BLOQUE DE CONFIANZA
-       ========================================================= */
     .trust-box {
       margin-top: 22px;
       padding: 18px 20px;
@@ -363,12 +337,6 @@
       line-height: 1.7;
     }
 
-    /* =========================================================
-       BOTONES Y ACCIONES
-       - Botón secundario: volver atrás
-       - Botón principal: confirmar pedido
-       - Botón pequeño: cancelar compra
-       ========================================================= */
     .review-actions {
       display: flex;
       flex-wrap: wrap;
@@ -411,9 +379,6 @@
       color: var(--soft);
     }
 
-    /* =========================================================
-       RESUMEN LATERAL
-       ========================================================= */
     .summary-lines {
       display: grid;
       gap: 14px;
@@ -468,9 +433,6 @@
       margin-top: 20px;
     }
 
-    /* =========================================================
-       ESTADO VACÍO
-       ========================================================= */
     .empty-actions {
       margin-top: 22px;
     }
@@ -485,9 +447,6 @@
       font-size: 12px;
     }
 
-    /* =========================================================
-       RESPONSIVE
-       ========================================================= */
     @media (max-width: 900px) {
       .checkout-layout {
         grid-template-columns: 1fr;
@@ -569,9 +528,6 @@
   </style>
 </head>
 <body>
-  <!-- =========================================================
-       CABECERA DEL CHECKOUT
-       ========================================================= -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand-name">Be&Be Drinks Spain</div>
@@ -579,9 +535,6 @@
     </div>
   </header>
 
-  <!-- =========================================================
-       FLUJO VISUAL DE PASOS
-       ========================================================= -->
   <section class="checkout-steps-wrap">
     <div class="checkout-steps">
       <div class="checkout-step is-completed">
@@ -612,9 +565,6 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       CONTENIDO PRINCIPAL
-       ========================================================= -->
   <main class="page">
     <p class="eyebrow">Checkout</p>
     <h1 class="title">Revisar y confirmar</h1>
@@ -623,44 +573,30 @@
       el resumen de compra y el método de pago antes de confirmar.
     </p>
 
-    <!-- Contenedor dinámico -->
     <div id="checkoutContent"></div>
   </main>
 
   <script>
-    /* =========================================================
-       CLAVES DE ALMACENAMIENTO
-       ========================================================= */
     const CART_KEY = "bebeb-drinks-cart";
     const CHECKOUT_DATA_KEY = "bebeb-drinks-checkout-data";
     const ORDER_CONFIRMED_KEY = "bebeb-drinks-order-confirmed";
+    const ORDER_NUMBER_KEY = "bebeb-drinks-order-number";
+    const ORDER_SNAPSHOT_KEY = "bebeb-drinks-order-snapshot";
 
-    /* =========================================================
-       OBTENER EL CARRITO DESDE LOCALSTORAGE
-       ========================================================= */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
     }
 
-    /* =========================================================
-       OBTENER LOS DATOS DEL CLIENTE DESDE LOCALSTORAGE
-       ========================================================= */
     function getSavedCheckoutData() {
       const savedData = localStorage.getItem(CHECKOUT_DATA_KEY);
       return savedData ? JSON.parse(savedData) : {};
     }
 
-    /* =========================================================
-       FORMATEAR PRECIOS
-       ========================================================= */
     function formatPrice(price) {
       return "€" + price.toFixed(2);
     }
 
-    /* =========================================================
-       CALCULAR TOTALES DEL CARRITO
-       ========================================================= */
     function getCartTotals(cart) {
       const totalUnits = cart.reduce((sum, item) => sum + item.quantity, 0);
       const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -671,10 +607,6 @@
       };
     }
 
-    /* =========================================================
-       MOSTRAR ESTADO VACÍO
-       - Se usa si faltan productos o datos del cliente
-       ========================================================= */
     function renderEmptyCheckout(message, linkHref, linkText) {
       const checkoutContent = document.getElementById("checkoutContent");
 
@@ -689,19 +621,11 @@
       `;
     }
 
-    /* =========================================================
-       RENDERIZAR EL CHECKOUT 3
-       - Revisa productos
-       - Revisa datos del cliente
-       - Muestra pago visual
-       - Añade acciones de atrás, confirmar y cancelar
-       ========================================================= */
     function renderCheckoutStepThree() {
       const cart = getCart();
       const savedData = getSavedCheckoutData();
       const checkoutContent = document.getElementById("checkoutContent");
 
-      /* Si no hay productos, bloqueamos el paso */
       if (cart.length === 0) {
         renderEmptyCheckout(
           "Tu carrito está vacío. Antes de confirmar un pedido, necesitas añadir productos.",
@@ -711,7 +635,6 @@
         return;
       }
 
-      /* Si faltan datos esenciales, pedimos volver al paso 2 */
       if (!savedData.nombre || !savedData.email || !savedData.direccion) {
         renderEmptyCheckout(
           "Faltan datos del cliente. Vuelve al paso anterior para completar la información de entrega.",
@@ -723,7 +646,6 @@
 
       const { totalUnits, totalPrice } = getCartTotals(cart);
 
-      /* Resumen lateral de productos */
       const summaryItemsHTML = cart.map(item => `
         <div class="summary-item">
           <span><strong>${item.name}</strong> × ${item.quantity}</span>
@@ -731,7 +653,6 @@
         </div>
       `).join("");
 
-      /* Resumen principal del pedido */
       const checkoutItemsHTML = cart.map(item => `
         <div class="review-row">
           <span class="review-label">${item.name}</span>
@@ -824,20 +745,11 @@
               </div>
             </div>
 
-            <!-- =========================================
-                 ACCIONES PRINCIPALES DEL PASO 3
-                 - Volver atrás
-                 - Confirmar pedido
-                 ========================================= -->
             <div class="review-actions">
               <a href="checkout-2.html" class="secondary-btn">Volver a tus datos</a>
-              <button id="confirmOrderBtn" class="primary-btn">Confirmar pedido</button>
+              <button id="confirmOrderBtn" class="primary-btn" type="button">Confirmar pedido</button>
             </div>
 
-            <!-- =========================================
-                 ACCIÓN SECUNDARIA PEQUEÑA
-                 - Cancelar compra y salir del checkout
-                 ========================================= -->
             <div class="review-cancel">
               <a href="carrito.html" class="cancel-link">Cancelar compra</a>
             </div>
@@ -874,22 +786,16 @@
         </div>
       `;
 
-      /* =========================================================
-         BOTÓN DE CONFIRMAR PEDIDO
-         - Guarda una marca de confirmación
-         - Lleva al paso 4
-         ========================================================= */
       const confirmOrderBtn = document.getElementById("confirmOrderBtn");
 
       confirmOrderBtn.addEventListener("click", function () {
+        localStorage.removeItem(ORDER_SNAPSHOT_KEY);
+        localStorage.removeItem(ORDER_NUMBER_KEY);
         localStorage.setItem(ORDER_CONFIRMED_KEY, "true");
         window.location.href = "checkout-4.html";
       });
     }
 
-    /* =========================================================
-       INICIO DE LA PÁGINA
-       ========================================================= */
     renderCheckoutStepThree();
   </script>
 </body>
