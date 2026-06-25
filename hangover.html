@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FU*NG HANGOVER KILLER | Be&Be Drinks Spain</title>
 
-  //fonts.googleapis.com">
-  //fonts.gstatic.com" crossorigin>
-  //fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -232,11 +232,12 @@
 
     .product-title {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(42px, 5vw, 72px);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
+      font-size: clamp(30px, 3.4vw, 52px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
       font-weight: 500;
       margin-bottom: 12px;
+      max-width: 12ch;
     }
 
     .product-flavor {
@@ -656,8 +657,9 @@
       }
 
       .product-title {
-        font-size: 40px;
-        letter-spacing: -0.03em;
+        font-size: 34px;
+        line-height: 1.02;
+        max-width: 100%;
       }
 
       .pack-btn {
@@ -692,8 +694,8 @@
 
       <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          ircle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
-          ircle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+          <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
+          <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
           <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
         <span id="cartCount" class="cart-count">0</span>
@@ -720,11 +722,11 @@
               <img src="images/HANGOVER.jpeg" alt="Vista principal de FU*NG HANGOVER KILLER">
             </button>
 
-            <button class="thumb" type="button" onclick="changeImage('images/hangover - pack 6.jpeg')">
+            <button class="thumb" type="button" onclick="changeImage('images/hangover - pack 12.jpeg')">
               <img src="images/hangover - pack 12.jpeg" alt="Pack de 12 FU*NG HANGOVER KILLER">
             </button>
 
-            <button class="thumb" type="button" onclick="changeImage('images/hangover - pack 12.png')">
+            <button class="thumb" type="button" onclick="changeImage('images/hangover - pack 6.jpeg')">
               <img src="images/hangover - pack 6.jpeg" alt="Pack de 6 FU*NG HANGOVER KILLER">
             </button>
 
@@ -753,7 +755,7 @@
           </div>
 
           <div class="buy-box">
-            abel class="quantity-label">Elige tu pack</label>
+            <label class="quantity-label">Elige tu pack</label>
 
             <div class="pack-options">
               <button type="button" class="pack-btn" onclick="setPackQuantity(6)">Pack de 6</button>
@@ -761,7 +763,7 @@
               <button type="button" class="pack-btn" onclick="setPackQuantity(24)">Pack de 24</button>
             </div>
 
-            abel class="quantity-label quantity-label-center" for="quantity">O elige una cantidad manual</label>
+            <label class="quantity-label quantity-label-center" for="quantity">O elige una cantidad manual</label>
 
             <div class="quantity-selector-wrap">
               <div class="quantity-selector">
