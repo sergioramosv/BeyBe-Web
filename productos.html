@@ -86,12 +86,32 @@
       gap: 24px;
     }
 
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 38px;
+      background: #111111;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .brand-name {
       font-family: "Cormorant Garamond", serif;
       font-size: 24px;
       line-height: 1;
       letter-spacing: -0.02em;
-      flex-shrink: 0;
     }
 
     .nav {
@@ -438,27 +458,22 @@
 <body>
   <!-- =========================================================
        CABECERA PRINCIPAL
-       - Marca
-       - Navegación
-       - Acceso al carrito con contador
        ========================================================= -->
   <header class="topbar">
     <div class="topbar-inner">
-      <!-- Nombre de la marca -->
-      <div class="brand-name">Be&Be Drinks Spain</div>
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
+      </div>
 
-      <!-- Menú principal
-           CAMBIO:
-           - Se elimina "Historia"
-           - Se elimina "Contacto"
-           - Se sustituye por "Nosotros" apuntando a nosotros.html -->
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="nosotros.html">Nosotros</a>
       </nav>
 
-      <!-- Enlace al carrito con contador -->
       <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
@@ -491,8 +506,8 @@
             <h2>Bloody Mary</h2>
             <p class="product-subtitle">Tomate · Vodka · Especias</p>
             <p class="product-text">
-              Un denso y picante elixir texturizado de manufactura artesanal, donde cada botella se mezcla a mano según el manual británico: 
-              tomate premium, Amontillado de Jerez, vodka y un golpe de Tabasco®. 
+              Un denso y picante elixir texturizado de manufactura artesanal, donde cada botella se mezcla a mano según el manual británico:
+              tomate premium, Amontillado de Jerez, vodka y un golpe de Tabasco®.
               Una sofisticación canalla embotellada para quienes exigen un trasplante de actitud desde el primer trago
             </p>
           </div>
@@ -509,7 +524,7 @@
             <h2>Carajillo del Tío Pío</h2>
             <p class="product-subtitle">Coñac quemado · Café · Limón</p>
             <p class="product-text">
-              Artesanía pura y fuego: la alquimia perfecta entre la oscuridad de un espresso recién extraído y el abrazo piromaníaco del brandy flambeado artesanalmente con limón. 
+              Artesanía pura y fuego: la alquimia perfecta entre la oscuridad de un espresso recién extraído y el abrazo piromaníaco del brandy flambeado artesanalmente con limón.
               Un choque eléctrico de cafeína y hoguera que rescata del letargo y le devuelve el orgullo al paladar.
             </p>
           </div>
@@ -526,8 +541,8 @@
             <h2>Hangover Killer</h2>
             <p class="product-subtitle">Cítricos · Hierbabuena · Ron</p>
             <p class="product-text">
-              El botón de reinicio del alma elaborado artesanalmente: 
-              un pacto gélido con pócimas e ingredientes seleccionados a mano que extirpa la culpa de la noche anterior. 
+              El botón de reinicio del alma elaborado artesanalmente:
+              un pacto gélido con pócimas e ingredientes seleccionados a mano que extirpa la culpa de la noche anterior.
               Un tónico ultra-revitalizante de producción limitada diseñado para fulminar el malestar y transformar un despojo humano en un aristócrata.
             </p>
           </div>
@@ -538,7 +553,6 @@
 
   <!-- =========================================================
        FOOTER OSCURO
-       - Añadido para mantener coherencia con el resto de páginas
        ========================================================= -->
   <section class="ending">
     <div class="ending-inner">
@@ -591,26 +605,13 @@
   </section>
 
   <script>
-    /* =========================================
-       CLAVE DEL CARRITO EN EL NAVEGADOR
-       ========================================= */
     const CART_KEY = "bebeb-drinks-cart";
 
-    /* =========================================
-       OBTENER EL CARRITO GUARDADO
-       - Lee localStorage
-       - Si no hay datos, devuelve []
-       ========================================= */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
     }
 
-    /* =========================================
-       ACTUALIZAR EL CONTADOR DEL ICONO
-       - Cuenta productos distintos del carrito
-       - Escribe el número en #cartCount
-       ========================================= */
     function updateCartCount() {
       const cart = getCart();
       const distinctProducts = cart.length;
@@ -621,9 +622,6 @@
       }
     }
 
-    /* =========================================
-       EJECUCIÓN INICIAL
-       ========================================= */
     updateCartCount();
   </script>
 </body>
