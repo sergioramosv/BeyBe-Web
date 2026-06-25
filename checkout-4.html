@@ -61,6 +61,9 @@
       font: inherit;
     }
 
+    /* =========================================================
+       CABECERA
+       ========================================================= */
     .topbar {
       position: sticky;
       top: 0;
@@ -73,11 +76,33 @@
     .topbar-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
-      min-height: 82px;
+      min-height: 86px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 38px;
+      background: #111111;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .brand-name {
@@ -85,6 +110,7 @@
       font-size: 24px;
       letter-spacing: -0.02em;
       line-height: 1;
+      white-space: nowrap;
     }
 
     .topbar-link {
@@ -92,8 +118,13 @@
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
+      white-space: nowrap;
+      flex: 0 0 auto;
     }
 
+    /* =========================================================
+       PASOS DEL CHECKOUT
+       ========================================================= */
     .checkout-steps-wrap {
       border-bottom: 1px solid var(--line);
       background: var(--surface);
@@ -130,6 +161,8 @@
       font-size: 14px;
       font-weight: 600;
       transition: all 0.25s ease;
+      position: relative;
+      z-index: 2;
     }
 
     .checkout-step-label {
@@ -137,6 +170,8 @@
       letter-spacing: 0.10em;
       text-transform: uppercase;
       color: var(--muted);
+      line-height: 1.3;
+      text-align: center;
     }
 
     .checkout-step-line {
@@ -170,6 +205,9 @@
       background: var(--accent);
     }
 
+    /* =========================================================
+       CONTENIDO
+       ========================================================= */
     .page {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -417,6 +455,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
     }
 
     .primary-btn {
@@ -459,30 +498,87 @@
 
       .topbar-inner {
         min-height: auto;
-        padding: 18px 0;
+        padding: 12px 0;
+        gap: 12px;
+      }
+
+      .brand {
+        gap: 8px;
+        min-width: 0;
+        flex: 1 1 auto;
+      }
+
+      .brand-mark {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+      }
+
+      .brand-name {
+        font-size: 17px;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+
+      .topbar-link {
+        font-size: 9px;
+        letter-spacing: 0.08em;
+      }
+
+      .checkout-steps-wrap {
+        overflow: hidden;
       }
 
       .checkout-steps {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 18px 0 20px;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        padding: 16px 0 14px;
       }
 
-      .checkout-step {
-        flex-direction: row;
-        justify-content: flex-start;
-        text-align: left;
-        gap: 14px;
+      .checkout-steps::before {
+        content: "";
+        position: absolute;
+        left: 12.5%;
+        right: 12.5%;
+        top: 31px;
+        height: 1px;
+        background: var(--line);
+        z-index: 0;
       }
 
       .checkout-step-line {
-        height: 18px;
-        width: 1px;
-        margin: 0 auto;
+        display: none;
+      }
+
+      .checkout-step {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        text-align: center;
+        padding: 0 2px;
+      }
+
+      .checkout-step-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 11px;
+      }
+
+      .checkout-step-label {
+        font-size: 9px;
+        letter-spacing: 0.06em;
+        line-height: 1.25;
+        white-space: normal;
+        max-width: 64px;
       }
 
       .page {
-        padding: 40px 0 56px;
+        padding: 34px 0 56px;
       }
 
       .confirmation-card,
@@ -526,6 +622,19 @@
       .primary-btn,
       .secondary-btn {
         width: 100%;
+        min-height: 48px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+      }
+
+      .empty-link {
+        width: 100%;
+        min-height: 48px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   </style>
@@ -533,7 +642,13 @@
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand-name">Be&Be Drinks Spain</div>
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
+      </div>
+
       <a href="index.html" class="topbar-link">Volver al inicio</a>
     </div>
   </header>
@@ -594,12 +709,17 @@
     }
 
     function getCartTotals(cart) {
-      const totalUnits = cart.reduce((sum, item) => sum + item.quantity, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const totalUnits = cart.reduce(function(sum, item) {
+        return sum + item.quantity;
+      }, 0);
+
+      const totalPrice = cart.reduce(function(sum, item) {
+        return sum + (item.price * item.quantity);
+      }, 0);
 
       return {
-        totalUnits,
-        totalPrice
+        totalUnits: totalUnits,
+        totalPrice: totalPrice
       };
     }
 
@@ -609,15 +729,15 @@
     }
 
     function createFreshOrderSnapshot(cart, customerData) {
-      const { totalUnits, totalPrice } = getCartTotals(cart);
+      const totals = getCartTotals(cart);
       const orderNumber = generateOrderNumber();
 
       const snapshot = {
-        orderNumber,
-        cart,
-        customerData,
-        totalUnits,
-        totalPrice
+        orderNumber: orderNumber,
+        cart: cart,
+        customerData: customerData,
+        totalUnits: totals.totalUnits,
+        totalPrice: totals.totalPrice
       };
 
       localStorage.setItem(ORDER_NUMBER_KEY, orderNumber);
@@ -632,6 +752,10 @@
 
     function renderInvalidAccess() {
       const confirmationContent = document.getElementById("confirmationContent");
+
+      if (!confirmationContent) {
+        return;
+      }
 
       confirmationContent.innerHTML = `
         <section class="empty-box">
@@ -656,6 +780,10 @@
 
       let snapshot = null;
 
+      if (!confirmationContent) {
+        return;
+      }
+
       if (isConfirmed === "true") {
         if (cart.length === 0) {
           renderInvalidAccess();
@@ -672,22 +800,48 @@
         return;
       }
 
-      const summaryItemsHTML = snapshot.cart.map(item => `
-        <div class="summary-item">
-          <div class="summary-item-image">
-            <img src="${item.image}" alt="${item.name}">
-          </div>
+      const customerEmail = snapshot.customerData && snapshot.customerData.email
+        ? snapshot.customerData.email
+        : "tu correo electrónico";
 
-          <div class="summary-item-info">
-            <strong>${item.name}</strong>
-            <span class="summary-item-meta">Cantidad: ${item.quantity}</span>
-          </div>
+      const customerName = snapshot.customerData
+        ? ((snapshot.customerData.nombre || "") + " " + (snapshot.customerData.apellidos || "")).trim()
+        : "";
 
-          <div class="summary-item-price">
-            ${formatPrice(item.price * item.quantity)}
+      const customerAddress = snapshot.customerData && snapshot.customerData.direccion
+        ? snapshot.customerData.direccion
+        : "-";
+
+      const customerCity = snapshot.customerData && snapshot.customerData.ciudad
+        ? snapshot.customerData.ciudad
+        : "";
+
+      const customerPostal = snapshot.customerData && snapshot.customerData.codigoPostal
+        ? snapshot.customerData.codigoPostal
+        : "";
+
+      const customerPhone = snapshot.customerData && snapshot.customerData.telefono
+        ? snapshot.customerData.telefono
+        : "-";
+
+      const summaryItemsHTML = snapshot.cart.map(function(item) {
+        return `
+          <div class="summary-item">
+            <div class="summary-item-image">
+              <img src="${item.image}" alt="${item.name}">
+            </div>
+
+            <div class="summary-item-info">
+              <strong>${item.name}</strong>
+              <span class="summary-item-meta">Cantidad: ${item.quantity}</span>
+            </div>
+
+            <div class="summary-item-price">
+              ${formatPrice(item.price * item.quantity)}
+            </div>
           </div>
-        </div>
-      `).join("");
+        `;
+      }).join("");
 
       confirmationContent.innerHTML = `
         <section class="confirmation-card">
@@ -696,7 +850,7 @@
             <h1 class="title">Gracias por tu compra</h1>
             <p class="intro">
               Hemos recibido correctamente tu pedido. En breve recibirás un correo de confirmación
-              en <strong>${snapshot.customerData.email || "tu correo electrónico"}</strong> con el resumen de la compra.
+              en <strong>${customerEmail}</strong> con el resumen de la compra.
             </p>
           </div>
 
@@ -727,26 +881,24 @@
 
                 <div class="info-row">
                   <span class="info-label">Cliente</span>
-                  <span class="info-value">
-                    ${(snapshot.customerData.nombre || "")} ${(snapshot.customerData.apellidos || "")}
-                  </span>
+                  <span class="info-value">${customerName || "-"}</span>
                 </div>
 
                 <div class="info-row">
                   <span class="info-label">Correo</span>
-                  <span class="info-value">${snapshot.customerData.email || "-"}</span>
+                  <span class="info-value">${customerEmail}</span>
                 </div>
 
                 <div class="info-row">
                   <span class="info-label">Teléfono</span>
-                  <span class="info-value">${snapshot.customerData.telefono || "-"}</span>
+                  <span class="info-value">${customerPhone}</span>
                 </div>
 
                 <div class="info-row">
                   <span class="info-label">Entrega</span>
                   <span class="info-value">
-                    ${snapshot.customerData.direccion || "-"}<br>
-                    ${snapshot.customerData.ciudad || ""} ${snapshot.customerData.codigoPostal || ""}
+                    ${customerAddress}<br>
+                    ${customerCity} ${customerPostal}
                   </span>
                 </div>
 
