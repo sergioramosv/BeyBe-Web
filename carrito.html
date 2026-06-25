@@ -5,15 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrito | Be&Be Drinks Spain</title>
 
-  <!-- Tipografías principales de la web -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ==============================
-       VARIABLES GLOBALES DE COLOR
-       ============================== */
     :root {
       --bg: #f7f3ec;
       --surface: #fbf8f3;
@@ -27,9 +23,6 @@
       --success: #2f5a31;
     }
 
-    /* ==============================
-       RESET BÁSICO
-       ============================== */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -58,26 +51,23 @@
       font: inherit;
     }
 
-    /* ==============================
-       CABECERA
-       ============================== */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 30;
-      background: rgba(251, 248, 243, 0.95);
+      background: rgba(247, 243, 236, 0.96);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid #ddd4c8;
     }
 
     .topbar-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
-      min-height: 86px;
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
     }
 
     .brand-name {
@@ -85,36 +75,51 @@
       font-size: 24px;
       line-height: 1;
       letter-spacing: -0.02em;
+      white-space: nowrap;
       flex-shrink: 0;
     }
 
     .nav {
       display: flex;
-      gap: 38px;
+      align-items: center;
+      gap: 34px;
+      margin-left: auto;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       font-size: 12px;
       color: var(--muted);
-      margin-left: auto;
-      align-items: center;
+    }
+
+    .nav a {
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
     }
 
     .cart-link {
-      min-width: 42px;
+      min-width: 46px;
       height: 42px;
-      border: 1px solid var(--line);
+      border: 1px solid #ddd4c8;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       color: var(--accent);
-      background: var(--surface-soft);
-      padding: 0 10px;
+      background: transparent;
+      padding: 0 12px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .cart-link:hover {
+      background: #f3ede5;
+      border-color: #d5c7b7;
     }
 
     .cart-link svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       display: block;
     }
 
@@ -132,9 +137,6 @@
       padding: 0 6px;
     }
 
-    /* ==============================
-       CONTENIDO PRINCIPAL
-       ============================== */
     .page {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -197,9 +199,6 @@
       font-size: 16px;
     }
 
-    /* ==============================
-       LISTADO DE PRODUCTOS
-       ============================== */
     .cart-items {
       display: grid;
       gap: 18px;
@@ -304,9 +303,6 @@
       white-space: nowrap;
     }
 
-    /* ==============================
-       RESUMEN DE COMPRA
-       ============================== */
     .summary-lines {
       display: grid;
       gap: 14px;
@@ -359,6 +355,9 @@
     .primary-btn {
       background: var(--dark);
       color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .secondary-btn {
@@ -367,9 +366,6 @@
       border: 1px solid var(--line);
     }
 
-    /* ==============================
-       ESTADO VACÍO
-       ============================== */
     .empty-box {
       max-width: 760px;
       background: var(--surface);
@@ -391,23 +387,6 @@
       font-size: 12px;
     }
 
-    /* ==============================
-       MENSAJE DE ACTUALIZACIÓN
-       ============================== */
-    .cart-status {
-      margin-top: 18px;
-      color: var(--success);
-      font-size: 14px;
-      display: none;
-    }
-
-    .cart-status.show {
-      display: block;
-    }
-
-    /* ==============================
-       RESPONSIVE
-       ============================== */
     @media (max-width: 900px) {
       .cart-layout {
         grid-template-columns: 1fr;
@@ -422,18 +401,42 @@
 
       .topbar-inner {
         min-height: auto;
-        padding: 18px 0;
+        padding: 14px 0;
         flex-wrap: wrap;
-        align-items: center;
-        gap: 16px;
+        gap: 10px 12px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+        width: 100%;
       }
 
       .nav {
-        gap: 18px;
-        flex-wrap: wrap;
+        order: 2;
         margin-left: 0;
-        order: 3;
-        width: 100%;
+        gap: 14px;
+        font-size: 10px;
+        letter-spacing: 0.10em;
+        flex-wrap: wrap;
+      }
+
+      .cart-link {
+        margin-left: auto;
+        min-width: 38px;
+        height: 38px;
+        padding: 0 9px;
+      }
+
+      .cart-link svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .cart-count {
+        min-width: 17px;
+        height: 17px;
+        font-size: 10px;
+        padding: 0 5px;
       }
 
       .page {
@@ -468,10 +471,9 @@
   </style>
 </head>
 <body>
-  <!-- Cabecera principal del carrito -->
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand-name">Be&Be Drinks Spain</div>
+      <a href="index.html" class="brand-name">Be&Be Drinks Spain</a>
 
       <nav class="nav">
         <a href="index.html">Inicio</a>
@@ -491,7 +493,6 @@
     </div>
   </header>
 
-  <!-- Contenido principal de la página -->
   <main class="page">
     <p class="eyebrow">Carrito</p>
     <h1 class="title">Tu selección</h1>
@@ -499,74 +500,35 @@
       Revisa tus bebidas, ajusta cantidades y confirma el resumen antes de continuar con la siguiente fase de compra.
     </p>
 
-    <!-- Aquí JavaScript insertará el carrito vacío o el carrito con productos -->
     <div id="cartContent"></div>
   </main>
 
   <script>
-    /* =========================================================
-       CLAVE DEL CARRITO EN LOCALSTORAGE
-       ---------------------------------------------------------
-       Esta constante define el nombre con el que guardamos
-       el carrito en el navegador.
-    ========================================================= */
     const CART_KEY = "bebeb-drinks-cart";
 
-    /* =========================================================
-       OBTENER EL CARRITO GUARDADO
-       ---------------------------------------------------------
-       - Si existe información en localStorage, la convertimos
-         desde texto JSON a array real.
-       - Si no existe nada, devolvemos un array vacío.
-    ========================================================= */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
     }
 
-    /* =========================================================
-       GUARDAR EL CARRITO
-       ---------------------------------------------------------
-       Convierte el array del carrito en texto JSON y lo guarda
-       en localStorage para conservarlo entre páginas.
-    ========================================================= */
     function saveCart(cart) {
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
     }
 
-    /* =========================================================
-       FORMATEAR PRECIOS
-       ---------------------------------------------------------
-       Recibe un número y devuelve un texto con formato euro.
-       Ejemplo: 3.3 -> €3.30
-    ========================================================= */
     function formatPrice(price) {
       return "€" + price.toFixed(2);
     }
 
-    /* =========================================================
-       ACTUALIZAR CONTADOR DEL ICONO DEL CARRITO
-       ---------------------------------------------------------
-       Muestra cuántos productos distintos hay actualmente
-       guardados en el carrito.
-    ========================================================= */
     function updateCartCount() {
       const cart = getCart();
-      const distinctProducts = cart.length;
+      const totalUnits = cart.reduce((sum, item) => sum + item.quantity, 0);
       const cartCount = document.getElementById("cartCount");
 
       if (cartCount) {
-        cartCount.textContent = distinctProducts;
+        cartCount.textContent = totalUnits;
       }
     }
 
-    /* =========================================================
-       CALCULAR TOTALES DEL CARRITO
-       ---------------------------------------------------------
-       Devuelve:
-       - totalUnits: suma de todas las cantidades
-       - totalPrice: suma del precio total del carrito
-    ========================================================= */
     function getCartTotals(cart) {
       const totalUnits = cart.reduce((sum, item) => sum + item.quantity, 0);
       const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -577,14 +539,6 @@
       };
     }
 
-    /* =========================================================
-       CAMBIAR CANTIDAD DE UN PRODUCTO
-       ---------------------------------------------------------
-       - Busca el producto por su id.
-       - Suma o resta la cantidad.
-       - Si llega a 0 o menos, elimina el producto.
-       - Después vuelve a pintar el carrito.
-    ========================================================= */
     function changeItemQuantity(productId, amount) {
       const cart = getCart();
       const product = cart.find(item => item.id === productId);
@@ -603,11 +557,6 @@
       renderCart();
     }
 
-    /* =========================================================
-       ELIMINAR UN PRODUCTO COMPLETO
-       ---------------------------------------------------------
-       Borra por completo una línea del carrito usando su id.
-    ========================================================= */
     function removeItem(productId) {
       const cart = getCart();
       const updatedCart = cart.filter(item => item.id !== productId);
@@ -615,23 +564,11 @@
       renderCart();
     }
 
-    /* =========================================================
-       VACIAR TODO EL CARRITO
-       ---------------------------------------------------------
-       Elimina la clave del carrito de localStorage y vuelve
-       a mostrar el estado vacío.
-    ========================================================= */
     function clearCart() {
       localStorage.removeItem(CART_KEY);
       renderCart();
     }
 
-    /* =========================================================
-       MOSTRAR CARRITO VACÍO
-       ---------------------------------------------------------
-       Inserta el bloque HTML del estado vacío cuando no hay
-       productos añadidos.
-    ========================================================= */
     function renderEmptyCart() {
       const cartContent = document.getElementById("cartContent");
 
@@ -649,16 +586,6 @@
       `;
     }
 
-    /* =========================================================
-       PINTAR TODO EL CARRITO
-       ---------------------------------------------------------
-       Esta es la función principal:
-       - Lee el carrito actual.
-       - Actualiza el contador superior.
-       - Si no hay productos, muestra el estado vacío.
-       - Si hay productos, construye el HTML completo:
-         listado de productos + resumen lateral.
-    ========================================================= */
     function renderCart() {
       const cart = getCart();
       const cartContent = document.getElementById("cartContent");
@@ -672,17 +599,6 @@
 
       const { totalUnits, totalPrice } = getCartTotals(cart);
 
-      /* ---------------------------------------------------------
-         Creamos el HTML de cada producto del carrito.
-         Aquí mostramos:
-         - imagen
-         - nombre
-         - precio unitario
-         - texto "3.30 por lata" si el producto vale 3.30
-         - selector de cantidad
-         - botón eliminar
-         - total de esa línea
-      --------------------------------------------------------- */
       const cartItemsHTML = cart.map(item => `
         <article class="cart-item">
           <div class="cart-item-image">
@@ -713,19 +629,10 @@
         </article>
       `).join("");
 
-      /* ---------------------------------------------------------
-         Insertamos la estructura completa del carrito.
-         Lado izquierdo:
-         - productos añadidos:
-         Lado derecho:
-         - resumen numérico
-         - botón seguir comprando
-         - botón vaciar carrito
-      --------------------------------------------------------- */
       cartContent.innerHTML = `
         <div class="cart-layout">
           <section class="cart-box">
-            <h2>Productos añadidos:</h2>
+            <h2>Productos añadidos</h2>
             <div class="cart-items">
               ${cartItemsHTML}
             </div>
@@ -762,22 +669,16 @@
             </p>
 
             <div class="summary-actions">
-              <a href="checkout-1.html" class="primary-btn" style="display:inline-flex;align-items:center;justify-content:center;">
-                CONTINUAR
-              </a>
+              <a href="checkout-1.html" class="primary-btn">CONTINUAR</a>
               <button class="secondary-btn" type="button" onclick="clearCart()">
                 VACIAR CARRITO
               </button>
             </div>
+          </aside>
+        </div>
       `;
     }
 
-    /* =========================================================
-       ARRANQUE INICIAL
-       ---------------------------------------------------------
-       Al cargar la página, dibujamos el carrito una vez para
-       mostrar el estado correcto desde el principio.
-    ========================================================= */
     renderCart();
   </script>
 </body>
