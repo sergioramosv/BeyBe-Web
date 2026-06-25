@@ -380,23 +380,72 @@
     }
 
     @media (max-width: 720px) {
+      .topbar-inner,
+      .legal-hero-inner,
+      .tabs,
+      .legal-body,
+      .ending-inner {
+        width: calc(100% - 24px);
+      }
+
       .topbar-inner {
         min-height: auto;
-        padding: 18px 0;
+        padding: 12px 0;
         flex-wrap: wrap;
-        gap: 16px;
+        align-items: center;
+        gap: 10px 12px;
+      }
+
+      .brand {
+        gap: 8px;
+        width: 100%;
+        order: 1;
+      }
+
+      .brand-mark {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+      }
+
+      .brand-name {
+        font-size: 17px;
+        letter-spacing: -0.01em;
       }
 
       .nav {
-        gap: 18px;
-        flex-wrap: wrap;
+        order: 2;
         margin-left: 0;
+        width: auto;
+        flex-wrap: nowrap;
+        gap: 12px;
+        font-size: 9px;
+        letter-spacing: 0.08em;
+      }
+
+      .cart-link {
         order: 3;
-        width: 100%;
+        margin-left: auto;
+        min-width: 36px;
+        height: 36px;
+        padding: 0 8px;
+        gap: 6px;
+      }
+
+      .cart-link svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .cart-count {
+        min-width: 17px;
+        height: 17px;
+        font-size: 10px;
+        padding: 0 5px;
       }
 
       .tabs-wrap {
-        top: 72px;
+        top: 60px;
       }
 
       .tab-btn {
@@ -424,8 +473,7 @@
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
-        <a href="historia.html">Historia</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="nosotros.html">Nosotros</a>
       </nav>
 
       <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
@@ -656,9 +704,9 @@
 
         <div class="footer-column">
           <h4>Empresa</h4>
-          <a href="historia.html">Nuestra Historia</a>
-          <a href="empresa.html#ingredientes">Ingredientes</a>
-          <a href="empresa.html#sostenibilidad">Sostenibilidad</a>
+          <a href="nosotros.html#historia">Nuestra Historia</a>
+          <a href="nosotros.html#contacto">Contacto</a>
+          <a href="nosotros.html#sostenibilidad">Sostenibilidad</a>
         </div>
 
         <div class="footer-column">
