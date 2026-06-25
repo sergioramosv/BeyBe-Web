@@ -234,6 +234,8 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .tab-button:hover {
@@ -480,6 +482,8 @@
 
     /* =========================================================
          AJUSTES RESPONSIVE PARA MÓVIL
+         - Igualados a index para la barra
+         - Tabs en una sola línea
          ========================================================= */
     @media (max-width: 720px) {
       .topbar-inner,
@@ -548,6 +552,25 @@
         padding: 40px 0 56px;
       }
 
+      .tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 4px;
+      }
+
+      .tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab-button {
+        padding: 11px 14px;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+
       .history-block,
       .contact-block {
         padding: 20px;
@@ -577,9 +600,6 @@
   </style>
 </head>
 <body>
-  <!-- =========================================================
-       CABECERA PRINCIPAL
-       ========================================================= -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
@@ -606,9 +626,6 @@
     </div>
   </header>
 
-  <!-- =========================================================
-       CONTENIDO PRINCIPAL DE NOSOTROS
-       ========================================================= -->
   <main class="page">
     <p class="eyebrow">Nosotros</p>
     <h1 class="title">Nuestra historia</h1>
@@ -617,16 +634,12 @@
       En esta página puedes contar el origen de Be&Be, centralizar la información de contacto y explicar el compromiso de la marca con una forma de producir más consciente.
     </p>
 
-    <!-- Pestañas -->
     <div class="tabs">
       <button class="tab-button active" data-tab="historia">Nuestra Historia</button>
       <button class="tab-button" data-tab="contacto">Contacto</button>
       <button class="tab-button" data-tab="sostenibilidad">Sostenibilidad</button>
     </div>
 
-    <!-- =====================================================
-         PESTAÑA 1: NUESTRA HISTORIA
-         ===================================================== -->
     <section id="historia" class="tab-panel active">
       <section class="history-block">
         <p>
@@ -641,9 +654,6 @@
       </section>
     </section>
 
-    <!-- =====================================================
-         PESTAÑA 2: CONTACTO
-         ===================================================== -->
     <section id="contacto" class="tab-panel">
       <p class="eyebrow">Contacto</p>
       <h2 class="title">Hablemos</h2>
@@ -673,9 +683,6 @@
       </section>
     </section>
 
-    <!-- =====================================================
-         PESTAÑA 3: SOSTENIBILIDAD
-         ===================================================== -->
     <section id="sostenibilidad" class="tab-panel">
       <section class="sostenibilidad-section">
         <p class="eyebrow">Sostenibilidad</p>
@@ -720,9 +727,6 @@
     </section>
   </main>
 
-  <!-- =========================================================
-       FOOTER OSCURO
-       ========================================================= -->
   <section class="ending">
     <div class="ending-inner">
       <h2 class="ending-title">
@@ -747,7 +751,7 @@
 
         <div class="footer-column">
           <h4>Empresa</h4>
-          <a href="nosotros.html">Nuestra Historia</a>
+          <a href="nosotros.html#historia">Nuestra Historia</a>
           <a href="nosotros.html#contacto">Contacto</a>
           <a href="nosotros.html#sostenibilidad">Sostenibilidad</a>
         </div>
