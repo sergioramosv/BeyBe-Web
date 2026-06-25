@@ -515,14 +515,6 @@
       letter-spacing: -0.03em;
     }
 
-    /* Se elimina el bloque newsletter del footer.
-       Por eso no hacen falta ya estilos para:
-       .newsletter
-       .newsletter-label
-       .newsletter-row
-       .newsletter-arrow
-    */
-
     .footer-links {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -687,7 +679,6 @@
   ========================= -->
   <header class="topbar">
     <div class="topbar-inner">
-      <!-- Logo y nombre -->
       <div class="brand">
         <div class="brand-mark">
           <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
@@ -695,18 +686,12 @@
         <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
 
-      <!-- Menú principal
-           CAMBIO:
-           - Se elimina "Historia"
-           - Se elimina "Contacto"
-           - Se sustituye por "Nosotros" apuntando a nosotros.html -->
       <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="nosotros.html">Nosotros</a>
       </nav>
 
-      <!-- Carrito -->
       <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
@@ -764,7 +749,6 @@
       <p class="eyebrow">La colección</p>
       <h2 class="title">Nuestras bebidas:</h2>
 
-      <!-- Rejilla de productos -->
       <section class="products-grid">
         <article class="product-card">
           <a href="bloody-mary.html" class="product-link">
@@ -815,7 +799,6 @@
         </article>
       </section>
 
-      <!-- Beneficios -->
       <section class="benefits">
         <div class="benefits-grid">
           <article class="benefit">
@@ -844,7 +827,6 @@
         </div>
       </section>
 
-      <!-- Imagen intermedia -->
       <section class="hero-image">
         <img src="images/CUERPO MEDIO.jpeg" alt="Cabecera visual de Be&Be Drinks Spain">
       </section>
@@ -861,7 +843,6 @@
         momento.
       </h2>
 
-      <!-- Marca en el footer -->
       <div class="ending-brand">
         <div class="brand-mark">
           <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain en footer">
@@ -869,12 +850,7 @@
         <div class="brand-name">Be&Be Drinks Spain</div>
       </div>
 
-      <!-- Se elimina completamente el bloque newsletter
-           que antes contenía "Únete a la lista" y el email -->
-
-      <!-- Enlaces del footer -->
       <div class="footer-links">
-        <!-- Columna productos -->
         <div class="footer-column">
           <h4>Productos</h4>
           <a href="bloody-mary.html">Bloody Mary</a>
@@ -882,17 +858,13 @@
           <a href="hangover.html">Hangover Killer</a>
         </div>
 
-        <!-- Columna empresa
-             Se actualiza "Nuestra Historia" para apuntar a nosotros.html
-             Se mantiene Contacto y Sostenibilidad de momento -->
         <div class="footer-column">
           <h4>Empresa</h4>
-          <a href="nosotros.html">Nuestra Historia</a>
-          <a href="contacto.html">Contacto</a>
-          <a href="nosotros.html">Sostenibilidad</a>
+          <a href="nosotros.html#historia">Nuestra Historia</a>
+          <a href="nosotros.html#contacto">Contacto</a>
+          <a href="nosotros.html#sostenibilidad">Sostenibilidad</a>
         </div>
 
-        <!-- Columna legal -->
         <div class="footer-column">
           <h4>Legal</h4>
           <a href="legal.html#privacidad">Privacidad</a>
@@ -901,7 +873,6 @@
         </div>
       </div>
 
-      <!-- Línea inferior -->
       <div class="footer-bottom">
         <div class="footer-brand">Be&Be Drinks Spain</div>
         <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
@@ -910,18 +881,13 @@
   </section>
 
   <script>
-    /* =========================
-       CLAVE DEL CARRITO
-    ========================= */
     const CART_KEY = "bebeb-drinks-cart";
 
-    /* Obtener carrito desde localStorage */
     function getCart() {
       const savedCart = localStorage.getItem(CART_KEY);
       return savedCart ? JSON.parse(savedCart) : [];
     }
 
-    /* Actualizar contador visible del carrito */
     function updateCartCount() {
       const cart = getCart();
       const distinctProducts = cart.length;
@@ -932,7 +898,6 @@
       }
     }
 
-    /* Ejecutar al cargar */
     updateCartCount();
   </script>
 </body>
