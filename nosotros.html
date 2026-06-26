@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- =========================================================
-       CONFIGURACIÓN BÁSICA DEL DOCUMENTO
-       ========================================================= -->
+  <!-- Configuración básica del documento -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Título de la página -->
-  <title>Nosotros | Be&Be Drinks Spain</title>
+  <title>Be&Be Drinks Spain</title>
 
-  <!-- =========================================================
-       TIPOGRAFÍAS DE LA WEB
-       ========================================================= -->
+  <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================================================
-         VARIABLES GLOBALES DE COLOR
-         ========================================================= */
     :root {
       --bg: #f7f3ec;
       --surface: #fbf8f3;
@@ -30,7 +23,6 @@
       --muted: #807467;
       --soft: #aa9a88;
       --accent: #c7a27d;
-      --dark: #111111;
 
       --dark-bg: #141913;
       --dark-text: #f2ede5;
@@ -38,9 +30,6 @@
       --dark-line: rgba(255,255,255,0.12);
     }
 
-    /* =========================================================
-         RESET BÁSICO
-         ========================================================= */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -49,7 +38,6 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
     }
 
     body {
@@ -69,16 +57,11 @@
       height: auto;
     }
 
-    button {
-      font: inherit;
-      border: none;
-      background: none;
-      cursor: pointer;
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    /* =========================================================
-         CABECERA SUPERIOR
-         ========================================================= */
     .topbar {
       position: sticky;
       top: 0;
@@ -137,9 +120,6 @@
       align-items: center;
     }
 
-    /* =========================================================
-         ICONO DEL CARRITO
-         ========================================================= */
     .cart-link {
       min-width: 42px;
       height: 42px;
@@ -170,7 +150,7 @@
       min-width: 20px;
       height: 20px;
       border-radius: 999px;
-      background: var(--dark);
+      background: #111111;
       color: white;
       display: inline-flex;
       align-items: center;
@@ -180,13 +160,137 @@
       padding: 0 6px;
     }
 
-    /* =========================================================
-         CONTENIDO PRINCIPAL
-         ========================================================= */
-    .page {
+    .hero-intro {
+      position: relative;
+      overflow: hidden;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(247,243,236,0.80), rgba(247,243,236,0.85)),
+        url("images/CHINCHIN -BEYBE.png") center/cover no-repeat;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-intro-inner {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 70px 0 90px;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      color: #111111;
+      text-transform: uppercase;
+      letter-spacing: 0.20em;
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .hero-kicker::before,
+    .hero-kicker::after {
+      content: "";
+      width: 90px;
+      height: 1px;
+      background: rgba(17,17,17,0.25);
+    }
+
+    .hero-logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 28px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+      background: #111;
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(58px, 8vw, 94px);
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+      margin-bottom: 8px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .hero-mini-title {
+      margin: 0 auto 24px;
+      color: #1e1916;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-align: center;
+      font-weight: 500;
+      max-width: 760px;
+    }
+
+    .hero-subtitle {
+      max-width: 760px;
+      margin: 0 auto 44px;
+      color: #3f3934;
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    .hero-scroll {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: #3f3934;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 12px;
+    }
+
+    .hero-scroll span:last-child {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .mini-strip {
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .mini-strip-inner {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 64px 0 80px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .mini-strip-left {
+      font-style: italic;
+    }
+
+    .mini-strip-right {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+    }
+
+    .collection {
+      padding: 28px 0 72px;
     }
 
     .eyebrow {
@@ -199,189 +303,232 @@
 
     .title {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(48px, 7vw, 80px);
+      font-size: clamp(54px, 8vw, 88px);
       line-height: 0.95;
       letter-spacing: -0.04em;
       font-weight: 500;
-      margin-bottom: 22px;
+      margin-bottom: 46px;
     }
 
-    .intro {
-      max-width: 760px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 16px;
-      margin-bottom: 28px;
-    }
-
-    /* =========================================================
-         PESTAÑAS
-         ========================================================= */
-    .tabs {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-
-    .tab-button {
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--muted);
-      padding: 12px 18px;
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-      flex: 0 0 auto;
-    }
-
-    .tab-button:hover {
-      background: var(--surface-soft);
-      color: var(--text);
-    }
-
-    .tab-button.active {
-      background: var(--dark);
-      color: white;
-      border-color: var(--dark);
-    }
-
-    .tab-panel {
-      display: none;
-    }
-
-    .tab-panel.active {
-      display: block;
-    }
-
-    /* =========================================================
-         BLOQUE HISTORIA
-         ========================================================= */
-    .history-block {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      padding: 32px;
-      max-width: 860px;
-      margin-bottom: 40px;
-    }
-
-    .history-block p {
-      color: var(--muted);
-      line-height: 1.85;
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
-
-    .history-block p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* =========================================================
-         BLOQUE CONTACTO
-         ========================================================= */
-    .contact-block {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      padding: 32px;
-      max-width: 760px;
-    }
-
-    .contact-item + .contact-item {
-      margin-top: 22px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-    }
-
-    .contact-label {
-      color: var(--soft);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 12px;
-      margin-bottom: 8px;
-    }
-
-    .contact-value {
-      color: var(--text);
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .contact-note {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.75;
-      margin-top: 6px;
-    }
-
-    /* =========================================================
-         BLOQUE SOSTENIBILIDAD
-         ========================================================= */
-    .sostenibilidad-section {
-      max-width: 860px;
-    }
-
-    .sostenibilidad-grid {
+    .products-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 36px;
+      gap: 38px;
+      margin-bottom: 56px;
     }
 
-    .sost-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      padding: 28px 24px;
+    .product-card {
+      display: flex;
+      flex-direction: column;
     }
 
-    .sost-card-label {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.20em;
-      font-size: 11px;
-      margin-bottom: 12px;
+    .product-link {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
 
-    .sost-card-title {
+    .product-link:hover {
+      cursor: pointer;
+    }
+
+    .product-link:hover .product-frame {
+      transform: translateY(-2px);
+    }
+
+    .product-link:hover .product-name {
+      opacity: 0.8;
+    }
+
+    .product-frame {
+      background: var(--surface-soft);
+      aspect-ratio: 1 / 1;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: transform 0.25s ease;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .product-name {
       font-family: "Cormorant Garamond", serif;
-      font-size: 22px;
-      font-weight: 500;
-      line-height: 1.1;
-      margin-bottom: 14px;
+      font-size: 24px;
+      line-height: 1;
+      margin-bottom: 8px;
+      transition: opacity 0.25s ease;
     }
 
-    .sost-card-text {
+    .product-flavor {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .size {
+      font-size: 14px;
       color: var(--muted);
-      line-height: 1.75;
+    }
+
+    .benefits {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 44px 0;
+      margin-bottom: 56px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 44px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .benefit-icon {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      flex: 0 0 34px;
       font-size: 14px;
     }
 
-    .sost-note {
-      margin-top: 36px;
-      padding: 24px 28px;
-      border-left: 2px solid var(--accent);
-      background: var(--surface);
-    }
-
-    .sost-note p {
-      color: var(--muted);
-      line-height: 1.8;
+    .benefit-title {
       font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
 
-    .sost-note a {
-      color: var(--accent);
+    .benefit-text {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+      max-width: 28ch;
     }
 
-    /* =========================================================
-         FOOTER OSCURO
-         ========================================================= */
+    .hero-image {
+      background: var(--surface-soft);
+      overflow: hidden;
+      margin-bottom: 72px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .contact-block {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .contact-form {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 28px;
+    }
+
+    .contact-form-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .form-field span {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--text);
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 10px 0 22px;
+    }
+
+    .form-check input {
+      margin-top: 3px;
+    }
+
+    .form-check a {
+      text-decoration: underline;
+    }
+
+    .contact-submit {
+      border: 1px solid #111111;
+      background: #111111;
+      color: #ffffff;
+      padding: 14px 22px;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .contact-submit:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
     .ending {
       background: var(--dark-bg);
       color: var(--dark-text);
       padding: 84px 0 28px;
-      margin-top: 40px;
     }
 
     .ending-inner {
@@ -391,18 +538,14 @@
 
     .ending-title {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(78px, 13vw, 150px);
-      line-height: 0.84;
-      letter-spacing: -0.055em;
+      font-size: clamp(62px, 9vw, 120px);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
       font-weight: 500;
       margin-bottom: 32px;
-      max-width: 760px;
-    }
-
-    .ending-title .outline {
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.20);
-      opacity: 0.9;
+      max-width: 100%;
+      color: #ffffff;
+      white-space: nowrap;
     }
 
     .ending-brand {
@@ -414,18 +557,13 @@
     }
 
     .ending-brand .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      overflow: hidden;
-      flex: 0 0 38px;
       background: #0b0d0b;
     }
 
-    .ending-brand .brand-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .ending-brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
     .ending-brand .brand-name {
@@ -433,6 +571,15 @@
       font-size: 34px;
       line-height: 1;
       letter-spacing: -0.03em;
+      color: var(--dark-text);
+    }
+
+    .ending-brand-subtitle {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: #d8d0c4;
     }
 
     .footer-links {
@@ -466,11 +613,14 @@
     .footer-bottom {
       border-top: 1px solid var(--dark-line);
       padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
       color: var(--dark-muted);
       font-size: 13px;
+    }
+
+    .footer-brand-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .footer-bottom .footer-brand {
@@ -479,28 +629,25 @@
       color: var(--dark-text);
     }
 
-    /* =========================================================
-         RESPONSIVE TABLET
-         ========================================================= */
     @media (max-width: 980px) {
-      .sostenibilidad-grid,
-      .footer-links {
+      .products-grid,
+      .benefits-grid,
+      .footer-links,
+      .contact-block {
         grid-template-columns: 1fr;
       }
 
-      .footer-bottom {
-        flex-direction: column;
+      .product-frame {
+        aspect-ratio: 4 / 3;
       }
     }
 
-    /* =========================================================
-         RESPONSIVE MÓVIL
-         - Barra igual que index
-         ========================================================= */
     @media (max-width: 720px) {
+      .container,
       .topbar-inner,
-      .page,
-      .ending-inner {
+      .mini-strip-inner,
+      .ending-inner,
+      .hero-intro-inner {
         width: calc(100% - 24px);
       }
 
@@ -520,48 +667,88 @@
         width: 100%;
       }
 
-      .page {
-        padding: 40px 0 56px;
+      .hero-intro {
+        min-height: auto;
       }
 
-      .tabs {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 8px;
-        padding-bottom: 4px;
+      .hero-intro-inner {
+        padding: 42px 0 56px;
       }
 
-      .tabs::-webkit-scrollbar {
-        display: none;
+      .hero-kicker::before,
+      .hero-kicker::after {
+        width: 36px;
       }
 
-      .tab-button {
-        padding: 11px 14px;
-        font-size: 10px;
-        letter-spacing: 0.08em;
+      .hero-logo {
+        width: 86px;
+        height: 86px;
+        margin-bottom: 22px;
       }
 
-      .history-block,
-      .contact-block {
-        padding: 20px;
+      .hero-title {
+        font-size: 46px;
+        margin-bottom: 6px;
       }
 
-      .contact-value {
+      .hero-mini-title {
+        font-size: 24px;
+        margin-bottom: 28px;
+      }
+
+      .hero-subtitle {
         font-size: 16px;
+        margin-bottom: 34px;
+      }
+
+      .mini-strip-inner {
+        min-height: auto;
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .collection {
+        padding: 24px 0 42px;
+      }
+
+      .title {
+        font-size: 50px;
+      }
+
+      .product-frame {
+        padding: 24px;
+      }
+
+      .benefits {
+        padding: 32px 0;
+        margin-bottom: 40px;
+      }
+
+      .contact-form {
+        padding: 22px 18px;
       }
 
       .ending {
         padding: 56px 0 24px;
       }
 
-      .ending-brand {
-        margin-bottom: 52px;
+      .ending-title {
+        white-space: normal;
+        font-size: 52px;
       }
 
-      .footer-bottom {
-        flex-direction: column;
+      .ending-brand {
+        margin-bottom: 52px;
+        align-items: flex-start;
+      }
+
+      .ending-brand .brand-name {
+        font-size: 28px;
+      }
+
+      .ending-brand-subtitle {
+        font-size: 20px;
       }
     }
   </style>
@@ -593,114 +780,184 @@
     </div>
   </header>
 
-  <main class="page">
-    <p class="eyebrow">Nosotros</p>
-    <h1 class="title">Nuestra historia</h1>
+  <section class="hero-intro">
+    <div class="hero-intro-inner">
+      <p class="hero-kicker">Las recetas que nunca imaginaste encontrar en una lata</p>
 
-    <p class="intro">
-      En esta página puedes contar el origen de Be&Be, centralizar la información de contacto y explicar el compromiso de la marca con una forma de producir más consciente.
-    </p>
+      <div class="hero-logo">
+        <img src="images/BEYBE.jpeg" alt="Logo principal de Be&Be Drinks Spain">
+      </div>
 
-    <div class="tabs">
-      <button class="tab-button active" data-tab="historia">Nuestra Historia</button>
-      <button class="tab-button" data-tab="contacto">Contacto</button>
-      <button class="tab-button" data-tab="sostenibilidad">Sostenibilidad</button>
-    </div>
+      <h1 class="hero-title">Be&Be Drinks Spain</h1>
+      <p class="hero-mini-title">Bebercios &amp; Bebedizos de España</p>
 
-    <section id="historia" class="tab-panel active">
-      <section class="history-block">
-        <p>
-          Bebercios y Bebedizos de España nace con la voluntad de preservar nuestras bebidas tradicionales locales y preservar nuestra historia cultural. Y hacerlo, además, de una manera innovadora, a través de latas, de forma que se tenga acceso rápido y fácil, se pueda transportar la bebida en el coche, en el bolso y tener siempre disponibilidad en la nevera.
-        </p>
-        <p>
-          De ahí la idea de dar forma a una pequeña colección de bebidas con carácter muy particular, de tradición, y que ya no se encuentran fácilmente. Una colección premium preparada con el esmero y cuidado de forma artesanal, hecha cada lata una a al momento una bajo pedido (por eso los pedidos llegan a los 3-4 días). Una colección que no tiene desperdicio y pensada para el disfrute de todos los momentos del día de una manera directa y sencilla.
-        </p>
-        <p>
-          Colección que arranca con dos bebercios que harán las delicias de los más exigentes, nuestro Bloody Mary y nuestro gran Carajillo del Tío Pío, y un bebedizo mágico para los más aguerridos profesionales, nuestro Hangover Killer, para eliminar de forma inmediata las peores resacas.
-        </p>
-        <p>A partir de este triplete Be&Be Drinks irá sumando otras bebidas de carácter tradicional para rememorar buenos momentos y hacer la vida un poco más divertida.</p>
-      </section>
-    </section>
-
-    <section id="contacto" class="tab-panel">
-      <p class="eyebrow">Contacto</p>
-      <h2 class="title">Hablemos</h2>
-
-      <p class="intro">
-       Si tienes cualquier consulta sobre un pedido, un producto, envíos, devoluciones o cualquier otra cuestión, nuestro equipo de atención al cliente estará encantado de ayudarte. 
+      <p class="hero-subtitle">
+        Hechas como siempre. Servidas como nunca.<br>
+        Porque bebidas tan especiales merecían un formato distinto.<br>
+        Porque TÚ mereces tener acceso fácil y portabilidad de tus bebidas favoritas.<br>
+        ACCEDE EN CUALQUIER MOMENTO Y LLEVA TU BEBIDA DONDE QUIERAS.
       </p>
+
+      <a href="#coleccion" class="hero-scroll">
+        <span>Explorar</span>
+        <span>⌄</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="mini-strip">
+    <div class="mini-strip-inner">
+      <div class="mini-strip-left">Cócteles artesanales listos para servir.</div>
+      <div class="mini-strip-right">Colección premium en lata</div>
+    </div>
+  </section>
+
+  <main class="collection" id="coleccion">
+    <div class="container">
+      <p class="eyebrow">La colección</p>
+      <h2 class="title">Nuestras bebidas:</h2>
+
+      <section class="products-grid">
+        <article class="product-card">
+          <a href="bloody-mary.html" class="product-link">
+            <div class="product-frame">
+              <img class="product-image" src="images/BOODY.jpeg" alt="Bloody Mary en lata">
+            </div>
+            <div>
+              <h3 class="product-name">Bloody Mary</h3>
+              <p class="product-flavor">Tu Bloody Mary de siempre, triple destilado. MUY REFRESCANTE!</p>
+              <div class="product-meta">
+                <span class="size">33cl · 19% vol</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="product-card">
+          <a href="carajillo.html" class="product-link">
+            <div class="product-frame">
+              <img class="product-image" src="images/CARAJILLO.jpeg" alt="Carajillo del Tío Pío en lata">
+            </div>
+            <div>
+              <h3 class="product-name">Carajillo del Tío Pío</h3>
+              <p class="product-flavor">AUTÉNTICO DE COÑAC QUEMADO! CON GRANOS DE CAFÉ Y PIEL DE LIMÓN NATURAL</p>
+              <div class="product-meta">
+                <span class="size">33cl · 8% vol</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="product-card">
+          <a href="hangover.html" class="product-link">
+            <div class="product-frame">
+              <img class="product-image" src="images/HANGOVER.jpeg" alt="Hangover Killer en lata">
+            </div>
+            <div>
+              <h3 class="product-name">Hangover Killer</h3>
+              <p class="product-flavor">PERFECTO QUITA RESACAS MAREOS Y DOLORES DE CABEZA. INCREÍBLE. PRUÉBALO!</p>
+              <div class="product-meta">
+                <span class="size">33cl</span>
+              </div>
+            </div>
+          </a>
+        </article>
+      </section>
+
+      <section class="benefits">
+        <div class="benefits-grid">
+          <article class="benefit">
+            <div class="benefit-icon">◌</div>
+            <div>
+              <h3 class="benefit-title">100% Natural</h3>
+              <p class="benefit-text">Sin conservantes artificiales ni colorantes. Solo ingredientes reales.</p>
+            </div>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit-icon">◔</div>
+            <div>
+              <h3 class="benefit-title">Listos para Servir</h3>
+              <p class="benefit-text">Enfría, abre y disfruta. El cóctel perfecto sin complicaciones.</p>
+            </div>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit-icon">⌂</div>
+            <div>
+              <h3 class="benefit-title">Recetas Artesanales</h3>
+              <p class="benefit-text">Formulaciones desarrolladas para mantener personalidad y equilibrio.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="hero-image">
+        <img src="images/CUERPO MEDIO.jpeg" alt="Cabecera visual de Be&Be Drinks Spain">
+      </section>
 
       <section class="contact-block">
         <div class="contact-item">
           <p class="contact-label">Correo</p>
           <p class="contact-value">beybe.drinks@outlook.es</p>
-          <p class="contact-note">Correo general para consultas, pedidos y colaboraciones.<br>
-            Tiempo medio de respuesta: 24-48 horas laborables.</p>
-        </div>
-
-        <div class="contact-item">
-          <p class="contact-label">Ubicación</p>
-          <p class="contact-value">España</p>
-         </div>
-      </section>
-    </section>
-
-    <section id="sostenibilidad" class="tab-panel">
-      <section class="sostenibilidad-section">
-        <p class="eyebrow">Sostenibilidad</p>
-        <h2 class="title">Nuestro compromiso</h2>
-        <p class="intro">
-          En Be&Be creemos que hacer bien las cosas implica hacerlas con responsabilidad. Desde el envase hasta la logística, tomamos decisiones pensando en el impacto que generamos.
-        </p>
-
-        <div class="sostenibilidad-grid">
-          <div class="sost-card">
-            <p class="sost-card-label">Envase</p>
-            <h3 class="sost-card-title">La lata, un formato eficiente</h3>
-            <p class="sost-card-text">
-              El aluminio es uno de los materiales más reciclables del mundo. Una lata puede reciclarse infinitas veces sin perder sus propiedades, reduciendo significativamente la huella de carbono frente al vidrio en transporte.
-            </p>
-          </div>
-
-          <div class="sost-card">
-            <p class="sost-card-label">Ingredientes</p>
-            <h3 class="sost-card-title">Natural por convicción</h3>
-            <p class="sost-card-text">
-              Trabajamos con ingredientes naturales, sin conservantes artificiales ni colorantes. Menos química, más producto real. Mejor para quien lo bebe y mejor para el entorno.
-            </p>
-          </div>
-
-          <div class="sost-card">
-            <p class="sost-card-label">Logística</p>
-            <h3 class="sost-card-title">Envíos conscientes</h3>
-            <p class="sost-card-text">
-              Optimizamos el embalaje para minimizar residuos en cada envío. Seguimos buscando fórmulas para reducir el impacto del transporte de última milla.
-            </p>
-          </div>
-        </div>
-
-        <div class="sost-note">
-          <p>
-            Este es un camino en construcción. No tenemos todas las respuestas, pero sí el compromiso de mejorar en cada decisión que tomamos. Si tienes ideas o propuestas, escríbenos a
-            <a href="mailto:hola@bebedrinks.es">hola@bebedrinks.es</a>.
+          <p class="contact-note">
+            Correo general para consultas, pedidos y colaboraciones.<br>
+            Tiempo medio de respuesta: 24-48 horas laborables.
           </p>
         </div>
+
+        <form class="contact-form" action="#" method="post">
+          <h3 class="contact-form-title">Formulario de contacto</h3>
+
+          <label class="form-field">
+            <span>Nombre y apellidos *</span>
+            <input type="text" name="nombre" required>
+          </label>
+
+          <label class="form-field">
+            <span>Correo electrónico *</span>
+            <input type="email" name="email" required>
+          </label>
+
+          <label class="form-field">
+            <span>Número de pedido (opcional)</span>
+            <input type="text" name="pedido">
+          </label>
+
+          <label class="form-field">
+            <span>Asunto *</span>
+            <input type="text" name="asunto" required>
+          </label>
+
+          <label class="form-field">
+            <span>Mensaje *</span>
+            <textarea name="mensaje" rows="6" required></textarea>
+          </label>
+
+          <label class="form-check">
+            <input type="checkbox" name="privacidad" required>
+            <span>He leído y acepto la <a href="legal.html#privacidad">Política de Privacidad</a>.</span>
+          </label>
+
+          <button type="submit" class="contact-submit">Enviar consulta</button>
+        </form>
       </section>
-    </section>
+    </div>
   </main>
 
   <section class="ending">
     <div class="ending-inner">
-      <h2 class="ending-title">
-        <span class="outline">Eleva cada</span><br>
-        momento.
-      </h2>
+      <h2 class="ending-title">Eleva cada momento.</h2>
 
       <div class="ending-brand">
         <div class="brand-mark">
           <img src="images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain en footer">
         </div>
-        <div class="brand-name">Be&Be Drinks Spain</div>
+
+        <div class="ending-brand-text">
+          <div class="brand-name">Be&Be Drinks Spain</div>
+          <div class="ending-brand-subtitle">Bebercios y Bebedizos de España</div>
+        </div>
       </div>
 
       <div class="footer-links">
@@ -727,8 +984,10 @@
       </div>
 
       <div class="footer-bottom">
-        <div class="footer-brand">Be&Be Drinks Spain</div>
-        <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
+        <div class="footer-brand-block">
+          <div class="footer-brand">Be&Be Drinks Spain. Bebercios y Bebedizos de España.</div>
+          <div>© 2026 Bebercios y Bebedizos de España. Todos los derechos reservados. Bebe con responsabilidad.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -743,43 +1002,15 @@
 
     function updateCartCount() {
       const cart = getCart();
+      const distinctProducts = cart.length;
       const cartCount = document.getElementById("cartCount");
 
       if (cartCount) {
-        cartCount.textContent = cart.length;
+        cartCount.textContent = distinctProducts;
       }
     }
-
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const tabPanels = document.querySelectorAll(".tab-panel");
-
-    function activateTab(tabId) {
-      tabButtons.forEach((button) => {
-        button.classList.toggle("active", button.dataset.tab === tabId);
-      });
-
-      tabPanels.forEach((panel) => {
-        panel.classList.toggle("active", panel.id === tabId);
-      });
-
-      if (tabId) {
-        history.replaceState(null, "", "#" + tabId);
-      }
-    }
-
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const target = button.dataset.tab;
-        activateTab(target);
-      });
-    });
 
     updateCartCount();
-
-    const hash = window.location.hash.replace("#", "");
-    if (hash === "contacto" || hash === "sostenibilidad" || hash === "historia") {
-      activateTab(hash);
-    }
   </script>
 </body>
 </html>
