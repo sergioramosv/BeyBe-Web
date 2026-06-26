@@ -14,9 +14,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================
-       VARIABLES GLOBALES
-    ========================= */
     :root {
       --bg: #f7f3ec;
       --surface: #fbf8f3;
@@ -33,9 +30,6 @@
       --dark-line: rgba(255,255,255,0.12);
     }
 
-    /* =========================
-       RESET GENERAL
-    ========================= */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -63,17 +57,11 @@
       height: auto;
     }
 
-    /* =========================
-       CONTENEDORES
-    ========================= */
     .container {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
 
-    /* =========================
-       CABECERA SUPERIOR
-    ========================= */
     .topbar {
       position: sticky;
       top: 0;
@@ -93,7 +81,6 @@
       gap: 24px;
     }
 
-    /* Marca */
     .brand {
       display: flex;
       align-items: center;
@@ -122,7 +109,6 @@
       letter-spacing: -0.02em;
     }
 
-    /* Navegación principal */
     .nav {
       display: flex;
       gap: 38px;
@@ -134,7 +120,6 @@
       align-items: center;
     }
 
-    /* Icono del carrito */
     .cart-link {
       min-width: 42px;
       height: 42px;
@@ -175,9 +160,6 @@
       padding: 0 6px;
     }
 
-    /* =========================
-       HERO PRINCIPAL
-    ========================= */
     .hero-intro {
       position: relative;
       overflow: hidden;
@@ -235,16 +217,25 @@
     }
 
     .hero-title {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(70px, 10vw, 120px);
       line-height: 0.9;
       letter-spacing: -0.05em;
-      margin-bottom: 26px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .hero-mini-title {
+      margin: 0 auto 22px;
+      color: #3f3934;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-align: center;
+      max-width: 760px;
     }
 
     .hero-subtitle {
@@ -271,9 +262,6 @@
       line-height: 1;
     }
 
-    /* =========================
-       FRANJA INFORMATIVA
-    ========================= */
     .mini-strip {
       border-bottom: 1px solid var(--line);
       background: var(--surface);
@@ -301,9 +289,6 @@
       font-size: 11px;
     }
 
-    /* =========================
-       COLECCIÓN DE PRODUCTOS
-    ========================= */
     .collection {
       padding: 28px 0 72px;
     }
@@ -382,10 +367,11 @@
 
     .product-flavor {
       color: var(--soft);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 12px;
+      font-size: 13px;
+      line-height: 1.6;
       margin-bottom: 14px;
+      text-transform: none;
+      letter-spacing: 0.02em;
     }
 
     .product-meta {
@@ -395,20 +381,11 @@
       flex-wrap: wrap;
     }
 
-    .price {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
     .size {
       font-size: 14px;
       color: var(--muted);
     }
 
-    /* =========================
-       BLOQUE DE BENEFICIOS
-    ========================= */
     .benefits {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -452,9 +429,6 @@
       max-width: 28ch;
     }
 
-    /* =========================
-       IMAGEN INTERMEDIA
-    ========================= */
     .hero-image {
       background: var(--surface-soft);
       overflow: hidden;
@@ -466,9 +440,6 @@
       object-fit: cover;
     }
 
-    /* =========================
-       BLOQUE FINAL / FOOTER
-    ========================= */
     .ending {
       background: var(--dark-bg);
       color: var(--dark-text);
@@ -559,9 +530,6 @@
       color: var(--dark-text);
     }
 
-    /* =========================
-       RESPONSIVE TABLET
-    ========================= */
     @media (max-width: 980px) {
       .products-grid,
       .benefits-grid,
@@ -576,15 +544,8 @@
       .footer-bottom {
         flex-direction: column;
       }
-
-      .hero-title {
-        gap: 22px;
-      }
     }
 
-    /* =========================
-       RESPONSIVE MÓVIL
-    ========================= */
     @media (max-width: 720px) {
       .container,
       .topbar-inner,
@@ -631,7 +592,13 @@
 
       .hero-title {
         font-size: 58px;
-        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .hero-mini-title {
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        margin-bottom: 18px;
       }
 
       .hero-subtitle {
@@ -674,9 +641,6 @@
   </style>
 </head>
 <body>
-  <!-- =========================
-       CABECERA
-  ========================= -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
@@ -703,9 +667,6 @@
     </div>
   </header>
 
-  <!-- =========================
-       HERO
-  ========================= -->
   <section class="hero-intro">
     <div class="hero-intro-inner">
       <p class="hero-kicker">Las recetas que nunca imaginaste encontrar en una lata</p>
@@ -714,14 +675,14 @@
         <img src="images/BEYBE.jpeg" alt="Logo principal de Be&Be Drinks Spain">
       </div>
 
-      <h1 class="hero-title">
-        <span>Be&Be Drinks</span>
-        <span>Spain</span>
-      </h1>
+      <h1 class="hero-title">Be&Be Drinks Spain</h1>
+      <p class="hero-mini-title">Bebercios &amp; Bebedizos de España</p>
 
       <p class="hero-subtitle">
         Hechas como siempre. Servidas como nunca.<br>
-        Porque algunas bebidas merecían algo mejor que una botella.
+        Porque bebidas tan especiales merecían un formato distinto.<br>
+        Porque TÚ mereces tener acceso fácil y portabilidad de tus bebidas favoritas.<br>
+        ACCEDE EN CUALQUIER MOMENTO Y LLEVA TU BEBIDA DONDE QUIERAS.
       </p>
 
       <a href="#coleccion" class="hero-scroll">
@@ -731,9 +692,6 @@
     </div>
   </section>
 
-  <!-- =========================
-       FRANJA INFERIOR DEL HERO
-  ========================= -->
   <section class="mini-strip">
     <div class="mini-strip-inner">
       <div class="mini-strip-left">Cócteles artesanales listos para servir.</div>
@@ -741,9 +699,6 @@
     </div>
   </section>
 
-  <!-- =========================
-       CONTENIDO PRINCIPAL
-  ========================= -->
   <main class="collection" id="coleccion">
     <div class="container">
       <p class="eyebrow">La colección</p>
@@ -757,9 +712,8 @@
             </div>
             <div>
               <h3 class="product-name">Bloody Mary</h3>
-              <p class="product-flavor">Tomate · Vodka · Especias</p>
+              <p class="product-flavor">Tu Bloody Mary de siempre, triple destilado. MUY REFRESCANTE!</p>
               <div class="product-meta">
-                <span class="price">3,30 €</span>
                 <span class="size">33cl · 19% vol</span>
               </div>
             </div>
@@ -773,9 +727,8 @@
             </div>
             <div>
               <h3 class="product-name">Carajillo del Tío Pío</h3>
-              <p class="product-flavor">Coñac quemado · Café · Limón</p>
+              <p class="product-flavor">AUTÉNTICO DE COÑAC QUEMADO! CON GRANOS DE CAFÉ Y PIEL DE LIMÓN NATURAL</p>
               <div class="product-meta">
-                <span class="price">3,30 €</span>
                 <span class="size">33cl · 8% vol</span>
               </div>
             </div>
@@ -789,9 +742,8 @@
             </div>
             <div>
               <h3 class="product-name">Hangover Killer</h3>
-              <p class="product-flavor">Cítricos · Hierbabuena · Ron</p>
+              <p class="product-flavor">PERFECTO QUITA RESACAS MAREOS Y DOLORES DE CABEZA. INCREÍBLE. PRUÉBALO!</p>
               <div class="product-meta">
-                <span class="price">3,30 €</span>
                 <span class="size">33cl</span>
               </div>
             </div>
@@ -833,9 +785,6 @@
     </div>
   </main>
 
-  <!-- =========================
-       FOOTER / CIERRE
-  ========================= -->
   <section class="ending">
     <div class="ending-inner">
       <h2 class="ending-title">
