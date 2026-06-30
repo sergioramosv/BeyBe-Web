@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FU*NG HANGOVER KILLER | Be&Be Drinks Spain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="hangover.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="../../images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
+      </div>
+
+      <nav class="nav">
+        <a href="../../index/index.html">Inicio</a>
+        <a href="../../pages/productos/productos.html">Productos</a>
+        <a href="../../pages/nosotros/nosotros.html">Nosotros</a>
+      </nav>
+
+      <a href="../../pages/carrito/carrito.html" class="cart-link" aria-label="Ver carrito">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
+          <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+          <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span id="cartCount" class="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="product-page">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../../index/index.html">Inicio</a> /
+        <a href="../../pages/productos/productos.html">Productos</a> /
+        <span>FU*NG HANGOVER KILLER</span>
+      </div>
+
+      <section class="product-layout">
+        <div class="product-gallery">
+          <div class="main-image">
+            <img id="mainProductImage" src="../../images/HANGOVER.jpeg" alt="FU*NG HANGOVER KILLER en lata">
+          </div>
+
+          <div class="thumbs">
+            <button class="thumb" type="button" onclick="changeImage('../../images/HANGOVER.jpeg')">
+              <img src="../../images/HANGOVER.jpeg" alt="Vista principal de FU*NG HANGOVER KILLER">
+            </button>
+
+            <button class="thumb" type="button" onclick="changeImage('../../images/hangover - pack 12.jpeg')">
+              <img src="../../images/hangover - pack 12.jpeg" alt="Pack de 12 FU*NG HANGOVER KILLER">
+            </button>
+
+            <button class="thumb" type="button" onclick="changeImage('../../images/hangover - pack 6.jpeg')">
+              <img src="../../images/hangover - pack 6.jpeg" alt="Pack de 6 FU*NG HANGOVER KILLER">
+            </button>
+
+            <button class="thumb" type="button" onclick="changeImage('../../images/hangover - pack 24.jpeg')">
+              <img src="../../images/hangover - pack 24.jpeg" alt="Pack de 24 FU*NG HANGOVER KILLER">
+            </button>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <p class="product-tag">Bebida combinada en lata</p>
+          <h1 class="product-title">FU*NG HANGOVER KILLER</h1>
+          <p class="product-flavor">Receta matutina · Fría · Revitalizante</p>
+
+          <div class="product-meta">
+            <span>33cl</span>
+            <span>Listo para servir</span>
+            <span>Tómalo bien frío</span>
+          </div>
+
+          <div class="product-price-block">
+            <div class="product-price">
+              3,30 €
+              <span class="product-price-unit">por lata</span>
+            </div>
+          </div>
+
+          <div class="buy-box">
+            <label class="quantity-label">Elige tu pack</label>
+
+            <div class="pack-options">
+              <button type="button" class="pack-btn" onclick="setPackQuantity(6)">Pack de 6</button>
+              <button type="button" class="pack-btn" onclick="setPackQuantity(12)">Pack de 12</button>
+              <button type="button" class="pack-btn" onclick="setPackQuantity(24)">Pack de 24</button>
+            </div>
+
+            <label class="quantity-label quantity-label-center" for="quantity">O elige una cantidad manual</label>
+
+            <div class="quantity-selector-wrap">
+              <div class="quantity-selector">
+                <button type="button" onclick="changeQty(-1)">−</button>
+                <input id="quantity" type="number" value="1" min="1">
+                <button type="button" onclick="changeQty(1)">+</button>
+              </div>
+            </div>
+
+            <div class="calculated-price">
+              <span class="calculated-price-label">Precio total</span>
+              <span id="calculatedPrice" class="calculated-price-value">3,30 €</span>
+            </div>
+
+            <button class="add-cart-btn" id="addToCartBtn" type="button">
+              Añadir al carrito
+            </button>
+
+            <p class="buy-note">
+              Agítese y sírvase bien fría.
+            </p>
+
+            <p id="cartFeedback" class="cart-feedback">
+              Producto añadido al carrito.
+            </p>
+          </div>
+
+          <div class="product-description-below">
+            <p>FU*NG HANGOVER KILLER se elabora siguiendo antiguas recetas utilizadas por los chamanes de Siberia y Mongolia para aliviar las terribles resacas de los cosacos.</p>
+            <p>En tus manos podrías tener el mismo tónico matutino contra la resaca que el legendario mayordomo Jeeves servía a Sir Bertram Wooster.</p>
+            <p>Bebida permitida únicamente para personas de entre 18 y 108 años.</p>
+            <p>Agítese y sírvase bien fría.</p>
+          </div>
+
+          <div class="product-details">
+            <button id="detailsToggle" class="details-toggle" type="button" aria-expanded="false">
+              <h2>Detalles del producto</h2>
+              <span class="details-icon">+</span>
+            </button>
+
+            <div id="detailsContent" class="details-content">
+              <div class="details-section">
+                <h3>Ingredientes y cantidades</h3>
+                <p>33cl. Azúcar 2,5g. Calcio 0,036g. Grasas 0,46g. Carbohidratos 7,7g. Hierro 0,012g. Magnesio 0,00003mg. Potasio 0,138g. Proteína 2,32g. Zinc 0,00182g.</p>
+              </div>
+
+              <div class="details-section">
+                <h3>Aviso de alérgenos</h3>
+                <p>Gluten.</p>
+              </div>
+
+              <div class="details-section">
+                <h3>Información nutricional</h3>
+                <p><strong>Por 33cl:</strong></p>
+                <p>Azúcar 2,5g</p>
+                <p>Calcio 0,036g</p>
+                <p>Grasas 0,46g</p>
+                <p>Carbohidratos 7,7g</p>
+                <p>Hierro 0,012g</p>
+                <p>Magnesio 0,00003mg</p>
+                <p>Potasio 0,138g</p>
+                <p>Proteína 2,32g</p>
+                <p>Zinc 0,00182g</p>
+              </div>
+
+              <div class="details-section">
+                <h3>Extra</h3>
+                <p>Tónico pensado para servirse muy frío.</p>
+                <p>Agitar antes de abrir.</p>
+              </div>
+            </div>
+          </div>
+
+          <a class="back-link" href="../../pages/productos/productos.html">← Volver a productos</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <section class="ending">
+    <div class="ending-inner">
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Productos</h4>
+          <a href="../bloody-mary/bloody-mary.html">Bloody Mary</a>
+          <a href="../carajillo/carajillo.html">Carajillo del Tío Pío</a>
+          <a href="hangover.html">Hangover Killer</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <a href="../../pages/nosotros/nosotros.html">Nuestra Historia</a>
+          <a href="../../pages/contacto/contacto.html">Contacto</a>
+          <a href="../../pages/nosotros/nosotros.html#sostenibilidad">Sostenibilidad</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="../../pages/legal/legal.html#privacidad">Privacidad</a>
+          <a href="../../pages/legal/legal.html#terminos">Términos</a>
+          <a href="../../pages/legal/legal.html#cookies">Cookies</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-brand">Be&Be Drinks Spain</div>
+        <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
+      </div>
+    </div>
+  </section>
+
+  <script src="hangover.js"></script>
+</body>
+</html>

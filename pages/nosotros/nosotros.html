@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- =========================================================
+       CONFIGURACIÓN BÁSICA DEL DOCUMENTO
+       ========================================================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título de la página -->
+  <title>Nosotros | Be&Be Drinks Spain</title>
+
+  <!-- =========================================================
+       TIPOGRAFÍAS DE LA WEB
+       ========================================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="nosotros.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="../../images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
+      </div>
+
+      <nav class="nav">
+        <a href="../../index/index.html">Inicio</a>
+        <a href="../productos/productos.html">Productos</a>
+        <a href="nosotros.html">Nosotros</a>
+      </nav>
+
+      <a href="../carrito/carrito.html" class="cart-link" aria-label="Ver carrito">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
+          <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+          <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span id="cartCount" class="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <p class="eyebrow">Nosotros</p>
+    <h1 class="title">Nuestra historia</h1>
+
+    <p class="intro">
+      En esta página puedes contar el origen de Be&Be, centralizar la información de contacto y explicar el compromiso de la marca con una forma de producir más consciente.
+    </p>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="historia">Nuestra Historia</button>
+      <button class="tab-button" data-tab="contacto">Contacto</button>
+      <button class="tab-button" data-tab="sostenibilidad">Sostenibilidad</button>
+    </div>
+
+    <section id="historia" class="tab-panel active">
+      <section class="history-block">
+        <p>
+          Bebercios y Bebedizos de España nace con la voluntad de preservar nuestras bebidas tradicionales locales y preservar nuestra historia cultural. Y hacerlo, además, de una manera innovadora, a través de latas, de forma que se tenga acceso rápido y fácil, se pueda transportar la bebida en el coche, en el bolso y tener siempre disponibilidad en la nevera.
+        </p>
+        <p>
+          De ahí la idea de dar forma a una pequeña colección de bebidas con carácter muy particular, de tradición, y que ya no se encuentran fácilmente. Una colección premium preparada con el esmero y cuidado de forma artesanal, hecha cada lata una a al momento una bajo pedido (por eso los pedidos llegan a los 3-4 días). Una colección que no tiene desperdicio y pensada para el disfrute de todos los momentos del día de una manera directa y sencilla.
+        </p>
+        <p>
+          Colección que arranca con dos bebercios que harán las delicias de los más exigentes, nuestro Bloody Mary y nuestro gran Carajillo del Tío Pío, y un bebedizo mágico para los más aguerridos profesionales, nuestro Hangover Killer, para eliminar de forma inmediata las peores resacas.
+        </p>
+        <p>
+          A partir de este triplete Be&Be Drinks irá sumando otras bebidas de carácter tradicional para rememorar buenos momentos y hacer la vida un poco más divertida.
+        </p>
+      </section>
+    </section>
+
+    <section id="contacto" class="tab-panel">
+      <p class="eyebrow">Contacto</p>
+      <h2 class="title">Hablemos</h2>
+
+      <p class="intro">
+        Si tienes cualquier consulta sobre un pedido, un producto, envíos, devoluciones o cualquier otra cuestión, nuestro equipo de atención al cliente estará encantado de ayudarte.
+      </p>
+
+      <section class="contact-block">
+        <div class="contact-item">
+          <p class="contact-label">Correo</p>
+          <p class="contact-value">beybe.drinks@outlook.es</p>
+          <p class="contact-note">
+            Correo general para consultas, pedidos y colaboraciones.<br>
+            Tiempo medio de respuesta: 24-48 horas laborables.
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <p class="contact-label">Formulario de contacto</p>
+
+          <form class="contact-form">
+            <div class="form-row">
+              <label for="nombre">Nombre y apellidos *</label>
+              <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="form-row">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-row">
+              <label for="pedido">Número de pedido (opcional)</label>
+              <input type="text" id="pedido" name="pedido">
+            </div>
+
+            <div class="form-row">
+              <label for="asunto">Asunto *</label>
+              <input type="text" id="asunto" name="asunto" required>
+            </div>
+
+            <div class="form-row">
+              <label for="mensaje">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+            </div>
+
+            <label class="form-check">
+              <input type="checkbox" name="privacidad" required>
+              <span>He leído y acepto la Política de Privacidad.</span>
+            </label>
+
+            <button type="submit" class="form-submit">Enviar consulta</button>
+          </form>
+        </div>
+      </section>
+    </section>
+
+    <section id="sostenibilidad" class="tab-panel">
+      <section class="sostenibilidad-section">
+        <p class="eyebrow">Sostenibilidad</p>
+        <h2 class="title">Nuestro compromiso</h2>
+        <p class="intro">
+          En Be&Be creemos que hacer bien las cosas implica hacerlas con responsabilidad. Desde el envase hasta la logística, tomamos decisiones pensando en el impacto que generamos.
+        </p>
+
+        <div class="sostenibilidad-grid">
+          <div class="sost-card">
+            <p class="sost-card-label">Envase</p>
+            <h3 class="sost-card-title">La lata, un formato eficiente</h3>
+            <p class="sost-card-text">
+              El aluminio es uno de los materiales más reciclables del mundo. Una lata puede reciclarse infinitas veces sin perder sus propiedades, reduciendo significativamente la huella de carbono frente al vidrio en transporte.
+            </p>
+          </div>
+
+          <div class="sost-card">
+            <p class="sost-card-label">Ingredientes</p>
+            <h3 class="sost-card-title">Natural por convicción</h3>
+            <p class="sost-card-text">
+              Trabajamos con ingredientes naturales, sin conservantes artificiales ni colorantes. Menos química, más producto real. Mejor para quien lo bebe y mejor para el entorno.
+            </p>
+          </div>
+
+          <div class="sost-card">
+            <p class="sost-card-label">Logística</p>
+            <h3 class="sost-card-title">Envíos conscientes</h3>
+            <p class="sost-card-text">
+              Optimizamos el embalaje para minimizar residuos en cada envío. Seguimos buscando fórmulas para reducir el impacto del transporte de última milla.
+            </p>
+          </div>
+        </div>
+
+        <div class="sost-note">
+          <p>
+            Este es un camino en construcción. No tenemos todas las respuestas, pero sí el compromiso de mejorar en cada decisión que tomamos. Si tienes ideas o propuestas, escríbenos a
+            <a href="mailto:beybe.drinks@outlook.es">beybe.drinks@outlook.es</a>.
+          </p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <section class="ending">
+    <div class="ending-inner">
+      <h2 class="ending-title">
+        <span class="outline">Eleva cada</span><br>
+        momento.
+      </h2>
+
+      <div class="ending-brand">
+        <div class="brand-mark">
+          <img src="../../images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain en footer">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Productos</h4>
+          <a href="../../products/bloody-mary/bloody-mary.html">Bloody Mary</a>
+          <a href="../../products/carajillo/carajillo.html">Carajillo del Tío Pío</a>
+          <a href="../../products/hangover/hangover.html">Hangover Killer</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <a href="nosotros.html#historia">Nuestra Historia</a>
+          <a href="nosotros.html#contacto">Contacto</a>
+          <a href="nosotros.html#sostenibilidad">Sostenibilidad</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="../legal/legal.html#privacidad">Privacidad</a>
+          <a href="../legal/legal.html#terminos">Términos</a>
+          <a href="../legal/legal.html#cookies">Cookies</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-brand">Be&Be Drinks Spain</div>
+        <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
+      </div>
+    </div>
+  </section>
+
+  <script src="nosotros.js"></script>
+</body>
+</html>

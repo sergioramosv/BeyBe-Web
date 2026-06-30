@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- =========================================================
+       CONFIGURACIÓN BÁSICA DEL DOCUMENTO
+       ========================================================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título de la página -->
+  <title>Contacto | Be&Be Drinks Spain</title>
+
+  <!-- =========================================================
+       TIPOGRAFÍAS DE LA WEB
+       - Cormorant Garamond para títulos elegantes
+       - Inter para textos de lectura y navegación
+       ========================================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+  <!-- =========================================================
+       CABECERA PRINCIPAL
+       - Marca
+       - Navegación
+       - Acceso al carrito con contador
+       ========================================================= -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <!-- Nombre de la marca -->
+      <div class="brand-name">Be&Be Drinks Spain</div>
+
+      <!-- Menú principal -->
+      <nav class="nav">
+        <a href="../../index/index.html">Inicio</a>
+        <a href="../productos/productos.html">Productos</a>
+        <a href="historia.html">Historia</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <!-- Enlace al carrito con contador -->
+      <a href="../carrito/carrito.html" class="cart-link" aria-label="Ver carrito">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
+          <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+          <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span id="cartCount" class="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       CONTENIDO PRINCIPAL DE CONTACTO
+       ========================================================= -->
+  <main class="page">
+    <p class="eyebrow">Contacto</p>
+    <h1 class="title">Hablemos</h1>
+
+    <p class="intro">
+      Esta página puede servir para centralizar los datos de contacto de la marca,
+      consultas comerciales, distribución y cualquier información básica para clientes o colaboradores.
+    </p>
+
+    <!-- Bloque con datos de contacto -->
+    <section class="contact-block">
+      <div class="contact-item">
+        <p class="contact-label">Correo</p>
+        <p class="contact-value">info@bebedrinksspain.com</p>
+        <p class="contact-note">Correo general para consultas, pedidos y colaboraciones.</p>
+      </div>
+
+      <div class="contact-item">
+        <p class="contact-label">Teléfono</p>
+        <p class="contact-value">+34 600 000 000</p>
+        <p class="contact-note">Sustituye este número por el contacto real de la marca.</p>
+      </div>
+
+      <div class="contact-item">
+        <p class="contact-label">Ubicación</p>
+        <p class="contact-value">España</p>
+        <p class="contact-note">Más adelante puedes concretar ciudad, zona de distribución o punto de venta.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="contacto.js"></script>
+</body>
+</html>
