@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto | Be&Be Drinks Spain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="product.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="../images/BEYBE.jpeg" alt="Logo de Be&Be Drinks Spain">
+        </div>
+        <div class="brand-name">Be&Be Drinks Spain</div>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html">Inicio</a>
+        <a href="../pages/productos/productos.html">Productos</a>
+        <a href="../pages/nosotros/nosotros.html">Nosotros</a>
+      </nav>
+
+      <a href="../pages/carrito/carrito.html" class="cart-link" aria-label="Ver carrito">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="9" cy="19" r="1.5" fill="currentColor"></circle>
+          <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+          <path d="M3 5H5L7.2 14H17.4L20 8H6.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span id="cartCount" class="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="product-page">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> /
+        <a href="../pages/productos/productos.html">Productos</a> /
+        <span id="breadcrumbCurrent"></span>
+      </div>
+
+      <section class="product-layout">
+        <div class="product-gallery">
+          <div class="main-image">
+            <img id="mainProductImage" src="" alt="">
+          </div>
+          <div class="thumbs" id="thumbs"></div>
+        </div>
+
+        <div class="product-info" id="productInfo"></div>
+      </section>
+    </div>
+  </main>
+
+  <section class="ending">
+    <div class="ending-inner">
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Productos</h4>
+          <a href="product.html?id=bloody-mary">Bloody Mary</a>
+          <a href="product.html?id=carajillo">Carajillo del Tío Pío</a>
+          <a href="product.html?id=hangover">Hangover Killer</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <a href="../pages/nosotros/nosotros.html">Nuestra Historia</a>
+          <a href="../pages/contacto/contacto.html">Contacto</a>
+          <a href="../pages/nosotros/nosotros.html#sostenibilidad">Sostenibilidad</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="../pages/legal/legal.html#privacidad">Privacidad</a>
+          <a href="../pages/legal/legal.html#terminos">Términos</a>
+          <a href="../pages/legal/legal.html#cookies">Cookies</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-brand">Be&Be Drinks Spain</div>
+        <div>© 2025 Be&Be Drinks Spain. Todos los derechos reservados. Bebe con responsabilidad.</div>
+      </div>
+    </div>
+  </section>
+
+<!-- Firebase (SDK compat por CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="../firebase-config.js"></script>
+  <script src="../firebase-init.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>

@@ -33,7 +33,7 @@
       </div>
 
       <nav class="nav">
-        <a href="../../index/index.html">Inicio</a>
+        <a href="../../index.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="../nosotros/nosotros.html">Nosotros</a>
       </nav>
@@ -59,66 +59,15 @@
       Una selección de recetas artesanales con personalidad propia.
     </p>
 
-    <section class="products-list">
-      <!-- Producto 1 -->
-      <a href="../../products/bloody-mary/bloody-mary.html" class="product-link">
-        <article class="product-row">
-          <div class="product-image-box">
-            <img src="../../images/BOODY.jpeg" alt="Bloody Mary en lata">
-          </div>
-          <div class="product-info">
-            <h2>Bloody Mary</h2>
-            <p class="product-subtitle">Tomate · Vodka · Especias</p>
-            <p class="product-text">
-              Un denso y picante elixir texturizado de manufactura artesanal, donde cada botella se mezcla a mano según el manual británico:
-              tomate premium, Amontillado de Jerez, vodka y un golpe de Tabasco®.
-              Una sofisticación canalla embotellada para quienes exigen un trasplante de actitud desde el primer trago
-            </p>
-          </div>
-        </article>
-      </a>
-
-      <!-- Producto 2 -->
-      <a href="../../products/carajillo/carajillo.html" class="product-link">
-        <article class="product-row">
-          <div class="product-image-box">
-            <img src="../../images/CARAJILLO.jpeg" alt="Carajillo del Tío Pío en lata">
-          </div>
-          <div class="product-info">
-            <h2>Carajillo del Tío Pío</h2>
-            <p class="product-subtitle">Coñac quemado · Café · Limón</p>
-            <p class="product-text">
-              Artesanía pura y fuego: la alquimia perfecta entre la oscuridad de un espresso recién extraído y el abrazo piromaníaco del brandy flambeado artesanalmente con limón.
-              Un choque eléctrico de cafeína y hoguera que rescata del letargo y le devuelve el orgullo al paladar.
-            </p>
-          </div>
-        </article>
-      </a>
-
-      <!-- Producto 3 -->
-      <a href="../../products/hangover/hangover.html" class="product-link">
-        <article class="product-row">
-          <div class="product-image-box">
-            <img src="../../images/HANGOVER.jpeg" alt="Hangover Killer en lata">
-          </div>
-          <div class="product-info">
-            <h2>Hangover Killer</h2>
-            <p class="product-subtitle">Cítricos · Hierbabuena · Ron</p>
-            <p class="product-text">
-              El botón de reinicio del alma elaborado artesanalmente:
-              un pacto gélido con pócimas e ingredientes seleccionados a mano que extirpa la culpa de la noche anterior.
-              Un tónico ultra-revitalizante de producción limitada diseñado para fulminar el malestar y transformar un despojo humano en un aristócrata.
-            </p>
-          </div>
-        </article>
-      </a>
-    </section>
+    <!-- Las tarjetas se cargan dinámicamente desde Firebase (ver productos.js) -->
+    <section class="products-list" id="productsList"></section>
   </main>
 
   <!-- =========================================================
        FOOTER OSCURO
        ========================================================= -->
   <section class="ending">
+    
     <div class="ending-inner">
       <h2 class="ending-title">
         <span class="outline">Eleva cada</span><br>
@@ -138,9 +87,9 @@
         <!-- Columna productos -->
         <div class="footer-column">
           <h4>Productos</h4>
-          <a href="../../products/bloody-mary/bloody-mary.html">Bloody Mary</a>
-          <a href="../../products/carajillo/carajillo.html">Carajillo del Tío Pío</a>
-          <a href="../../products/hangover/hangover.html">Hangover Killer</a>
+          <a href="../../products/product.html?id=bloody-mary">Bloody Mary</a>
+          <a href="../../products/product.html?id=carajillo">Carajillo del Tío Pío</a>
+          <a href="../../products/product.html?id=hangover">Hangover Killer</a>
         </div>
 
         <!-- Columna empresa -->
@@ -168,6 +117,11 @@
     </div>
   </section>
 
+  <!-- Firebase (SDK compat por CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="../../firebase-config.js"></script>
+  <script src="../../firebase-init.js"></script>
   <script src="productos.js"></script>
 </body>
 </html>

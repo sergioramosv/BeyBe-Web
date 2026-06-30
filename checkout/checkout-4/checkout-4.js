@@ -221,7 +221,7 @@ function renderCheckoutStepFour() {
           </div>
 
           <div class="final-actions">
-            <a href="../../index/index.html" class="primary-btn">Volver al inicio</a>
+            <a href="../../index.html" class="primary-btn">Volver al inicio</a>
             <a href="../../pages/productos/productos.html" class="secondary-btn">Seguir comprando</a>
           </div>
         </section>
